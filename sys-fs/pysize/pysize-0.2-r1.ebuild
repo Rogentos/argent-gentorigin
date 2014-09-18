@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/pysize/pysize-0.2-r1.ebuild,v 1.1 2013/12/04 09:17:46 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/pysize/pysize-0.2-r1.ebuild,v 1.4 2014/07/06 08:47:18 jlec Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 pypy )
 
 inherit distutils-r1
 
@@ -14,20 +14,23 @@ SRC_URI="http://guichaz.free.fr/${PN}/files/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 IUSE="gtk ncurses"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="
+RDEPEND="
 	gtk? ( dev-python/pygtk:2 )
 	ncurses? ( sys-libs/ncurses )"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-python/setuptools[${PYTHON_USEDEP}]"
 
 PATCHES=(
 	"${FILESDIR}"/psyco-${PV}-automagic.patch
 	"${FILESDIR}"/${PV}-setuptools-automagic.patch
 	)
+
+DISTUTILS_NO_PARALLEL_BUILD=1
 
 python_prepare_all() {
 	if ! use gtk; then
@@ -53,4 +56,16 @@ python_prepare_all() {
 		-i pysize/main.py || die
 
 	distutils-r1_python_prepare_all
+}
+
+src_test() {
+	# Tests shatter otherwise
+	local DISTUTILS_NO_PARALLEL_BUILD=1
+	distutils-r1_src_test
+}
+
+python_test() {
+	pushd "${S}"/tests > /dev/null
+	PYTHONPATH=.:../ "${PYTHON}" pysize_tests.py || die "tests failed under ${EPYTHON}"
+	popd  > /dev/null
 }

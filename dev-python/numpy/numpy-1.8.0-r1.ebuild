@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/numpy/numpy-1.8.0-r1.ebuild,v 1.2 2014/02/06 12:08:28 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/numpy/numpy-1.8.0-r1.ebuild,v 1.14 2014/04/02 01:38:43 floppym Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} )
 
 FORTRAN_NEEDED=lapack
 
@@ -23,7 +23,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="doc lapack test"
 
 RDEPEND="
@@ -37,8 +37,13 @@ DEPEND="${RDEPEND}
 # Uses distutils.command.config.
 DISTUTILS_IN_SOURCE_BUILD=1
 
+PATCHES=(
+		"${FILESDIR}"/${P}-no-hardcode-blas.patch
+		"${FILESDIR}"/${P}-f2py-insecure-temporary.patch
+)
+
 src_unpack() {
-	unpack ${P}.tar.gz
+	default
 	if use doc; then
 		unzip -qo "${DISTDIR}"/${PN}-html-${DOC_PV}.zip -d html || die
 	fi
@@ -46,26 +51,22 @@ src_unpack() {
 
 pc_incdir() {
 	$(tc-getPKG_CONFIG) --cflags-only-I $@ | \
-		sed -e 's/^-I//' -e 's/[ ]*-I/:/g' -e 's/[ ]*$//'
+		sed -e 's/^-I//' -e 's/[ ]*-I/:/g' -e 's/[ ]*$//' -e 's|^:||'
 }
 
 pc_libdir() {
 	$(tc-getPKG_CONFIG) --libs-only-L $@ | \
-		sed -e 's/^-L//' -e 's/[ ]*-L/:/g' -e 's/[ ]*$//'
+		sed -e 's/^-L//' -e 's/[ ]*-L/:/g' -e 's/[ ]*$//' -e 's|^:||'
 }
 
 pc_libs() {
 	$(tc-getPKG_CONFIG) --libs-only-l $@ | \
 		sed -e 's/[ ]-l*\(pthread\|m\)\([ ]\|$\)//g' \
 		-e 's/^-l//' -e 's/[ ]*-l/,/g' -e 's/[ ]*$//' \
-		| sort | uniq | tr '\n' ','
+		| tr ',' '\n' | sort -u | tr '\n' ',' | sed -e 's|,$||'
 }
 
 python_prepare_all() {
-	epatch \
-		"${FILESDIR}"/${P}-no-hardcode-blas.patch \
-		"${FILESDIR}"/${P}-f2py-insecure-temporary.patch
-
 	if use lapack; then
 		append-ldflags "$($(tc-getPKG_CONFIG) --libs-only-other cblas lapack)"
 		local libdir="${EPREFIX}"/usr/$(get_libdir)
@@ -98,8 +99,8 @@ python_prepare_all() {
 	# only one fortran to link with:
 	# linking with cblas and lapack library will force
 	# autodetecting and linking to all available fortran compilers
+	append-fflags -fPIC
 	if use lapack; then
-		append-fflags -fPIC
 		NUMPY_FCONFIG="config_fc --noopt --noarch"
 		# workaround bug 335908
 		[[ $(tc-getFC) == *gfortran* ]] && NUMPY_FCONFIG+=" --fcompiler=gnu95"
@@ -121,7 +122,7 @@ python_test() {
 	cd "${TMPDIR}" || die
 	${EPYTHON} -c "
 import numpy, sys
-r = numpy.test(verbose=3)
+r = numpy.test(label='full', verbose=3)
 sys.exit(0 if r.wasSuccessful() else 1)" || die "Tests fail with ${EPYTHON}"
 }
 

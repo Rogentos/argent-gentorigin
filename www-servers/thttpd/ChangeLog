@@ -1,6 +1,19 @@
 # ChangeLog for www-servers/thttpd
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/thttpd/ChangeLog,v 1.73 2014/02/04 11:54:18 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-servers/thttpd/ChangeLog,v 1.77 2014/08/10 20:09:17 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> thttpd-2.26.4-r2.ebuild,
+  thttpd-2.26.4-r3.ebuild, thttpd-9999.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  14 Mar 2014; Agostino Sarubbo <ago@gentoo.org> thttpd-2.26.4-r3.ebuild:
+  Stable for ppc64, wrt bug #499308
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org> thttpd-2.26.4-r3.ebuild:
+  Stable for sparc, wrt bug #499308
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> thttpd-2.26.4-r3.ebuild:
+  Stable for x86, wrt bug #499308
 
   04 Feb 2014; Chema Alonso <nimiux@gentoo.org> thttpd-2.26.4-r3.ebuild:
   Stable for amd64 wrt bug #499308

@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-9999.ebuild,v 1.78 2014/01/15 18:08:11 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/llvm/llvm-9999.ebuild,v 1.89 2014/07/14 14:53:52 axs Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_5,2_6,2_7} pypy{1_9,2_0} )
+PYTHON_COMPAT=( python{2_6,2_7} pypy pypy2_0 )
 
-inherit cmake-utils eutils flag-o-matic git-r3 multilib multilib-minimal \
-	python-r1 toolchain-funcs pax-utils check-reqs
+inherit eutils flag-o-matic git-r3 multibuild multilib \
+	multilib-minimal python-r1 toolchain-funcs pax-utils check-reqs
 
 DESCRIPTION="Low Level Virtual Machine"
 HOMEPAGE="http://llvm.org/"
@@ -32,10 +32,10 @@ COMMON_DEPEND="
 		xml? ( dev-libs/libxml2:2= )
 	)
 	gold? ( >=sys-devel/binutils-2.22:*[cxx] )
-	libffi? ( virtual/libffi:0=[${MULTILIB_USEDEP}] )
-	ncurses? ( sys-libs/ncurses:5=[${MULTILIB_USEDEP}] )
+	libffi? ( >=virtual/libffi-3.0.13-r1:0=[${MULTILIB_USEDEP}] )
+	ncurses? ( >=sys-libs/ncurses-5.9-r3:5=[${MULTILIB_USEDEP}] )
 	ocaml? ( dev-lang/ocaml:0= )
-	udis86? ( dev-libs/udis86:0=[pic(+),${MULTILIB_USEDEP}] )"
+	udis86? ( >=dev-libs/udis86-1.7-r2:0=[pic(+),${MULTILIB_USEDEP}] )"
 DEPEND="${COMMON_DEPEND}
 	dev-lang/perl
 	dev-python/sphinx
@@ -163,6 +163,11 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-3.5-gentoo-install.patch
 	use clang && epatch "${FILESDIR}"/clang-3.5-gentoo-install.patch
 
+	if use prefix && use clang; then
+		sed -e "/^CFLAGS /s@-Werror@-I${EPREFIX}/usr/include@" \
+				-i 'projects/compiler-rt/make/platform/clang_linux.mk' || die
+	fi
+
 	local sub_files=(
 		Makefile.config.in
 		Makefile.rules
@@ -186,6 +191,8 @@ src_prepare() {
 
 	# User patches
 	epatch_user
+
+	python_setup
 }
 
 multilib_src_configure() {
@@ -202,11 +209,8 @@ multilib_src_configure() {
 		$(use_enable libffi)
 	)
 
-	if use clang; then
-		conf_flags+=( --with-clang-resource-dir=../lib/clang/3.5 )
-	fi
 	# well, it's used only by clang executable c-index-test
-	if multilib_build_binaries && use clang && use xml; then
+	if multilib_is_native_abi && use clang && use xml; then
 		conf_flags+=( XML2CONFIG="$(tc-getPKG_CONFIG) libxml-2.0" )
 	else
 		conf_flags+=( ac_cv_prog_XML2CONFIG="" )
@@ -221,7 +225,7 @@ multilib_src_configure() {
 	fi
 	conf_flags+=( --enable-targets=${targets} )
 
-	if multilib_build_binaries; then
+	if multilib_is_native_abi; then
 		use gold && conf_flags+=( --with-binutils-include="${EPREFIX}"/usr/include/ )
 		# extra commas don't hurt
 		use ocaml && bindings+=',ocaml'
@@ -239,33 +243,11 @@ multilib_src_configure() {
 		append-cppflags "$(pkg-config --cflags libffi)"
 	fi
 
-	# build with a suitable Python version
-	python_export_best
-
 	# llvm prefers clang over gcc, so we may need to force that
 	tc-export CC CXX
 
 	ECONF_SOURCE=${S} \
 	econf "${conf_flags[@]}"
-
-	multilib_build_binaries && cmake_configure
-}
-
-cmake_configure() {
-	# sadly, cmake doesn't seem to have host autodetection
-	# but it's fairly easy to steal this from configured autotools
-	local targets=$(sed -n -e 's/^TARGETS_TO_BUILD=//p' Makefile.config || die)
-	local libdir=$(get_libdir)
-	local mycmakeargs=(
-		# just the stuff needed to get correct cmake modules
-		$(cmake-utils_use ncurses LLVM_ENABLE_TERMINFO)
-
-		-DLLVM_TARGETS_TO_BUILD="${targets// /;}"
-		-DLLVM_LIBDIR_SUFFIX=${libdir#lib}
-	)
-
-	BUILD_DIR=${S%/}_cmake \
-	cmake-utils_src_configure
 }
 
 set_makeargs() {
@@ -281,7 +263,7 @@ set_makeargs() {
 		local tools=( llvm-config )
 		use clang && tools+=( clang )
 
-		if multilib_build_binaries; then
+		if multilib_is_native_abi; then
 			tools+=(
 				opt llvm-as llvm-dis llc llvm-ar llvm-nm llvm-link lli
 				llvm-extract llvm-mc llvm-bcanalyzer llvm-diff macho-dump
@@ -321,7 +303,7 @@ multilib_src_compile() {
 	set_makeargs -1
 	emake "${MAKEARGS[@]}"
 
-	if multilib_build_binaries; then
+	if multilib_is_native_abi; then
 		set_makeargs
 		emake -C tools "${MAKEARGS[@]}"
 
@@ -358,14 +340,28 @@ multilib_src_test() {
 }
 
 src_install() {
+	local MULTILIB_CHOST_TOOLS=(
+		/usr/bin/llvm-config
+	)
+
 	local MULTILIB_WRAPPED_HEADERS=(
 		/usr/include/llvm/Config/config.h
 		/usr/include/llvm/Config/llvm-config.h
 	)
 
-	use clang && MULTILIB_WRAPPED_HEADERS+=(
-		/usr/include/clang/Config/config.h
-	)
+	if use clang; then
+		# note: magic applied below
+		MULTILIB_CHOST_TOOLS+=(
+			/usr/bin/clang
+			/usr/bin/clang++
+			/usr/bin/clang-${PV}
+			/usr/bin/clang++-${PV}
+		)
+
+		MULTILIB_WRAPPED_HEADERS+=(
+			/usr/include/clang/Config/config.h
+		)
+	fi
 
 	multilib-minimal_src_install
 }
@@ -374,25 +370,15 @@ multilib_src_install() {
 	local MAKEARGS
 	set_makeargs
 
-	emake "${MAKEARGS[@]}" DESTDIR="${D}" install
+	local root=${D}/_${ABI}
 
-	# Preserve ABI-variant of llvm-config.
-	dodir /tmp
-	mv "${ED}"/usr/bin/llvm-config "${ED}"/tmp/"${CHOST}"-llvm-config || die
+	emake "${MAKEARGS[@]}" DESTDIR="${root}" install
+	multibuild_merge_root "${root}" "${D}"
 
-	if ! multilib_build_binaries; then
-		# Drop all the executables since LLVM doesn't like to
-		# clobber when installing.
-		rm -r "${ED}"/usr/bin || die
-
+	if ! multilib_is_native_abi; then
 		# Backwards compat, will be happily removed someday.
-		dosym "${CHOST}"-llvm-config /tmp/llvm-config.${ABI}
+		dosym "${CHOST}"-llvm-config /usr/bin/llvm-config.${ABI}
 	else
-		# Move files back.
-		mv "${ED}"/tmp/*llvm-config* "${ED}"/usr/bin || die
-		# Create a symlink for host's llvm-config.
-		dosym "${CHOST}"-llvm-config /usr/bin/llvm-config
-
 		# Install docs.
 		doman "${S}"/docs/_build/man/*.1
 		use clang && doman "${T}"/clang.1
@@ -404,9 +390,34 @@ multilib_src_install() {
 			dosym ../../../../$(get_libdir)/LLVMgold.so \
 				/usr/${CHOST}/binutils-bin/lib/bfd-plugins/LLVMgold.so
 		fi
+	fi
 
-		# install cmake modules
-		emake -C "${S%/}"_cmake/cmake/modules DESTDIR="${D}" install
+	# apply CHOST and PV to clang executables
+	# they're statically linked so we don't have to worry about the lib
+	if use clang; then
+		local clang_tools=( clang clang++ )
+		local i
+
+		# append ${PV} and symlink back
+		# TODO: use alternatives.eclass? does that make any sense?
+		# maybe with USE=-clang on :0 and USE=clang on older
+		for i in "${clang_tools[@]}"; do
+			mv "${ED%/}/usr/bin/${i}"{,-${PV}} || die
+			dosym "${i}"-${PV} /usr/bin/${i}
+		done
+
+		# now prepend ${CHOST} and let the multilib-build.eclass symlink it
+		if ! multilib_is_native_abi; then
+			# non-native? let's replace it with a simple wrapper
+			for i in "${clang_tools[@]}"; do
+				rm "${ED%/}/usr/bin/${i}-${PV}" || die
+				cat > "${T}"/wrapper.tmp <<-_EOF_
+					#!${EPREFIX}/bin/sh
+					exec "${i}-${PV}" $(get_abi_CFLAGS) "\${@}"
+				_EOF_
+				newbin "${T}"/wrapper.tmp "${i}-${PV}"
+			done
+		fi
 	fi
 
 	# Fix install_names on Darwin.  The build system is too complicated

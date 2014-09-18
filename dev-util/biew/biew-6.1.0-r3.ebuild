@@ -1,20 +1,20 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/biew/biew-6.1.0-r3.ebuild,v 1.1 2013/09/05 16:21:34 xmw Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/biew/biew-6.1.0-r3.ebuild,v 1.4 2014/08/10 21:25:20 slyfox Exp $
 
 EAPI=4
 inherit eutils flag-o-matic toolchain-funcs versionator
 
 MY_P=${PN}-$(replace_all_version_separators "")
 
-DESCRIPTION="A portable viewer of binary files, hexadecimal and disassembler modes."
+DESCRIPTION="A portable viewer of binary files, hexadecimal and disassembler modes"
 HOMEPAGE="http://beye.sourceforge.net/"
 SRC_URI="mirror://sourceforge/beye/${PV}/${MY_P}-src.tar.bz2"
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="gpm mmx sse"
 REQUIRED_USE="mmx sse"
 

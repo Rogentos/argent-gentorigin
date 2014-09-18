@@ -1,11 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdg-utils/xdg-utils-1.1.0_rc2.ebuild,v 1.1 2014/02/08 06:50:48 ssuominen Exp $
-
-# See .spec in http://pkgs.fedoraproject.org/gitweb/?p=xdg-utils.git;a=summary
-# The source tree MUST be cleaned before rolling a snapshot tarball:
-# make scripts-clean -C scripts
-# make man scripts -C scripts
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xdg-utils/xdg-utils-1.1.0_rc2.ebuild,v 1.11 2014/03/24 15:11:02 ago Exp $
 
 EAPI=5
 
@@ -18,7 +13,7 @@ SRC_URI="http://people.freedesktop.org/~rdieter/${PN}/${MY_P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="doc +perl"
 
 RDEPEND="dev-util/desktop-file-utils
@@ -34,6 +29,11 @@ DOCS="README RELEASE_NOTES TODO" # ChangeLog is bogus, see git instead
 RESTRICT="test" # Disabled because of sandbox violation(s)
 
 S=${WORKDIR}/${MY_P}
+
+src_configure() {
+	export ac_cv_path_XMLTO="$(type -P xmlto) --skip-validation" #502166
+	default
+}
 
 src_install() {
 	default

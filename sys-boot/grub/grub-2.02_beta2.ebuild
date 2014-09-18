@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/grub-2.02_beta2.ebuild,v 1.2 2014/01/27 02:50:43 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-boot/grub/grub-2.02_beta2.ebuild,v 1.8 2014/06/22 18:02:08 floppym Exp $
 
 EAPI=5
 
@@ -10,7 +10,7 @@ if [[ ${PV} == 9999 ]]; then
 fi
 
 if [[ -n ${GRUB_AUTOGEN} ]]; then
-	PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} )
+	PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} )
 	inherit python-any-r1
 fi
 
@@ -18,7 +18,8 @@ inherit autotools-utils bash-completion-r1 eutils flag-o-matic mount-boot multib
 
 if [[ ${PV} != 9999 ]]; then
 	if [[ ${PV} == *_alpha* || ${PV} == *_beta* || ${PV} == *_rc* ]]; then
-		MY_P="${P/_/~}"
+		# The quote style is to work with <=bash-4.2 and >=bash-4.3 #503860
+		MY_P=${P/_/'~'}
 		SRC_URI="mirror://gnu-alpha/${PN}/${MY_P}.tar.xz"
 		S=${WORKDIR}/${MY_P}
 	else
@@ -36,10 +37,10 @@ else
 fi
 
 DEJAVU=dejavu-sans-ttf-2.34
-UNIFONT=unifont-6.3.20131217
+UNIFONT=unifont-7.0.01
 SRC_URI+=" truetype? (
 	mirror://sourceforge/dejavu/${DEJAVU}.zip
-	http://unifoundry.com/pub/${UNIFONT}/${UNIFONT}.pcf.gz
+	mirror://gnu/unifont/${UNIFONT}/${UNIFONT}.pcf.gz
 )"
 
 DESCRIPTION="GNU GRUB boot loader"
@@ -110,6 +111,7 @@ RDEPEND+="
 		grub_platforms_efi-64? ( sys-boot/efibootmgr )
 	)
 	!multislot? ( !sys-boot/grub:0 )
+	nls? ( sys-devel/gettext )
 "
 
 STRIP_MASK="*/grub/*/*.{mod,img}"
@@ -228,6 +230,9 @@ grub_configure() {
 }
 
 src_configure() {
+	# Bug 508758.
+	replace-flags -O3 -O2
+
 	# We don't want to leak flags onto boot code.
 	export HOST_CCASFLAGS=${CCASFLAGS}
 	export HOST_CFLAGS=${CFLAGS}
@@ -284,9 +289,14 @@ src_install() {
 pkg_postinst() {
 	mount-boot_mount_boot_partition
 
-	if [[ -e "${ROOT%/}/boot/grub2/grub.cfg" && ! -e "${ROOT%/}/boot/grub/grub.cfg" ]]; then
-		mkdir -p "${ROOT%/}/boot/grub"
-		ln -s ../grub2/grub.cfg "${ROOT%/}/boot/grub/grub.cfg"
+	if [[ -e "${ROOT%/}/boot/grub2/grub.cfg"  ]]; then
+		ewarn "The grub directory has changed from /boot/grub2 to /boot/grub."
+		ewarn "Please run grub2-install and grub2-mkconfig -o /boot/grub/grub.cfg."
+
+		if [[ ! -e "${ROOT%/}/boot/grub/grub.cfg" ]]; then
+			mkdir -p "${ROOT%/}/boot/grub"
+			ln -s ../grub2/grub.cfg "${ROOT%/}/boot/grub/grub.cfg"
+		fi
 	fi
 
 	mount-boot_pkg_postinst
@@ -306,14 +316,5 @@ pkg_postinst() {
 		if ! has_version dev-libs/libisoburn; then
 			elog "Install dev-libs/libisoburn to enable creation of rescue media using grub2-mkrescue."
 		fi
-	else
-		local v
-		for v in ${REPLACING_VERSIONS}; do
-			if use multislot && ! version_is_at_least 2.00_p5107-r1 ${v}; then
-				ewarn "The grub directory has changed from /boot/grub2 to /boot/grub."
-				ewarn "Please run grub2-install and grub2-mkconfig -o /boot/grub/grub.cfg."
-				break
-			fi
-		done
 	fi
 }

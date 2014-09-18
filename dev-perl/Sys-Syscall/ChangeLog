@@ -1,6 +1,20 @@
 # ChangeLog for dev-perl/Sys-Syscall
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Sys-Syscall/ChangeLog,v 1.11 2013/08/16 08:40:45 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Sys-Syscall/ChangeLog,v 1.14 2014/08/22 18:21:09 axs Exp $
+
+*Sys-Syscall-0.250.0-r1 (22 Aug 2014)
+
+  22 Aug 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +Sys-Syscall-0.250.0-r1.ebuild, -Sys-Syscall-0.250.0.ebuild:
+  bumped EAPI to 5; committed directly to stable as no other changes present and
+  revbump helps stable systems to keep from dieing on perl-5.18 upgrade
+
+  03 Mar 2014; Pacho Ramos <pacho@gentoo.org> Sys-Syscall-0.250.0.ebuild:
+  amd64 stable, bug #495478
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  Sys-Syscall-0.250.0.ebuild:
+  x86 stable wrt bug #495478
 
 *Sys-Syscall-0.250.0 (16 Aug 2013)
 

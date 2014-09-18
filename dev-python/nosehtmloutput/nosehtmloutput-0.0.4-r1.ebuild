@@ -1,13 +1,13 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/nosehtmloutput/nosehtmloutput-0.0.4-r1.ebuild,v 1.4 2013/09/05 18:47:18 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/nosehtmloutput/nosehtmloutput-0.0.4-r1.ebuild,v 1.7 2014/08/10 21:14:42 slyfox Exp $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3} pypy2_0 )
+PYTHON_COMPAT=( python{2_6,2_7,3_2,3_3,3_4} pypy )
 
 inherit distutils-r1
 
-DESCRIPTION="Nose plugin to produce test results in html."
+DESCRIPTION="Nose plugin to produce test results in html"
 HOMEPAGE="https://github.com/cboylan/nose-html-output"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

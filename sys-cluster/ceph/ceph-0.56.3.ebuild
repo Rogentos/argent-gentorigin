@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-cluster/ceph/ceph-0.56.3.ebuild,v 1.3 2013/03/26 09:25:56 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-cluster/ceph/ceph-0.56.3.ebuild,v 1.5 2014/08/21 03:39:21 dlan Exp $
 
 EAPI=5
 

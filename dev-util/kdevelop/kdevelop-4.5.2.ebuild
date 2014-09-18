@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/kdevelop/kdevelop-4.5.2.ebuild,v 1.4 2014/01/26 11:38:46 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-util/kdevelop/kdevelop-4.5.2.ebuild,v 1.6 2014/08/10 21:28:20 slyfox Exp $
 
 EAPI=5
 
@@ -9,7 +9,7 @@ pl pt pt_BR ru sk sl sv th tr uk zh_CN zh_TW"
 VIRTUALX_REQUIRED=test
 inherit kde4-base
 
-DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
+DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages"
 LICENSE="GPL-2 LGPL-2"
 IUSE="+cmake +cxx debug okteta qthelp reviewboard"
 SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.xz"
@@ -17,7 +17,7 @@ SRC_URI="mirror://kde/stable/kdevelop/${KDEVELOP_VERSION}/src/${P}.tar.xz"
 if [[ $PV == *9999* ]]; then
 	KEYWORDS=""
 else
-	KEYWORDS="amd64 ~ppc x86"
+	KEYWORDS="amd64 ppc x86"
 fi
 
 DEPEND="

@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/wstools/wstools-0.4.3.ebuild,v 1.3 2013/10/22 14:32:10 grobian Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/wstools/wstools-0.4.3.ebuild,v 1.12 2014/08/23 15:29:42 ago Exp $
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} pypy2_0 )
+PYTHON_COMPAT=( python{2_6,2_7} pypy pypy2_0 )
 PYTHON_REQ_USE="xml(+)"
 
 inherit distutils-r1
@@ -15,7 +15,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x64-macos ~x86-macos"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 ~s390 ~sh ~sparc x86 ~amd64-fbsd ~x64-macos ~x86-macos"
 IUSE=""
 
 RDEPEND=""

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/libcxx/libcxx-9999.ebuild,v 1.26 2013/12/22 17:51:28 aballier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-libs/libcxx/libcxx-9999.ebuild,v 1.28 2014/06/18 20:50:24 mgorny Exp $
 
 EAPI=5
 
@@ -21,13 +21,13 @@ fi
 LICENSE="|| ( UoI-NCSA MIT )"
 SLOT="0"
 if [ "${PV%9999}" = "${PV}" ] ; then
-	KEYWORDS="~amd64 ~x86 ~amd64-fbsd ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 else
 	KEYWORDS=""
 fi
 IUSE="elibc_glibc +libcxxrt static-libs test"
 
-RDEPEND="libcxxrt? ( >=sys-libs/libcxxrt-0.0_p20130530[static-libs?,${MULTILIB_USEDEP}] )
+RDEPEND="libcxxrt? ( >=sys-libs/libcxxrt-0.0_p20130725[static-libs?,${MULTILIB_USEDEP}] )
 	!libcxxrt? ( >=sys-devel/gcc-4.7[cxx] )"
 DEPEND="${RDEPEND}
 	test? ( sys-devel/clang )

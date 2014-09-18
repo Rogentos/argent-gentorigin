@@ -1,6 +1,37 @@
 # ChangeLog for dev-libs/libev
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libev/ChangeLog,v 1.63 2013/12/20 19:57:20 hwoarang Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/libev/ChangeLog,v 1.72 2014/08/23 15:28:24 ago Exp $
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for HPPA (bug #512012).
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org> libev-4.15-r1.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  10 Jun 2014; Mike Frysinger <vapier@gentoo.org> libev-4.15.ebuild:
+  Mark arm64/m68k/s390/sh stable.
+
+  10 Jun 2014; Mike Frysinger <vapier@gentoo.org> libev-4.15-r1.ebuild:
+  Add arm64/m68k love.
+
+*libev-4.15-r1 (21 Mar 2014)
+
+  21 Mar 2014; Yixun Lan <dlan@gentoo.org> -libev-4.11-r1.ebuild,
+  +libev-4.15-r1.ebuild, -files/4.01-gentoo.patch,
+  -files/libev-4.11-gentoo.patch:
+  drop 4.11; cleanup; add multilib support, thanks @iamnr3
 
   20 Dec 2013; Markos Chandras <hwoarang@gentoo.org>
   +files/libev-4.15-automake-1.14.patch, libev-4.15.ebuild:

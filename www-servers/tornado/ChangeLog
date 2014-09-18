@@ -1,6 +1,46 @@
 # ChangeLog for www-servers/tornado
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/tornado/ChangeLog,v 1.40 2013/12/07 19:12:19 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/www-servers/tornado/ChangeLog,v 1.48 2014/08/13 18:24:16 blueness Exp $
+
+  13 Aug 2014; Anthony G. Basile <blueness@gentoo.org> tornado-2.2.1.ebuild,
+  tornado-2.4-r1.ebuild, tornado-2.4.1.ebuild, tornado-2.4.ebuild,
+  tornado-3.1.1-r1.ebuild, tornado-3.1.1.ebuild, tornado-3.2.1.ebuild,
+  tornado-3.2.ebuild:
+  Keyword ~ppc and ~ppc64, bug #486272
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> tornado-3.1.1-r1.ebuild,
+  tornado-3.2.1.ebuild, tornado-3.2.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
+
+  24 May 2014; Ian Delaney <idella4@gentoo.org> tornado-3.2.ebuild:
+  re-keyword ~arm to -3.2, tested on armv7, cubieboard2, qa correction to deps.
+  Also arm fine on testing for -3.2.1
+
+*tornado-3.2.1 (06 May 2014)
+
+  06 May 2014; Tim Harder <radhermit@gentoo.org> +tornado-3.2.1.ebuild:
+  Version bump, add python3_4 support.
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> tornado-2.4-r1.ebuild,
+  tornado-2.4.1.ebuild, tornado-3.1.1-r1.ebuild, tornado-3.1.1.ebuild,
+  tornado-3.2.ebuild:
+  Add support for the new PyPy slotting.
+
+*tornado-3.2 (08 Mar 2014)
+
+  08 Mar 2014; Jan Matejka <yac@gentoo.org> +tornado-3.2.ebuild:
+  verbump fixes bgo#503252
+
+*tornado-3.1.1-r1 (08 Mar 2014)
+
+  08 Mar 2014; Jan Matejka <yac@gentoo.org>
+  +files/tornado-3.1.1-py2_6-tests-fix.patch,
+  +files/unittest2-import-issue-1005.patch, +tornado-3.1.1-r1.ebuild:
+  fixes bgo#486746
+
+  16 Feb 2014; Mike Frysinger <vapier@gentoo.org> tornado-3.1.1.ebuild:
+  Mark arm stable.
 
   07 Dec 2013; Pacho Ramos <pacho@gentoo.org> tornado-3.1.1.ebuild:
   x86 stable, bug #488738

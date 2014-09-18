@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/features/64bit-native/package.mask,v 1.97 2014/01/02 22:32:46 williamh Exp $
+# $Header: /var/cvsroot/gentoo-x86/profiles/features/64bit-native/package.mask,v 1.99 2014/07/22 01:33:40 ottxor Exp $
 
 # AMD64 Team <amd64@gentoo.org>
 # Mask packages that rely on amd64 multilib
@@ -87,6 +87,7 @@ games-fps/doom3-roe
 games-fps/doom3
 games-fps/enemy-territory-etpro
 games-fps/enemy-territory-fortress
+games-fps/enemy-territory-omnibot
 games-fps/enemy-territory-truecombat
 games-fps/enemy-territory
 games-fps/etqw-bin
@@ -166,7 +167,6 @@ sci-chemistry/cyana
 sci-chemistry/icm
 sci-chemistry/icm-browser
 sci-chemistry/mars
-<sci-geosciences/googleearth-7.1
 sci-libs/ipp
 sys-apps/memtest86
 sys-apps/memtest86+

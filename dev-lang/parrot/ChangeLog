@@ -1,6 +1,44 @@
 # ChangeLog for dev-lang/parrot
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/parrot/ChangeLog,v 1.75 2014/01/27 05:40:13 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-lang/parrot/ChangeLog,v 1.83 2014/07/21 04:08:34 patrick Exp $
+
+*parrot-6.6.0 (21 Jul 2014)
+*parrot-6.4.0 (21 Jul 2014)
+
+  21 Jul 2014; Patrick Lauer <patrick@gentoo.org> +parrot-6.4.0.ebuild,
+  +parrot-6.6.0.ebuild:
+  Bump
+
+*parrot-6.5.0 (27 Jun 2014)
+
+  27 Jun 2014; Patrick Lauer <patrick@gentoo.org> +parrot-6.5.0.ebuild:
+  Bump
+
+*parrot-6.3.0 (18 Apr 2014)
+
+  18 Apr 2014; Patrick Lauer <patrick@gentoo.org> +parrot-6.3.0.ebuild:
+  Bump
+
+*parrot-6.2.0 (26 Mar 2014)
+
+  26 Mar 2014; Patrick Lauer <patrick@gentoo.org> +parrot-6.2.0.ebuild:
+  Bump
+
+  25 Mar 2014; Mikle Kolyada <zlogene@gentoo.org> -files/perldoc-5.10.patch,
+  -files/perldoc.patch, -parrot-5.10.0.ebuild, -parrot-5.7.0.ebuild,
+  -parrot-6.0.0.ebuild:
+  Drop old.
+
+  02 Mar 2014; Andreas K. Huettel <dilfridge@gentoo.org> parrot-6.1.0.ebuild:
+  Add subslot dependency on dev-libs/icu
+
+  26 Feb 2014; Patrick Lauer <patrick@gentoo.org> -parrot-5.6.0.ebuild:
+  Cleanup old
+
+*parrot-6.1.0 (26 Feb 2014)
+
+  26 Feb 2014; Patrick Lauer <patrick@gentoo.org> +parrot-6.1.0.ebuild:
+  Bump
 
 *parrot-6.0.0 (27 Jan 2014)
 

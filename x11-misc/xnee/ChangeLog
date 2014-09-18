@@ -1,6 +1,27 @@
 # ChangeLog for x11-misc/xnee
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xnee/ChangeLog,v 1.29 2014/01/30 11:34:39 jer Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/xnee/ChangeLog,v 1.34 2014/08/10 20:05:05 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> xnee-3.17.ebuild,
+  xnee-3.18.ebuild, xnee-3.19.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+*xnee-3.19 (06 May 2014)
+
+  06 May 2014; Jeroen Roovers <jer@gentoo.org> +xnee-3.19.ebuild:
+  Version bump.
+
+  26 Feb 2014; Jeroen Roovers <jer@gentoo.org> -xnee-3.16.ebuild:
+  Old.
+
+  26 Feb 2014; Jeroen Roovers <jer@gentoo.org> xnee-3.17.ebuild:
+  Fix xnee-3.17 linking too.
+
+*xnee-3.18 (26 Feb 2014)
+
+  26 Feb 2014; Jeroen Roovers <jer@gentoo.org> +xnee-3.18.ebuild,
+  +files/xnee-3.18-linker.patch:
+  Version bump.
 
 *xnee-3.17 (30 Jan 2014)
 

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pythonmagick/pythonmagick-0.9.8.ebuild,v 1.4 2013/04/23 05:35:51 patrick Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pythonmagick/pythonmagick-0.9.8.ebuild,v 1.6 2014/04/27 15:51:02 floppym Exp $
 
 EAPI="4"
 PYTHON_DEPEND="*:2.6"
@@ -17,7 +17,7 @@ MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Python bindings for ImageMagick"
 HOMEPAGE="http://www.imagemagick.org/script/api.php"
-SRC_URI="http://www.imagemagick.org/download/python/${MY_P}.tar.xz"
+SRC_URI="mirror://imagemagick/python/${MY_P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -37,6 +37,7 @@ PYTHON_CXXFLAGS=("2.* + -fno-strict-aliasing")
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-0.9.1-use_active_python_version.patch"
 	epatch "${FILESDIR}/${PN}-0.9.2-fix_detection_of_python_includedir.patch"
+	epatch "${FILESDIR}/${P}-build.patch"
 
 	sed -e "s/AM_PATH_PYTHON(3.1)/AM_PATH_PYTHON(2.6)/" -i configure.ac || die "sed failed"
 

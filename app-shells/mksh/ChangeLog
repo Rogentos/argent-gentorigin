@@ -1,6 +1,23 @@
 # ChangeLog for app-shells/mksh
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/ChangeLog,v 1.48 2014/02/06 09:37:57 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-shells/mksh/ChangeLog,v 1.53 2014/07/01 04:05:41 patrick Exp $
+
+*mksh-50 (01 Jul 2014)
+
+  01 Jul 2014; Patrick Lauer <patrick@gentoo.org> +mksh-50.ebuild:
+  Bump
+
+  12 Mar 2014; Patrick Lauer <patrick@gentoo.org> -mksh-44-r1.ebuild:
+  Remove old
+
+  23 Feb 2014; Agostino Sarubbo <ago@gentoo.org> mksh-48b.ebuild:
+  Stable for ppc, wrt bug #500492
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> mksh-48b.ebuild:
+  Stable for x86, wrt bug #500492
+
+  10 Feb 2014; Chema Alonso <nimiux@gentoo.org> mksh-48b.ebuild:
+  Stable for amd64 wrt bug #500492
 
 *mksh-49 (06 Feb 2014)
 

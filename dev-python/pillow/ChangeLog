@@ -1,6 +1,58 @@
 # ChangeLog for dev-python/pillow
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pillow/ChangeLog,v 1.20 2014/01/25 19:18:46 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pillow/ChangeLog,v 1.35 2014/08/19 17:00:06 djc Exp $
+
+  19 Aug 2014; Dirkjan Ochtman <djc@gentoo.org> pillow-2.5.3.ebuild:
+  Fix install of scanner README
+
+*pillow-2.5.3 (19 Aug 2014)
+
+  19 Aug 2014; Dirkjan Ochtman <djc@gentoo.org> +pillow-2.5.3.ebuild:
+  Version bump pillow to 2.5.3 for bug 520226
+
+  16 May 2014; Mike Gilbert <floppym@gentoo.org> -pillow-2.0.0-r1.ebuild,
+  -pillow-2.3.0.ebuild:
+  Remove old.
+
+  14 May 2014; Agostino Sarubbo <ago@gentoo.org> pillow-2.4.0.ebuild:
+  Stable for sparc, wrt bug #507982
+
+  13 May 2014; Agostino Sarubbo <ago@gentoo.org> pillow-2.4.0.ebuild:
+  Stable for ia64, wrt bug #507982
+
+  12 May 2014; Ian Delaney <idella4@gentoo.org> pillow-2.4.0.ebuild:
+  add pypy support
+
+  11 May 2014; Agostino Sarubbo <ago@gentoo.org> pillow-2.4.0.ebuild:
+  Stable for ppc64, wrt bug #507982
+
+  10 May 2014; Agostino Sarubbo <ago@gentoo.org> pillow-2.4.0.ebuild:
+  Stable for ppc, wrt bug #507982
+
+  22 Apr 2014; Agostino Sarubbo <ago@gentoo.org> pillow-2.4.0.ebuild:
+  Stable for arm, wrt bug #507982
+
+  21 Apr 2014; Agostino Sarubbo <ago@gentoo.org> pillow-2.4.0.ebuild:
+  Stable for alpha, wrt bug #507982
+
+  19 Apr 2014; Jeroen Roovers <jer@gentoo.org> pillow-2.4.0.ebuild:
+  Stable for HPPA (bug #507982).
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org> pillow-2.4.0.ebuild:
+  Stable for x86, wrt bug #507982
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org> pillow-2.4.0.ebuild:
+  Stable for amd64, wrt bug #507982
+
+*pillow-2.3.1 (18 Apr 2014)
+
+  18 Apr 2014; Mike Gilbert <floppym@gentoo.org> +pillow-2.3.1.ebuild:
+  Bump for security bug 507982.
+
+*pillow-2.4.0 (03 Apr 2014)
+
+  03 Apr 2014; Tim Harder <radhermit@gentoo.org> +pillow-2.4.0.ebuild:
+  Version bump, add jpeg2k use flag, and add python3_4 support.
 
   25 Jan 2014; Mike Gilbert <floppym@gentoo.org> pillow-2.3.0.ebuild:
   Revert accidental change.

@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/btrfs-progs/btrfs-progs-9999.ebuild,v 1.31 2013/11/30 20:55:15 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/btrfs-progs/btrfs-progs-9999.ebuild,v 1.35 2014/08/22 09:36:50 floppym Exp $
 
 EAPI=5
 
@@ -26,16 +26,19 @@ LICENSE="GPL-2"
 SLOT="0/${libbtrfs_soname}"
 IUSE=""
 
-DEPEND="
-	dev-libs/lzo
-	sys-libs/zlib
-	sys-apps/acl
-	sys-fs/e2fsprogs
+RDEPEND="
+	dev-libs/lzo:2=
+	sys-libs/zlib:0=
+	sys-fs/e2fsprogs:0=
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	sys-apps/acl
+	app-text/asciidoc
+	app-text/docbook-xml-dtd:4.5
+	app-text/xmlto
+"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-3.12-fix-send-subvol-492776.patch
 	epatch_user
 }
 

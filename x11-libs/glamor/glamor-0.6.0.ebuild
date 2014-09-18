@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/glamor/glamor-0.6.0.ebuild,v 1.1 2014/01/26 17:12:32 chithanh Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/glamor/glamor-0.6.0.ebuild,v 1.11 2014/07/21 08:41:25 chithanh Exp $
 
 EAPI=5
 
@@ -10,21 +10,25 @@ XORG_MODULE=driver/
 XORG_MODULE_REBUILD=yes
 S=${WORKDIR}/${PN}-egl-${PV}
 
-inherit xorg-2 toolchain-funcs
+inherit autotools-utils xorg-2 toolchain-funcs
 
 DESCRIPTION="OpenGL based 2D rendering acceleration library"
 SRC_URI="${XORG_BASE_INDIVIDUAL_URI}/${XORG_MODULE}${PN}-egl-${PV}.tar.bz2"
 
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="alpha amd64 ia64 ppc ppc64 sparc x86"
 IUSE="gles xv"
 
 RDEPEND=">=x11-base/xorg-server-1.10
-	media-libs/mesa[egl,gbm]
+	>=media-libs/mesa-10[egl,gbm]
 	gles? (
 		|| ( media-libs/mesa[gles2] media-libs/mesa[gles] )
 	)
 	>=x11-libs/pixman-0.21.8"
 DEPEND="${RDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-xv-add-missing-include.patch
+)
 
 src_configure() {
 	XORG_CONFIGURE_OPTIONS=(
@@ -41,4 +45,9 @@ src_prepare() {
 	if gcc-specs-now ; then
 		append-ldflags -Wl,-z,lazy
 	fi
+}
+
+src_install() {
+	# workaround parallel install failure, bug #488124.
+	autotools-utils_src_install -j1
 }

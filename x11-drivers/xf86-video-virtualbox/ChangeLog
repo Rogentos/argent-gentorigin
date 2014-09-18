@@ -1,6 +1,56 @@
 # ChangeLog for x11-drivers/xf86-video-virtualbox
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-virtualbox/ChangeLog,v 1.132 2014/01/23 18:54:33 polynomial-c Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-virtualbox/ChangeLog,v 1.141 2014/07/20 02:03:17 polynomial-c Exp $
+
+  20 Jul 2014; Lars Wendler <polynomial-c@gentoo.org>
+  xf86-video-virtualbox-4.3.14.ebuild:
+  Removed compilefix patch (bug #517424).
+
+*xf86-video-virtualbox-4.3.14 (18 Jul 2014)
+*xf86-video-virtualbox-4.2.26 (18 Jul 2014)
+
+  18 Jul 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.2.22.ebuild, +xf86-video-virtualbox-4.2.26.ebuild,
+  -xf86-video-virtualbox-4.3.10.ebuild, +xf86-video-virtualbox-4.3.14.ebuild,
+  metadata.xml:
+  Version bump. Removed old. Removed incative proxy maintainer.
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-virtualbox-4.2.24.ebuild:
+  Stable for x86, wrt bug #507824
+
+  08 Jun 2014; Agostino Sarubbo <ago@gentoo.org>
+  xf86-video-virtualbox-4.2.24.ebuild:
+  Stable for amd64, wrt bug #507824
+
+*xf86-video-virtualbox-4.3.12 (17 May 2014)
+
+  17 May 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.3.8.ebuild, +xf86-video-virtualbox-4.3.12.ebuild:
+  Version bump. Removed old.
+
+  13 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> Manifest:
+  Upstream changed release tarball again without increasing the version number
+  (bug #507540)
+
+*xf86-video-virtualbox-4.3.10 (26 Mar 2014)
+
+  26 Mar 2014; Lars Wendler <polynomial-c@gentoo.org>
+  -xf86-video-virtualbox-4.3.6.ebuild, +xf86-video-virtualbox-4.3.10.ebuild:
+  Version bump. Removed old.
+
+*xf86-video-virtualbox-4.2.24 (14 Mar 2014)
+
+  14 Mar 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +xf86-video-virtualbox-4.2.24.ebuild:
+  Version bump.
+
+*xf86-video-virtualbox-4.3.8 (26 Feb 2014)
+
+  26 Feb 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +xf86-video-virtualbox-4.3.8.ebuild,
+  +files/xf86-video-virtualbox-4.3.8-vboxvideo_compilefixes.patch:
+  Version bump.
 
   23 Jan 2014; Lars Wendler <polynomial-c@gentoo.org>
   xf86-video-virtualbox-4.2.22.ebuild, xf86-video-virtualbox-4.3.6.ebuild:

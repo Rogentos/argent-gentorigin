@@ -1,6 +1,21 @@
 # ChangeLog for sys-fs/reiser4progs
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-fs/reiser4progs/ChangeLog,v 1.42 2012/05/24 02:54:11 vapier Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-fs/reiser4progs/ChangeLog,v 1.45 2014/07/31 05:21:16 ssuominen Exp $
+
+*reiser4progs-1.0.9 (31 Jul 2014)
+
+  31 Jul 2014; Samuli Suominen <ssuominen@gentoo.org>
+  +reiser4progs-1.0.9.ebuild:
+  Version bump wrt #518594 by Yevgeny Filatov
+
+*reiser4progs-1.0.8 (13 Mar 2014)
+
+  13 Mar 2014; Mike Frysinger <vapier@gentoo.org> +reiser4progs-1.0.8.ebuild:
+  Version bump & rewrite the ebuild.
+
+  13 Mar 2014; Mike Frysinger <vapier@gentoo.org> reiser4progs-1.0.7.ebuild,
+  +files/reiser4progs-1.0.7-readline-6.3.patch:
+  Fix building w/readline-6.3 #504472 by Kobboi.
 
   24 May 2012; Mike Frysinger <vapier@gentoo.org> reiser4progs-1.0.7.ebuild:
   Inherit toolchain-funcs for gen_usr_ldscript.

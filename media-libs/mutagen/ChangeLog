@@ -1,6 +1,39 @@
 # ChangeLog for media-libs/mutagen
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/mutagen/ChangeLog,v 1.95 2013/12/08 04:48:58 radhermit Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/mutagen/ChangeLog,v 1.105 2014/08/10 21:11:10 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> mutagen-1.22.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  14 May 2014; Samuli Suominen <ssuominen@gentoo.org> -mutagen-1.20.ebuild,
+  -mutagen-1.21.ebuild:
+  old
+
+  14 May 2014; Agostino Sarubbo <ago@gentoo.org> mutagen-1.22.ebuild:
+  Stable for sparc, wrt bug #506256
+
+  20 Apr 2014; Agostino Sarubbo <ago@gentoo.org> mutagen-1.22.ebuild:
+  Stable for ppc64, wrt bug #506256
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org> mutagen-1.22.ebuild:
+  Stable for alpha, wrt bug #506256
+
+  13 Apr 2014; Agostino Sarubbo <ago@gentoo.org> mutagen-1.22.ebuild:
+  Stable for ppc, wrt bug #506256
+
+  05 Apr 2014; Jeroen Roovers <jer@gentoo.org> mutagen-1.22.ebuild:
+  Stable for HPPA (bug #506256).
+
+  30 Mar 2014; Mikle Kolyada <zlogene@gentoo.org> mutagen-1.22.ebuild:
+  x86 stable wrt bug #506256
+
+  30 Mar 2014; Mikle Kolyada <zlogene@gentoo.org> mutagen-1.22.ebuild:
+  amd64 stable wrt bug #506256
+
+  10 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> mutagen-1.20.ebuild,
+  mutagen-1.22.ebuild:
+  Force old eyeD3 SLOT for 1.20 and 1.21 because the old python files are used.
+  Let 1.22 pull in any version, even if the test fails, since it's only a test.
 
 *mutagen-1.22 (08 Dec 2013)
 

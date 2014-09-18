@@ -1,6 +1,34 @@
 # ChangeLog for dev-python/paramiko
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/paramiko/ChangeLog,v 1.108 2013/12/29 17:16:34 maekke Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/paramiko/ChangeLog,v 1.115 2014/08/05 11:53:45 armin76 Exp $
+
+  05 Aug 2014; Raúl Porcel <armin76@gentoo.org> paramiko-1.12.2.ebuild,
+  paramiko-1.13.0.ebuild:
+  Add ~alpha/~sparc wrt #490374
+
+  04 Jul 2014; Tobias Klausmann <klausman@gentoo.org> paramiko-1.12.2.ebuild:
+  Keyworded on alpha, bug #490374
+
+  22 Mar 2014; Ian Delaney <idella4@gentoo.org> paramiko-1.13.0.ebuild:
+  add PYTHON_USEDEP to ecdsa, wrt Bugs 501952
+
+  17 Mar 2014; Tim Harder <radhermit@gentoo.org> paramiko-1.13.0.ebuild:
+  Update HOMEPAGE (bug #504882), add python3_3 support (bug #504880), use more
+  specific ecdsa dep.
+
+  17 Mar 2014; Sergey Popov <pinkbyte@gentoo.org> paramiko-1.12.0.ebuild,
+  paramiko-1.13.0.ebuild:
+  Add ~s390, wrt bug #490374
+
+*paramiko-1.13.0 (15 Mar 2014)
+
+  15 Mar 2014; Tim Harder <radhermit@gentoo.org> +paramiko-1.13.0.ebuild:
+  Version bump.
+
+*paramiko-1.12.2 (14 Feb 2014)
+
+  14 Feb 2014; Tim Harder <radhermit@gentoo.org> +paramiko-1.12.2.ebuild:
+  Version bump.
 
   29 Dec 2013; Markus Meier <maekke@gentoo.org> paramiko-1.12.0.ebuild:
   add ~arm, bug #490374

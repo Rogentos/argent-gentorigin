@@ -1,6 +1,32 @@
 # ChangeLog for x11-libs/wxGTK
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/wxGTK/ChangeLog,v 1.306 2014/02/02 11:03:47 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-libs/wxGTK/ChangeLog,v 1.314 2014/05/23 08:21:26 rhill Exp $
+
+  23 May 2014; Ryan Hill <rhill@gentoo.org> -wxGTK-2.8.12.1.ebuild,
+  wxGTK-2.8.12.1-r1.ebuild, wxGTK-3.0.0.0.ebuild:
+  Restore gconf dep to 2.8 (bug #501672). Apply libpath hack to 3.0.0.0 as
+  well (bug #499984).
+
+  19 Mar 2014; Agostino Sarubbo <ago@gentoo.org> wxGTK-2.8.12.1-r1.ebuild:
+  Stable for alpha, wrt bug #499476
+
+  18 Mar 2014; Agostino Sarubbo <ago@gentoo.org> wxGTK-2.8.12.1-r1.ebuild:
+  Stable for ia64, wrt bug #499476
+
+  14 Mar 2014; Agostino Sarubbo <ago@gentoo.org> wxGTK-2.8.12.1-r1.ebuild:
+  Stable for ppc64, wrt bug #499476
+
+  12 Mar 2014; Agostino Sarubbo <ago@gentoo.org> wxGTK-2.8.12.1-r1.ebuild:
+  Stable for sparc, wrt bug #499476
+
+  23 Feb 2014; Markus Meier <maekke@gentoo.org> wxGTK-2.8.12.1-r1.ebuild:
+  arm stable, bug #499476
+
+  20 Feb 2014; Agostino Sarubbo <ago@gentoo.org> wxGTK-2.8.12.1-r1.ebuild:
+  Stable for x86, wrt bug #499476
+
+  16 Feb 2014; Chema Alonso <nimiux@gentoo.org> wxGTK-2.8.12.1-r1.ebuild:
+  Stable for amd64 wrt bug #499476
 
   02 Feb 2014; Agostino Sarubbo <ago@gentoo.org> wxGTK-2.8.12.1-r1.ebuild:
   Stable for ppc, wrt bug #499476

@@ -1,6 +1,70 @@
 # ChangeLog for net-misc/owncloud-client
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/owncloud-client/ChangeLog,v 1.2 2014/02/07 14:06:20 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/owncloud-client/ChangeLog,v 1.13 2014/08/05 08:45:12 voyageur Exp $
+
+*owncloud-client-1.6.2 (05 Aug 2014)
+
+  05 Aug 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +owncloud-client-1.6.2.ebuild:
+  Version bump
+
+  30 Jun 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  owncloud-client-1.6.1.ebuild:
+  Make qt4/qt5 builds exclusive
+
+*owncloud-client-1.6.1 (27 Jun 2014)
+
+  27 Jun 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +owncloud-client-1.6.1.ebuild:
+  Version bump, handle qt4/qt5 thanks to everyone in bug #512726
+
+*owncloud-client-1.6.0 (07 Jun 2014)
+
+  07 Jun 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  -owncloud-client-1.5.3-r1.ebuild, +owncloud-client-1.6.0.ebuild:
+  Version bump, fixes bug #512322. Also adds a postinstallation message with
+  USE=-doc, bug #bug 509716
+
+*owncloud-client-1.5.4 (22 Apr 2014)
+
+  22 Apr 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  -owncloud-client-1.5.0.ebuild, -owncloud-client-1.5.1.ebuild,
+  -owncloud-client-1.5.2.ebuild, -owncloud-client-1.5.3.ebuild,
+  +owncloud-client-1.5.4.ebuild:
+  Version bump, reported by Clemente Aguiar <clemente.aguiar@gmail.com> in bug
+  #507886, remove some previous versions
+
+*owncloud-client-1.5.3-r1 (16 Apr 2014)
+
+  16 Apr 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +owncloud-client-1.5.3-r1.ebuild,
+  +files/owncloud-client-1.5.3-man-page-location-fix.patch:
+  Fix man pages installation path, thanks Ian Abbott <ian@abbott.org> in bug
+  #507058. Also drop asciidoc dependency, sphinx is the only generator now
+
+  17 Mar 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  owncloud-client-1.5.1.ebuild, owncloud-client-1.5.2.ebuild,
+  owncloud-client-1.5.3.ebuild:
+  dev-qt/qtsql dependency was lost in the ebuilds merge from ocsync, thanks
+  again Daniel Kenzelmann in bug #504696
+
+*owncloud-client-1.5.3 (10 Mar 2014)
+
+  10 Mar 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +owncloud-client-1.5.3.ebuild:
+  Version bump
+
+*owncloud-client-1.5.2 (26 Feb 2014)
+
+  26 Feb 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +owncloud-client-1.5.2.ebuild:
+  Version bump, mostly bugfixes
+
+*owncloud-client-1.5.1 (24 Feb 2014)
+
+  24 Feb 2014; Bernard Cafarelli <voyageur@gentoo.org>
+  +owncloud-client-1.5.1.ebuild, metadata.xml:
+  Version bump, update ebuild for ocsync merge, fixes bug #501372
 
   07 Feb 2014; Bernard Cafarelli <voyageur@gentoo.org>
   owncloud-client-1.5.0.ebuild:

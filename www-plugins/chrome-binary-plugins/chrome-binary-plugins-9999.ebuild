@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-plugins/chrome-binary-plugins/chrome-binary-plugins-9999.ebuild,v 1.11 2013/12/04 03:58:55 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-plugins/chrome-binary-plugins/chrome-binary-plugins-9999.ebuild,v 1.13 2014/08/08 02:26:33 floppym Exp $
 
 EAPI=4
 
 inherit multilib unpacker
 
-DESCRIPTION="Binary plugins -- native API Flash and PDF -- from Google Chrome for use in Chromium."
+DESCRIPTION="Binary plugins from Google Chrome for use in Chromium"
 HOMEPAGE="http://www.google.com/chrome"
 SLOT="unstable"
 URI_BASE="https://dl.google.com/linux/direct/"
@@ -17,8 +17,6 @@ LICENSE="google-chrome"
 KEYWORDS="" # KEYWORDS is also left blank on live ebuild
 IUSE="+flash +pdf"
 RESTRICT="bindist mirror strip"
-
-RDEPEND="www-client/chromium"
 
 for x in 0 beta stable unstable; do
 	if [[ ${SLOT} != ${x} ]]; then

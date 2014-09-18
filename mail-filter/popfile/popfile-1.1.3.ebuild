@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/popfile/popfile-1.1.3.ebuild,v 1.2 2014/02/07 20:44:29 creffett Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/popfile/popfile-1.1.3.ebuild,v 1.7 2014/07/23 02:29:13 patrick Exp $
 
 EAPI=5
 inherit eutils
@@ -11,7 +11,7 @@ SRC_URI="http://getpopfile.org/downloads/${P}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="cjk ipv6 mysql ssl xmlrpc"
 
 RDEPEND="virtual/perl-Digest-MD5
@@ -21,8 +21,7 @@ RDEPEND="virtual/perl-Digest-MD5
 	dev-perl/HTML-Template
 	dev-perl/TimeDate
 	dev-perl/DBI
-	perl-core/digest-base
-	perl-core/Digest-MD5
+	virtual/perl-Digest
 	cjk? ( dev-perl/Encode-compat
 		dev-perl/Text-Kakasi )
 	mysql? ( dev-perl/DBD-mysql	)
@@ -33,6 +32,8 @@ RDEPEND="virtual/perl-Digest-MD5
 	xmlrpc? ( dev-perl/PlRPC )"
 
 DEPEND="app-arch/unzip"
+
+S="${WORKDIR}"
 
 src_prepare() {
 	local f

@@ -1,6 +1,30 @@
 # ChangeLog for net-misc/aria2
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/aria2/ChangeLog,v 1.91 2013/10/16 20:57:56 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/aria2/ChangeLog,v 1.97 2014/08/21 14:19:37 armin76 Exp $
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> aria2-1.18.0.ebuild,
+  aria2-1.18.5.ebuild:
+  Add ~sparc wrt #488294
+
+  04 Jul 2014; Tiziano Müller <dev-zero@gentoo.org>
+  +files/aria2-1.18.5-fix-gnutls-2.x-compatibility.patch, aria2-1.18.5.ebuild:
+  Add backported gnutls-2.x compatibility fix (bug #516226).
+
+*aria2-1.18.5 (27 Jun 2014)
+
+  27 Jun 2014; Tiziano Müller <dev-zero@gentoo.org> +aria2-1.18.5.ebuild,
+  metadata.xml:
+  Version bump (bug #514944), add USE flags to switch malloc() implementation.
+
+  28 May 2014; Sergey Popov <pinkbyte@gentoo.org> aria2-1.18.0.ebuild:
+  Add ~amd64-linux and ~x86-linux, wrt bug #488294
+
+  01 Mar 2014; Michał Górny <mgorny@gentoo.org> aria2-1.15.2.ebuild,
+  aria2-1.16.3.ebuild, aria2-1.16.5.ebuild:
+  Update libgcrypt dep to use slot :0.
+
+  16 Feb 2014; Markus Meier <maekke@gentoo.org> aria2-1.18.0.ebuild:
+  add ~arm, bug #499146
 
 *aria2-1.18.0 (16 Oct 2013)
 

@@ -1,6 +1,36 @@
 # ChangeLog for mail-client/trojita
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/mail-client/trojita/ChangeLog,v 1.29 2014/01/14 08:20:46 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-client/trojita/ChangeLog,v 1.36 2014/06/14 10:34:50 phajdan.jr Exp $
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> trojita-0.4.1.ebuild:
+  x86 stable wrt bug #508776
+
+  23 May 2014; Markos Chandras <hwoarang@gentoo.org> trojita-0.4.1.ebuild:
+  Stable on amd64 wrt bug #508776
+
+  29 Apr 2014; Johannes Huber <johu@gentoo.org> metadata.xml,
+  trojita-9999.ebuild:
+  Rename USE flag crypt to password requested by upstream maintainer Jan Kundrát
+  <jkt@gentoo.org>.
+
+  29 Apr 2014; Johannes Huber <johu@gentoo.org> metadata.xml,
+  trojita-9999.ebuild:
+  Add USE flag crypt which enables optional support for secure password storage
+  via dev-libs/qtkeychain by Jan Kundrát <jkt@gentoo.org>, bug #508774.
+
+  21 Mar 2014; Agostino Sarubbo <ago@gentoo.org> -trojita-0.4.ebuild:
+  Remove old
+
+*trojita-0.4.1 (21 Mar 2014)
+
+  21 Mar 2014; Agostino Sarubbo <ago@gentoo.org> +trojita-0.4.1.ebuild:
+  Version bump to 0.4.1 to fix CVE-2014-2567, wrt bug #505146
+
+*trojita-0.4 (06 Mar 2014)
+
+  06 Mar 2014; Tomáš Chvátal <scarabeus@gentoo.org> +trojita-0.4.ebuild,
+  -trojita-0.3.96-r1.ebuild, trojita-9999.ebuild:
+  Version bump to 0.4 and update linguas. Proxy commit for jkt. Wrt bug#503518
 
   14 Jan 2014; Agostino Sarubbo <ago@gentoo.org> -trojita-0.3.93.ebuild,
   trojita-0.3.96-r1.ebuild, trojita-9999.ebuild:

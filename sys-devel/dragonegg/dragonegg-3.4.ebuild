@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/dragonegg/dragonegg-3.4.ebuild,v 1.1 2014/01/06 23:24:55 voyageur Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/dragonegg/dragonegg-3.4.ebuild,v 1.3 2014/06/25 17:41:10 voyageur Exp $
 
 EAPI=5
-inherit multilib toolchain-funcs
+inherit eutils multilib toolchain-funcs
 
 DESCRIPTION="GCC plugin that uses LLVM for optimization and code generation"
 HOMEPAGE="http://dragonegg.llvm.org/"
@@ -17,8 +17,12 @@ IUSE="test"
 
 DEPEND="|| ( sys-devel/gcc:4.5[lto]
 		>=sys-devel/gcc-4.6 )
-	~sys-devel/llvm-${PV}"
+	=sys-devel/llvm-${PV}*"
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	epatch "${FILESDIR}"/${PN}-gcc-4.8.patch
+}
 
 src_compile() {
 	# GCC: compiler to use plugin with

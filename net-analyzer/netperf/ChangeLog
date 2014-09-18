@@ -1,6 +1,27 @@
 # ChangeLog for net-analyzer/netperf
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/netperf/ChangeLog,v 1.59 2012/09/27 15:52:23 jer Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/netperf/ChangeLog,v 1.65 2014/08/10 20:59:26 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> netperf-2.5.0-r1.ebuild,
+  netperf-2.6.0-r1.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  09 Aug 2014; Agostino Sarubbo <ago@gentoo.org> netperf-2.6.0-r1.ebuild:
+  Stable for ppc, wrt bug #517128
+
+  03 Aug 2014;  <tgall@gentoo.org> netperf-2.6.0-r1.ebuild:
+  arm64, initial support
+
+  31 Jul 2014; Jeroen Roovers <jer@gentoo.org> netperf-2.6.0-r1.ebuild:
+  Stable for HPPA (bug #517128).
+
+  26 Jul 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> netperf-2.6.0-r1.ebuild:
+  x86 stable wrt bug #517128
+
+  14 Jul 2014; Jeroen Roovers <jer@gentoo.org> -netperf-2.6.0.ebuild,
+  netperf-2.6.0-r1.ebuild, +files/netperf-2.6.0-log-dir.patch,
+  files/netperf-fix-scripts.patch:
+  EAPI bump. Whitespace. cp must die(). Change sed script into patch.
 
   27 Sep 2012; Jeroen Roovers <jer@gentoo.org> netperf-2.6.0-r1.ebuild,
   metadata.xml:

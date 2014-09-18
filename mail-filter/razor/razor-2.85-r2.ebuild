@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/mail-filter/razor/razor-2.85-r2.ebuild,v 1.1 2013/09/01 16:52:01 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/mail-filter/razor/razor-2.85-r2.ebuild,v 1.9 2014/07/23 00:26:01 dilfridge Exp $
 
 EAPI=5
 
@@ -14,14 +14,14 @@ SRC_URI="mirror://sourceforge/razor/${MY_P}.tar.bz2"
 
 LICENSE="Artistic"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~x86-macos"
+KEYWORDS="alpha amd64 hppa ppc ppc64 sparc x86 ~amd64-linux ~x86-linux ~x86-macos"
 # This package warrants IUSE doc
 IUSE=""
 
 DEPEND=""
 
 RDEPEND="dev-perl/Net-DNS
-	virtual/perl-net-ping
+	virtual/perl-Net-Ping
 	virtual/perl-Time-HiRes
 	|| ( virtual/perl-Digest-SHA dev-perl/Digest-SHA1 )
 	dev-perl/URI

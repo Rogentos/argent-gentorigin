@@ -1,16 +1,16 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/flashrom/flashrom-9999.ebuild,v 1.7 2013/12/20 19:13:29 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/flashrom/flashrom-9999.ebuild,v 1.10 2014/08/04 02:13:47 vapier Exp $
 
 EAPI="5"
 
 inherit eutils toolchain-funcs
 if [[ ${PV} == "9999" ]] ; then
-	ESVN_REPO_URI="svn://coreboot.org/flashrom/trunk"
+	ESVN_REPO_URI="svn://flashrom.org/flashrom/trunk"
 	inherit subversion
 else
 	SRC_URI="http://download.flashrom.org/releases/${P}.tar.bz2"
-	KEYWORDS="~amd64 ~arm ~x86"
+	KEYWORDS="~amd64 ~arm ~mips ~x86"
 fi
 
 DESCRIPTION="Utility for reading, writing, erasing and verifying flash ROM chips"
@@ -102,7 +102,7 @@ src_test() {
 src_install() {
 	dosbin flashrom
 	doman flashrom.8
-	dodoc ChangeLog README Documentation/*.txt
+	dodoc README Documentation/*.txt
 
 	if use tools; then
 		if use amd64; then

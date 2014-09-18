@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/avidemux-core/avidemux-core-9999.ebuild,v 1.6 2014/01/30 18:13:38 tomwij Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/avidemux-core/avidemux-core-9999.ebuild,v 1.8 2014/08/10 21:07:42 slyfox Exp $
 
 EAPI="5"
 
@@ -8,7 +8,7 @@ inherit cmake-utils eutils flag-o-matic
 
 SLOT="2.6"
 
-DESCRIPTION="Core libraries for a video editor designed for simple cutting, filtering and encoding tasks."
+DESCRIPTION="Core libraries for a video editor designed for simple cutting, filtering and encoding tasks"
 HOMEPAGE="http://fixounet.free.fr/avidemux"
 
 # Multiple licenses because of all the bundled stuff.
@@ -44,9 +44,9 @@ RDEPEND="
 "
 DEPEND="
 	$DEPEND
-	virtual/pkgconfig:0
-	nls? ( sys-devel/gettext:0 )
-	!system-ffmpeg? ( dev-lang/yasm:0[nls=] )
+	virtual/pkgconfig
+	nls? ( sys-devel/gettext )
+	!system-ffmpeg? ( dev-lang/yasm[nls=] )
 "
 
 S="${WORKDIR}/${MY_P}"

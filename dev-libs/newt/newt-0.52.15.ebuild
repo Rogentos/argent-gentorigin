@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/newt/newt-0.52.15.ebuild,v 1.4 2013/10/03 08:25:46 naota Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/newt/newt-0.52.15.ebuild,v 1.11 2014/08/14 16:51:44 phajdan.jr Exp $
 
 EAPI="5"
 
 PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit eutils multilib python-r1 autotools toolchain-funcs
+inherit python-r1 eutils multilib autotools toolchain-funcs
 
 DESCRIPTION="Redhat's Newt windowing toolkit development files"
 HOMEPAGE="https://fedorahosted.org/newt/"
@@ -14,7 +14,7 @@ SRC_URI="https://fedorahosted.org/releases/n/e/newt/${P}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="~alpha ~amd64 arm hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc x86 ~x86-fbsd"
 IUSE="gpm tcl nls"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -62,24 +62,28 @@ src_prepare() {
 
 src_configure() {
 	econf \
+		PYTHONVERS="${PYTHON}" \
 		$(use_with gpm gpm-support) \
 		$(use_with tcl) \
 		$(use_enable nls)
 }
 
-python_compile() {
-	emake PYTHONVERS="${PYTHON}" || die "emake failed"
+src_compile() {
+	building() {
+		emake PYTHONVERS="${EPYTHON}"
+	}
+	python_foreach_impl building
 }
 
-python_install() {
-	emake \
-		DESTDIR="${D}" \
-		PYTHONVERS="${PYTHON}" \
-		install || die "make install failed"
-	python_optimize
-}
-
-python_install_all() {
+src_install() {
+	installit() {
+		emake \
+			DESTDIR="${D}" \
+			PYTHONVERS="${EPYTHON}" \
+			install
+		python_optimize
+	}
+	python_foreach_impl installit
 	dodoc peanuts.py popcorn.py tutorial.sgml
 	doman whiptail.1
 }

@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/elementary/elementary-1.8.4.ebuild,v 1.1 2014/02/01 15:13:41 tommy Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/elementary/elementary-1.8.4.ebuild,v 1.3 2014/08/10 21:08:25 slyfox Exp $
 
 EAPI=3
 
@@ -16,11 +16,11 @@ fi
 
 inherit enlightenment
 
-DESCRIPTION="Basic widget set, based on EFL for mobile touch-screen devices."
+DESCRIPTION="Basic widget set, based on EFL for mobile touch-screen devices"
 HOMEPAGE="http://trac.enlightenment.org/e/wiki/Elementary"
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="debug examples fbcon quicklaunch sdl wayland X static-libs"
 
 DEPEND="

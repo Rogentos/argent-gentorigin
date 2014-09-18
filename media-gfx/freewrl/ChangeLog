@@ -1,6 +1,33 @@
 # ChangeLog for media-gfx/freewrl
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-gfx/freewrl/ChangeLog,v 1.53 2013/12/23 16:20:49 axs Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-gfx/freewrl/ChangeLog,v 1.59 2014/05/01 14:16:11 axs Exp $
+
+  01 May 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +files/freewrl-2.3.3-ld.gold.patch, freewrl-1.22.13-r3.ebuild,
+  freewrl-2.3.3.ebuild:
+  fix library underlinking issue that caused link breakage with ld.gold
+
+  25 Apr 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> freewrl-2.3.3.ebuild:
+  fixed distfile on new version
+
+  22 Apr 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> metadata.xml:
+  added long description to metadata
+
+*freewrl-2.3.3 (22 Apr 2014)
+
+  22 Apr 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org> +freewrl-2.3.3.ebuild,
+  freewrl-9999.ebuild, metadata.xml:
+  version bump
+
+  14 Mar 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +files/freewrl-1.22.13-java-fix.patch, -freewrl-1.22.13-r1.ebuild,
+  freewrl-1.22.13-r3.ebuild, freewrl-9999.ebuild:
+  more java build fixes; remove old
+
+  12 Mar 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  freewrl-1.22.13-r1.ebuild, freewrl-1.22.13-r3.ebuild, freewrl-9999.ebuild:
+  fixed configuration error when building against spidermonkeys older than
+  1.8.5; migrated live ebuild to new git upstream repo
 
 *freewrl-1.22.13-r3 (23 Dec 2013)
 

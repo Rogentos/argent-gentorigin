@@ -1,6 +1,97 @@
 # ChangeLog for sys-apps/man-pages
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-pages/ChangeLog,v 1.207 2014/01/30 20:28:46 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/man-pages/ChangeLog,v 1.226 2014/08/22 03:30:31 vapier Exp $
+
+*man-pages-3.71 (22 Aug 2014)
+
+  22 Aug 2014; Mike Frysinger <vapier@gentoo.org> +man-pages-3.71.ebuild:
+  Version bump.
+
+  22 Aug 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.70.ebuild:
+  Stabilize for all.
+
+  31 Jul 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.69.ebuild:
+  Stabilize for all.
+
+*man-pages-3.70 (11 Jul 2014)
+
+  11 Jul 2014; Tim Harder <radhermit@gentoo.org> +man-pages-3.70.ebuild:
+  Version bump.
+
+  06 Jul 2014; Joshua Kinard <kumba@gentoo.org> man-pages-3.63.ebuild,
+  man-pages-3.67.ebuild:
+  Changed mips -> ~mips: we don't have a stable keyword anymore.
+
+*man-pages-3.69 (16 Jun 2014)
+
+  16 Jun 2014; Mike Frysinger <vapier@gentoo.org> +man-pages-3.69.ebuild:
+  Version bump.
+
+  16 Jun 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.67.ebuild:
+  Stabilize for all.
+
+*man-pages-3.68 (11 Jun 2014)
+
+  11 Jun 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.65.ebuild,
+  +man-pages-3.68.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.67 (24 May 2014)
+
+  24 May 2014; Lars Wendler <polynomial-c@gentoo.org> +man-pages-3.67.ebuild:
+  Version bump.
+
+*man-pages-3.66 (19 May 2014)
+
+  19 May 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.64.ebuild,
+  +man-pages-3.66.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.65 (20 Apr 2014)
+
+  20 Apr 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.57.ebuild,
+  -man-pages-3.62.ebuild, +man-pages-3.65.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.64 (06 Apr 2014)
+
+  06 Apr 2014; Mike Frysinger <vapier@gentoo.org> +man-pages-3.64.ebuild:
+  Version bump.
+
+  06 Apr 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.63.ebuild:
+  Stabilize for all.
+
+*man-pages-3.63 (18 Mar 2014)
+
+  18 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.61.ebuild,
+  +man-pages-3.63.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.62 (12 Mar 2014)
+
+  12 Mar 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.60.ebuild,
+  +man-pages-3.62.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.61 (27 Feb 2014)
+
+  27 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.56.ebuild,
+  -man-pages-3.58.ebuild, +man-pages-3.61.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.60 (18 Feb 2014)
+
+  18 Feb 2014; Lars Wendler <polynomial-c@gentoo.org> -man-pages-3.53.ebuild,
+  -man-pages-3.55.ebuild, +man-pages-3.60.ebuild:
+  Version bump. Removed old.
+
+*man-pages-3.58 (16 Feb 2014)
+
+  16 Feb 2014; Mike Frysinger <vapier@gentoo.org> +man-pages-3.58.ebuild:
+  Version bump.
+
+  16 Feb 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.57.ebuild:
+  Stabilize for all.
 
   30 Jan 2014; Mike Frysinger <vapier@gentoo.org> man-pages-3.56.ebuild:
   Stabilize for all.

@@ -1,6 +1,40 @@
 # ChangeLog for perl-core/Module-CoreList
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/perl-core/Module-CoreList/ChangeLog,v 1.81 2014/01/20 20:57:02 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/perl-core/Module-CoreList/ChangeLog,v 1.87 2014/07/09 20:32:49 dilfridge Exp $
+
+  09 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -Module-CoreList-2.940.0.ebuild, -Module-CoreList-2.960.0.ebuild,
+  -Module-CoreList-2.970.0.ebuild, -Module-CoreList-3.0.0.ebuild,
+  -Module-CoreList-3.70.0.ebuild, -Module-CoreList-3.110.0.ebuild:
+  Remove old
+
+*Module-CoreList-5.21.1 (08 Jul 2014)
+
+  08 Jul 2014; Mikle Kolyada <zlogene@gentoo.org>
+  +Module-CoreList-5.21.1.ebuild:
+  Version bump
+
+  04 Jul 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  -Module-CoreList-2.800.0.ebuild:
+  Remove old
+
+*Module-CoreList-3.110.0 (28 May 2014)
+
+  28 May 2014; Mikle Kolyada <zlogene@gentoo.org>
+  +Module-CoreList-3.110.0.ebuild:
+  Version bump
+
+*Module-CoreList-3.70.0 (11 Mar 2014)
+
+  11 Mar 2014; Mikle Kolyada <zlogene@gentoo.org>
+  +Module-CoreList-3.70.0.ebuild:
+  Version bump
+
+*Module-CoreList-3.0.0 (11 Mar 2014)
+
+  11 Mar 2014; Mikle Kolyada <zlogene@gentoo.org> +Module-CoreList-3.0.0.ebuild,
+  -Module-CoreList-3.000.000.ebuild:
+  Normalize gentoo version scheme
 
   20 Jan 2014; Mike Frysinger <vapier@gentoo.org>
   Module-CoreList-2.840.0.ebuild, Module-CoreList-2.940.0.ebuild,

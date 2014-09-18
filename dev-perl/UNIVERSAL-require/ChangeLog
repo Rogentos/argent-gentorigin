@@ -1,6 +1,32 @@
 # ChangeLog for dev-perl/UNIVERSAL-require
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/UNIVERSAL-require/ChangeLog,v 1.24 2013/10/29 07:04:33 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/UNIVERSAL-require/ChangeLog,v 1.29 2014/08/22 18:28:32 axs Exp $
+
+*UNIVERSAL-require-0.150.0-r1 (22 Aug 2014)
+
+  22 Aug 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +UNIVERSAL-require-0.150.0-r1.ebuild, -UNIVERSAL-require-0.150.0.ebuild:
+  bumped current stable ebuild(s) EAPI to 5; committed directly to stable as no
+  other changes present and revbump helps stable systems to keep from dieing on
+  perl-5.18 upgrade
+
+  08 Mar 2014; Mikle Kolyada <zlogene@gentoo.org>
+  -UNIVERSAL-require-0.130.0.ebuild, -UNIVERSAL-require-0.140.0.ebuild,
+  UNIVERSAL-require-0.150.0.ebuild:
+  sparc stable wrt bug #495498; Drop old.
+
+  02 Mar 2014; Pacho Ramos <pacho@gentoo.org> UNIVERSAL-require-0.150.0.ebuild:
+  amd64 stable, bug #495498
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org>
+  UNIVERSAL-require-0.150.0.ebuild:
+  x86 stable wrt bug #495498
+
+*UNIVERSAL-require-0.160.0 (15 Feb 2014)
+
+  15 Feb 2014; Tim Harder <radhermit@gentoo.org>
+  +UNIVERSAL-require-0.160.0.ebuild:
+  Version bump.
 
 *UNIVERSAL-require-0.150.0 (29 Oct 2013)
 

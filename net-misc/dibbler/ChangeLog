@@ -1,6 +1,16 @@
 # ChangeLog for net-misc/dibbler
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/dibbler/ChangeLog,v 1.26 2014/01/28 09:03:47 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/dibbler/ChangeLog,v 1.28 2014/08/22 12:00:03 voyageur Exp $
+
+*dibbler-1.0.0_rc2 (22 Aug 2014)
+
+  22 Aug 2014; Bernard Cafarelli <voyageur@gentoo.org> -dibbler-0.7.3.ebuild,
+  -dibbler-0.8.3-r1.ebuild, +dibbler-1.0.0_rc2.ebuild:
+  Version bump to 1.0 rc, reported to work better than current 0.8 branch.
+  Fixes bug #487876 by Alexander Wright
+
+  22 Feb 2014; Agostino Sarubbo <ago@gentoo.org> dibbler-0.8.4.ebuild:
+  Stable for x86, wrt bug #499102
 
   28 Jan 2014; Chema Alonso <nimiux@gentoo.org> dibbler-0.8.4.ebuild:
   Stable for amd64 wrt bug #499102

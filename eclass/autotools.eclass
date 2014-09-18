@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/autotools.eclass,v 1.159 2013/12/31 16:53:05 vapier Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/autotools.eclass,v 1.163 2014/08/12 12:15:55 vapier Exp $
 
 # @ECLASS: autotools.eclass
 # @MAINTAINER:
@@ -13,8 +13,8 @@
 # Note: We require GNU m4, as does autoconf.  So feel free to use any features
 # from the GNU version of m4 without worrying about other variants (i.e. BSD).
 
-if [[ ${___ECLASS_ONCE_AUTOTOOLS} != "recur -_+^+_- spank" ]] ; then
-___ECLASS_ONCE_AUTOTOOLS="recur -_+^+_- spank"
+if [[ -z ${_AUTOTOOLS_ECLASS} ]]; then
+_AUTOTOOLS_ECLASS=1
 
 inherit libtool multiprocessing
 
@@ -74,7 +74,7 @@ if [[ -n ${WANT_AUTOCONF} ]] ; then
 		none)       _autoconf_atom="" ;; # some packages don't require autoconf at all
 		2.1)        _autoconf_atom="=sys-devel/autoconf-${WANT_AUTOCONF}*" ;;
 		# if you change the "latest" version here, change also autotools_env_setup
-		latest|2.5) _autoconf_atom=">=sys-devel/autoconf-2.68" ;;
+		latest|2.5) _autoconf_atom=">=sys-devel/autoconf-2.69" ;;
 		*)          die "Invalid WANT_AUTOCONF value '${WANT_AUTOCONF}'" ;;
 	esac
 	export WANT_AUTOCONF
@@ -342,7 +342,7 @@ eautoconf() {
 # @DESCRIPTION:
 # Runs automake.
 eautomake() {
-	local extra_opts
+	local extra_opts=()
 	local makefile_name
 
 	# Run automake if:
@@ -352,6 +352,10 @@ eautomake() {
 		[[ -f ${makefile_name} ]] && break
 	done
 
+	_automake_version() {
+		autotools_run_tool automake --version 2>/dev/null | sed -n -e '1{s:.*(GNU automake) ::p;q}'
+	}
+
 	if [[ -z ${makefile_name} ]] ; then
 		_at_uses_automake || return 0
 
@@ -359,8 +363,7 @@ eautomake() {
 		local used_automake
 		local installed_automake
 
-		installed_automake=$(WANT_AUTOMAKE= automake --version | head -n 1 | \
-			sed -e 's:.*(GNU automake) ::')
+		installed_automake=$(WANT_AUTOMAKE= _automake_version)
 		used_automake=$(head -n 1 < ${makefile_name%.am}.in | \
 			sed -e 's:.*by automake \(.*\) from .*:\1:')
 
@@ -373,10 +376,16 @@ eautomake() {
 	fi
 
 	[[ -f INSTALL && -f AUTHORS && -f ChangeLog && -f NEWS && -f README ]] \
-		|| extra_opts="${extra_opts} --foreign"
+		|| extra_opts+=( --foreign )
 
-	# --force-missing seems not to be recognized by some flavours of automake
-	autotools_run_tool automake --add-missing --copy ${extra_opts} "$@"
+	# Older versions of automake do not support --force-missing.  But we want
+	# to use this whenever possible to update random bundled files #133489.
+	case $(_automake_version) in
+	1.4|1.4[.-]*) ;;
+	*) extra_opts+=( --force-missing ) ;;
+	esac
+
+	autotools_run_tool automake --add-missing --copy "${extra_opts[@]}" "$@"
 }
 
 # @FUNCTION: eautopoint

@@ -1,6 +1,32 @@
 # ChangeLog for sys-power/acpid
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/acpid/ChangeLog,v 1.112 2014/01/31 15:51:12 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-power/acpid/ChangeLog,v 1.119 2014/08/24 09:04:35 ssuominen Exp $
+
+*acpid-2.0.23 (24 Aug 2014)
+
+  24 Aug 2014; Samuli Suominen <ssuominen@gentoo.org> +acpid-2.0.23.ebuild:
+  Version bump.
+
+  21 Jul 2014; Samuli Suominen <ssuominen@gentoo.org> acpid-2.0.22.ebuild:
+  Check for CONFIG_INPUT_EVDEV wrt #508460 by Thomas D.
+
+*acpid-2.0.22 (21 Mar 2014)
+
+  21 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> +acpid-2.0.22.ebuild:
+  Version bump.
+
+  26 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> -acpid-2.0.17-r1.ebuild,
+  -acpid-2.0.18.ebuild, -acpid-2.0.19.ebuild:
+  old
+
+  26 Feb 2014; Chema Alonso <nimiux@gentoo.org> acpid-2.0.20.ebuild:
+  Stable for amd64 wrt bug #496666
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> acpid-2.0.20.ebuild:
+  x86 stable wrt bug #496666
+
+  22 Feb 2014; Akinori Hattori <hattya@gentoo.org> acpid-2.0.20.ebuild:
+  ia64 stable wrt bug #496666
 
 *acpid-2.0.21 (31 Jan 2014)
 

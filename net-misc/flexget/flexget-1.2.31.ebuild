@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/flexget/flexget-1.2.31.ebuild,v 1.1 2014/01/11 23:10:09 floppym Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/flexget/flexget-1.2.31.ebuild,v 1.3 2014/07/06 12:55:43 mgorny Exp $
 
 EAPI=5
 
@@ -33,6 +33,7 @@ DEPEND="
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	>=dev-python/beautifulsoup-4.1:4[${PYTHON_USEDEP}]
 	<dev-python/beautifulsoup-4.4:4[${PYTHON_USEDEP}]
+	!=dev-python/beautifulsoup-4.2.0
 	>=dev-python/html5lib-0.11[${PYTHON_USEDEP}]
 	dev-python/PyRSS2Gen[${PYTHON_USEDEP}]
 	dev-python/pynzb[${PYTHON_USEDEP}]
@@ -46,7 +47,6 @@ DEPEND="
 	dev-python/python-tvrage[${PYTHON_USEDEP}]
 	dev-python/tmdb3[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
-	virtual/python-argparse[${PYTHON_USEDEP}]
 "
 RDEPEND="${DEPEND}
 	transmission? ( dev-python/transmissionrpc[${PYTHON_USEDEP}] )

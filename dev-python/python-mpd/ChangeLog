@@ -1,6 +1,27 @@
 # ChangeLog for dev-python/python-mpd
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/python-mpd/ChangeLog,v 1.34 2013/09/05 18:46:42 mgorny Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/python-mpd/ChangeLog,v 1.39 2014/07/06 12:49:07 mgorny Exp $
+
+  06 Jul 2014; Michał Górny <mgorny@gentoo.org> python-mpd-0.5.1.ebuild,
+  python-mpd-0.5.3.ebuild:
+  Clean up obsolete dependencies on virtual/python-argparse and virtual/python-
+  unittest2 (those packages were only required for <=python-2.6).
+
+  14 Jun 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> python-mpd-0.5.3.ebuild:
+  x86 stable wrt bug #509526
+
+  24 May 2014; Markos Chandras <hwoarang@gentoo.org> python-mpd-0.5.3.ebuild:
+  Stable on amd64 wrt bug #509526
+
+  31 Mar 2014; Michał Górny <mgorny@gentoo.org> python-mpd-0.5.1.ebuild,
+  python-mpd-0.5.3.ebuild:
+  Add support for the new PyPy slotting.
+
+*python-mpd-0.5.3 (22 Mar 2014)
+
+  22 Mar 2014; Christoph Mende <angelos@gentoo.org> +python-mpd-0.5.3.ebuild,
+  -python-mpd-0.4.6.ebuild:
+  Version bump, remove old
 
   05 Sep 2013; Michał Górny <mgorny@gentoo.org> python-mpd-0.4.6.ebuild,
   python-mpd-0.5.1.ebuild:

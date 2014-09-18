@@ -1,6 +1,37 @@
 # ChangeLog for dev-python/pandas
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pandas/ChangeLog,v 1.22 2014/01/22 13:41:41 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pandas/ChangeLog,v 1.29 2014/08/15 14:32:57 idella4 Exp $
+
+  15 Aug 2014; Ian Delaney <idella4@gentoo.org> pandas-0.14.1.ebuild:
+  update test phase
+
+  15 Aug 2014; Ian Delaney <idella4@gentoo.org> pandas-0.14.1.ebuild:
+  add commented links to bugs filed upstream
+
+*pandas-0.14.1 (14 Aug 2014)
+
+  14 Aug 2014; Ian Delaney <idella4@gentoo.org> +pandas-0.14.1.ebuild,
+  pandas-0.14.0.ebuild:
+  bump; update dep openpyxl, fix strict-aliasing qa issue
+
+  25 Jun 2014; Ian Delaney <idella4@gentoo.org> pandas-0.14.0.ebuild:
+  set no-strict-aliasing under py2.7, revise sed statement, correct doc location
+  for dohtml, fixes Bug #514870
+
+  24 Jun 2014; Patrick Lauer <patrick@gentoo.org> pandas-0.14.0.ebuild:
+  Whitespace
+
+*pandas-0.14.0 (24 Jun 2014)
+
+  24 Jun 2014; Ian Delaney <idella4@gentoo.org> +pandas-0.14.0.ebuild,
+  pandas-0.13.1.ebuild:
+  drop py2.6, update test phase
+
+*pandas-0.13.1 (21 Feb 2014)
+
+  21 Feb 2014; Justin Lecher <jlec@gentoo.org> +pandas-0.13.1.ebuild,
+  +files/pandas-0.13.1-backport-test-fix.patch:
+  Version BUmp
 
   22 Jan 2014; Justin Lecher <jlec@gentoo.org> pandas-0.13.0.ebuild:
   Doesn't build docs correctly with <sphinx-1.2.1, #498856

@@ -1,6 +1,14 @@
 # ChangeLog for dev-php/PEAR-Services_TinyURL
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-php/PEAR-Services_TinyURL/ChangeLog,v 1.2 2012/06/10 11:30:17 mabi Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-php/PEAR-Services_TinyURL/ChangeLog,v 1.4 2014/08/10 20:55:18 slyfox Exp $
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
+  PEAR-Services_TinyURL-0.1.2.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  12 Mar 2014; Patrick Lauer <patrick@gentoo.org>
+  PEAR-Services_TinyURL-0.1.2.ebuild:
+  Shorten description for improved repoman happy
 
   10 Jun 2012; Matti Bickel <mabi@gentoo.org>
   PEAR-Services_TinyURL-0.1.2.ebuild:
@@ -15,4 +23,3 @@
   07 Dec 2007; Jakub Moc <jakub@gentoo.org> +metadata.xml,
   +PEAR-Services_TinyURL-0.1.2.ebuild:
   New ebuild
-

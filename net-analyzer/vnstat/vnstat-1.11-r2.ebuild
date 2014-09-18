@@ -1,9 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/vnstat/vnstat-1.11-r2.ebuild,v 1.9 2012/06/12 03:36:17 zmedico Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/vnstat/vnstat-1.11-r2.ebuild,v 1.12 2014/07/23 01:03:46 mrueg Exp $
 
-EAPI="4"
-
+EAPI=5
 inherit toolchain-funcs user
 
 DESCRIPTION="Console-based network traffic monitor that keeps statistics of network usage"
@@ -17,8 +16,7 @@ IUSE="gd"
 
 DEPEND="
 	gd? ( media-libs/gd[png] )"
-RDEPEND="${DEPEND}
-	virtual/cron"
+RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	enewgroup vnstat
@@ -29,11 +27,7 @@ src_compile() {
 	sed -i 's:vnstat[.]log:vnstatd.log:' cfg/vnstat.conf || die
 	sed -i 's:vnstat[.]pid:vnstatd/vnstatd.pid:' cfg/vnstat.conf || die
 
-	if use gd; then
-		emake all CC="$(tc-getCC)" CFLAGS="${CFLAGS}"
-	else
-		emake CC="$(tc-getCC)" CFLAGS="${CFLAGS}"
-	fi
+	emake CC="$(tc-getCC)" CFLAGS="${CFLAGS}" $(usex gd all '')
 }
 
 src_install() {
@@ -46,8 +40,8 @@ src_install() {
 	doins cfg/vnstat.conf
 	fowners root:vnstat /etc/vnstat.conf
 
-	newconfd "${FILESDIR}/vnstatd.confd" vnstatd
-	newinitd "${FILESDIR}/vnstatd.initd" vnstatd
+	newconfd "${FILESDIR}"/vnstatd.confd vnstatd
+	newinitd "${FILESDIR}"/vnstatd.initd vnstatd
 
 	keepdir /var/lib/vnstat
 	fowners vnstat:vnstat /var/lib/vnstat
@@ -63,8 +57,8 @@ src_install() {
 
 pkg_postinst() {
 	# Workaround feature/bug #141619
-	chown -R vnstat:vnstat "${ROOT}/var/lib/vnstat"
-	chown vnstat:vnstat "${ROOT}/var/run/vnstatd"
+	chown -R vnstat:vnstat "${ROOT}"/var/lib/vnstat
+	chown vnstat:vnstat "${ROOT}"/var/run/vnstatd
 	ewarn "vnStat db files owning user and group has been changed to \"vnstat\"."
 
 	elog

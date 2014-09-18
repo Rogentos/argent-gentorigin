@@ -1,6 +1,15 @@
 # ChangeLog for media-libs/plotutils
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/plotutils/ChangeLog,v 1.70 2013/07/12 14:38:11 vincent Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-libs/plotutils/ChangeLog,v 1.73 2014/08/05 11:47:31 armin76 Exp $
+
+  05 Aug 2014; Raúl Porcel <armin76@gentoo.org> plotutils-2.6-r1.ebuild:
+  Add ~s390/~sparc wrt #468582
+
+  19 Jun 2014; Tobias Klausmann <klausman@gentoo.org> plotutils-2.6-r1.ebuild:
+  Keyworded on alpha, bug #468582
+
+  11 Feb 2014; Akinori Hattori <hattya@gentoo.org> plotutils-2.6-r1.ebuild:
+  keyword ~ia64 wrt bug #468582
 
   12 Jul 2013; Vicente Olivert Riera <vincent@gentoo.org>
   plotutils-2.6-r1.ebuild:

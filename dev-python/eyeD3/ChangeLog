@@ -1,6 +1,70 @@
 # ChangeLog for dev-python/eyeD3
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/eyeD3/ChangeLog,v 1.59 2013/06/21 16:14:25 idella4 Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/eyeD3/ChangeLog,v 1.75 2014/08/21 12:41:50 armin76 Exp $
+
+  21 Aug 2014; Raúl Porcel <armin76@gentoo.org> eyeD3-0.6.18-r1.ebuild,
+  eyeD3-0.6.18-r2.ebuild, eyeD3-0.7.1.ebuild, eyeD3-0.7.4.ebuild,
+  eyeD3-0.7.4-r1.ebuild, eyeD3-0.7.4-r2.ebuild:
+  Add ~sparc wrt bug #454638
+
+  19 Jun 2014; Tobias Klausmann <klausman@gentoo.org> eyeD3-0.7.4-r2.ebuild:
+  Keyworded on alpha, bug #454638
+
+  19 Jun 2014; Tobias Klausmann <klausman@gentoo.org> eyeD3-0.6.18-r2.ebuild:
+  Keyworded on alpha, bug #454638
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> eyeD3-0.7.4-r2.ebuild:
+  Restore ~arm after dropping python-magic dep.
+
+*eyeD3-0.6.18-r2 (11 Jun 2014)
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> +eyeD3-0.6.18-r2.ebuild:
+  Convert the :0 slot to distutils-r1. Clean up.
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> eyeD3-0.7.4-r2.ebuild:
+  Remove the python-magic dependency wrt bug #488270, and remove the pavement.py
+  line that tries to install it instead.
+
+*eyeD3-0.7.4-r2 (11 Jun 2014)
+
+  11 Jun 2014; Michał Górny <mgorny@gentoo.org> +eyeD3-0.7.4-r2.ebuild:
+  Wrap installed script properly. Add missing python-magic dep that causes auto-
+  download to happen during install.
+
+*eyeD3-0.7.4-r1 (01 Apr 2014)
+
+  01 Apr 2014; Samuli Suominen <ssuominen@gentoo.org> +eyeD3-0.7.4-r1.ebuild:
+  Replace "python" with content of EPYTHON variable in /usr/bin/eyeD3 wrt
+  #506422 by Andrew Udvare
+
+  10 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> eyeD3-0.6.18-r1.ebuild:
+  Remove temporary dependency for the eyeD3 binary since every reverse
+  dependency has been checked and adjusted accordingly.
+
+  08 Mar 2014; Markus Meier <maekke@gentoo.org> eyeD3-0.7.4.ebuild:
+  add ~arm, bug #454638
+
+  21 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> eyeD3-0.7.4.ebuild:
+  Drop python-magic dep wrt #488270
+
+  15 Feb 2014; Jeroen Roovers <jer@gentoo.org> eyeD3-0.7.4.ebuild:
+  Marked ~hppa (bug #454638).
+
+  15 Feb 2014; Akinori Hattori <hattya@gentoo.org> eyeD3-0.7.4.ebuild:
+  keyword ~ia64 wrt bug #454638
+
+  15 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> eyeD3-0.7.4.ebuild:
+  Drop Python 3.x support since it's clearly not ready wrt #501338, #501340 by
+  Jeroen Roovers
+
+*eyeD3-0.7.4 (14 Feb 2014)
+
+  14 Feb 2014; Samuli Suominen <ssuominen@gentoo.org> +eyeD3-0.7.4.ebuild:
+  Version bump.
+
+  14 Feb 2014; Akinori Hattori <hattya@gentoo.org> eyeD3-0.6.18-r1.ebuild,
+  eyeD3-0.7.1.ebuild:
+  keyword ~ia64 wrt bug #454638
 
   21 Jun 2013; Ian Delaney <idella4@gentoo.org> eyeD3-0.7.1.ebuild:
   update dev paver

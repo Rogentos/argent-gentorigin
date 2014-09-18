@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/pnp4nagios/pnp4nagios-0.6.21.ebuild,v 1.1 2013/05/11 13:43:34 idl0r Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/pnp4nagios/pnp4nagios-0.6.21.ebuild,v 1.6 2014/07/15 17:52:24 jer Exp $
 
 EAPI="5"
 
@@ -14,11 +14,11 @@ SRC_URI="mirror://sourceforge/${PN}/PNP-0.6/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
-KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 ppc ppc64 ~sparc x86"
 
 DEPEND="dev-lang/php[json,simplexml,zlib,xml,filter]
 	>=dev-lang/php-5.3
-	>=net-analyzer/rrdtool-1.2[perl]
+	>=net-analyzer/rrdtool-1.2[graph,perl]
 	|| ( net-analyzer/nagios-core net-analyzer/icinga )"
 RDEPEND="${DEPEND}
 	virtual/perl-Getopt-Long

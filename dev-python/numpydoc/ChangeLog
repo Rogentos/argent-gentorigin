@@ -1,6 +1,12 @@
 # ChangeLog for dev-python/numpydoc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/numpydoc/ChangeLog,v 1.4 2013/12/07 19:17:35 pacho Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/numpydoc/ChangeLog,v 1.6 2014/07/22 14:04:24 idella4 Exp $
+
+  22 Jul 2014; Ian Delaney <idella4@gentoo.org> numpydoc-0.4-r1.ebuild:
+  bump; drop py2.6 add py3 pypy
+
+  16 Feb 2014; Mike Frysinger <vapier@gentoo.org> numpydoc-0.4-r1.ebuild:
+  Mark arm stable.
 
   07 Dec 2013; Pacho Ramos <pacho@gentoo.org> numpydoc-0.4-r1.ebuild:
   x86 stable, bug #488738

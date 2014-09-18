@@ -1,6 +1,105 @@
 # ChangeLog for dev-libs/gobject-introspection
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/gobject-introspection/ChangeLog,v 1.103 2013/12/23 22:54:05 eva Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/gobject-introspection/ChangeLog,v 1.126 2014/08/23 15:28:14 ago Exp $
+
+  23 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.40.0-r1.ebuild:
+  Stable for ia64, wrt bug #512012
+
+  21 Aug 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.40.0-r1.ebuild:
+  Stable for ppc64, wrt bug #512012
+
+  07 Aug 2014; Jeroen Roovers <jer@gentoo.org>
+  gobject-introspection-1.40.0-r1.ebuild:
+  Stable for HPPA (bug #512012).
+
+*gobject-introspection-1.40.0-r1 (02 Aug 2014)
+
+  02 Aug 2014; Pacho Ramos <pacho@gentoo.org>
+  +gobject-introspection-1.40.0-r1.ebuild, -gobject-introspection-1.40.0.ebuild:
+  Revbump to force it's rebuilt with proper glib version
+
+  02 Aug 2014; Pacho Ramos <pacho@gentoo.org>
+  gobject-introspection-1.40.0.ebuild:
+  Rework the way we force glib and goi to be in sync (#518424 by Alexander Tsoy)
+
+  28 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.40.0.ebuild:
+  Stable for ppc, wrt bug #512012
+
+  23 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.40.0.ebuild:
+  Stable for x86, wrt bug #512012
+
+  22 Jul 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.40.0.ebuild:
+  Stable for amd64, wrt bug #512912
+
+  06 Jun 2014; Mike Frysinger <vapier@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Mark arm64/s390/sh stable.
+
+*gobject-introspection-1.40.0 (27 Apr 2014)
+
+  27 Apr 2014; Gilles Dartiguelongue <eva@gentoo.org>
+  +gobject-introspection-1.40.0.ebuild:
+  Version bump for Gnome 3.12.
+
+  25 Apr 2014; Pacho Ramos <pacho@gentoo.org>
+  -files/gobject-introspection-1.34.2-better-traceback.patch,
+  -files/gobject-introspection-1.36.0-detect-clang.patch,
+  -gobject-introspection-1.32.1.ebuild, -gobject-introspection-1.34.2-r1.ebuild,
+  -gobject-introspection-1.36.0-r1.ebuild:
+  drop old
+
+  21 Apr 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Stable for arm, wrt bug #507568
+
+  19 Apr 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Stable for sparc, wrt bug #507568
+
+  18 Apr 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Stable for alpha, wrt bug #507568
+
+  17 Apr 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Stable for ia64, wrt bug #507568
+
+  16 Apr 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Stable for ppc64, wrt bug #507568
+
+  14 Apr 2014; Agostino Sarubbo <ago@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Stable for ppc, wrt bug #507568
+
+  30 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  virtual/pkgconfig needed at runtime too (#505408 by James Le Cuirot)
+
+  28 Mar 2014; Jeroen Roovers <jer@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Stable for HPPA (bug #499954).
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  x86 stable, bug 499954
+
+  09 Mar 2014; Pacho Ramos <pacho@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  amd64 stable, bug 499954
+
+  22 Feb 2014; Pacho Ramos <pacho@gentoo.org>
+  gobject-introspection-1.38.0.ebuild:
+  Fix wrong commit, bug 502160
+
+  22 Feb 2014; Akinori Hattori <hattya@gentoo.org>
+  gobject-introspection-1.36.0-r1.ebuild:
+  ia64 stable wrt bug #494132
 
 *gobject-introspection-1.38.0 (23 Dec 2013)
 

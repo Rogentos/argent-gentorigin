@@ -1,12 +1,12 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libsndfile/libsndfile-1.0.25-r1.ebuild,v 1.5 2013/11/14 12:25:24 jlec Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libsndfile/libsndfile-1.0.25-r1.ebuild,v 1.15 2014/08/13 09:34:59 ago Exp $
 
 EAPI=5
 
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_PRUNE_LIBTOOL_FILES=all
-PYTHON_COMPAT=( python{2_6,2_7} pypy2_0 )
+PYTHON_COMPAT=( python{2_6,2_7} pypy pypy2_0 )
 inherit autotools-multilib flag-o-matic python-any-r1
 
 MY_P=${P/_pre/pre}
@@ -21,13 +21,13 @@ fi
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ~ppc64 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~x64-solaris ~x86-solaris"
 IUSE="alsa minimal sqlite static-libs test"
 
 RDEPEND="
-	!minimal? ( >=media-libs/flac-1.2.1[${MULTILIB_USEDEP}]
-		>=media-libs/libogg-1.1.3[${MULTILIB_USEDEP}]
-		>=media-libs/libvorbis-1.2.3[${MULTILIB_USEDEP}] )
+	!minimal? ( >=media-libs/flac-1.2.1-r5[${MULTILIB_USEDEP}]
+		>=media-libs/libogg-1.3.0[${MULTILIB_USEDEP}]
+		>=media-libs/libvorbis-1.3.3-r1[${MULTILIB_USEDEP}] )
 	alsa? ( media-libs/alsa-lib )
 	sqlite? ( >=dev-db/sqlite-3.2 )
 	abi_x86_32? ( !<=app-emulation/emul-linux-x86-soundlibs-20130224-r6

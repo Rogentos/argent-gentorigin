@@ -1,6 +1,19 @@
 # ChangeLog for dev-perl/Mail-Box
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Mail-Box/ChangeLog,v 1.10 2013/12/14 17:26:47 aidecoe Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Mail-Box/ChangeLog,v 1.13 2014/08/24 02:12:06 axs Exp $
+
+*Mail-Box-2.109.0-r1 (24 Aug 2014)
+
+  24 Aug 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +Mail-Box-2.109.0-r1.ebuild, -Mail-Box-2.109.0.ebuild:
+  bumped EAPI to 5; committed directly to stable as no other changes present and
+  revbump helps stable systems to keep from dieing on perl-5.18 upgrade
+
+  03 Mar 2014; Pacho Ramos <pacho@gentoo.org> Mail-Box-2.109.0.ebuild:
+  amd64 stable, bug #495428
+
+  24 Feb 2014; Pawel Hajdan jr <phajdan.jr@gentoo.org> Mail-Box-2.109.0.ebuild:
+  x86 stable wrt bug #495428
 
   14 Dec 2013; Amadeusz Żołnowski <aidecoe@gentoo.org> Mail-Box-2.108.ebuild,
   Mail-Box-2.109.0.ebuild:

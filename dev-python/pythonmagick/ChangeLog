@@ -1,6 +1,23 @@
 # ChangeLog for dev-python/pythonmagick
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pythonmagick/ChangeLog,v 1.43 2013/04/23 05:35:51 patrick Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pythonmagick/ChangeLog,v 1.46 2014/04/27 16:14:55 floppym Exp $
+
+  27 Apr 2014; Mike Gilbert <floppym@gentoo.org> pythonmagick-0.9.10.ebuild:
+  Add missing deps.
+
+*pythonmagick-0.9.10 (27 Apr 2014)
+
+  27 Apr 2014; Mike Gilbert <floppym@gentoo.org>
+  +files/pythonmagick-0.9.10-Makefile.am.patch,
+  +files/pythonmagick-0.9.10-ax_boost_python.patch, +pythonmagick-0.9.10.ebuild,
+  pythonmagick-0.9.7-r1.ebuild, pythonmagick-0.9.8.ebuild:
+  Version bump. Convert to python-r1, bug 508860 by Martin von Gagern. Use
+  mirror://imagemagick in SRC_URI.
+
+  25 Mar 2014; Ian Delaney <idella4@gentoo.org>
+  +files/pythonmagick-0.9.8-build.patch, pythonmagick-0.9.8.ebuild:
+  Patched to fix build issue, fixes Byg #500414 by megabaks, patch by M. von
+  Gagern
 
   23 Apr 2013; Patrick Lauer <patrick@gentoo.org> pythonmagick-0.9.8.ebuild:
   Better fix for automake dependency

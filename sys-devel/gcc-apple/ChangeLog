@@ -1,6 +1,18 @@
 # ChangeLog for sys-devel/gcc-apple
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gcc-apple/ChangeLog,v 1.23 2012/06/11 18:26:50 grobian Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-devel/gcc-apple/ChangeLog,v 1.26 2014/06/15 18:00:07 grobian Exp $
+
+  15 Jun 2014; Fabian Groffen <grobian@gentoo.org>
+  +files/gcc-apple-4.2.1_p5666-perl-5.18.patch, gcc-apple-4.2.1_p5666-r1.ebuild:
+  Fix build with perl-5.18
+
+  22 May 2014; Fabian Groffen <grobian@gentoo.org>
+  gcc-apple-4.2.1_p5666-r1.ebuild:
+  Add depend on sys-libs/csu for crt1.o
+
+  28 Feb 2014; Fabian Groffen <grobian@gentoo.org>
+  gcc-apple-4.2.1_p5666-r1.ebuild:
+  Do not override CC, but rather append what we need in 64-bits mode
 
   11 Jun 2012; Fabian Groffen <grobian@gentoo.org>
   -files/gcc-apple-4.2.1-gfortran.patch,
@@ -335,4 +347,3 @@
   New organisation of Apple's GCC ebuilds.  Ebuilds now carry the GCC
   version in their name.  All ebuilds rely on gcc-config, and appropriate
   slotting is applied.
-
