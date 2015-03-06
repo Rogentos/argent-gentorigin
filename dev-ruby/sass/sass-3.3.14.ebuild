@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/sass/sass-3.3.14.ebuild,v 1.2 2014/08/05 16:00:26 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/sass/sass-3.3.14.ebuild,v 1.4 2014/11/25 13:06:36 mrueg Exp $
 
 EAPI=5
 
@@ -24,7 +24,7 @@ IUSE=""
 
 ruby_add_bdepend "doc? ( >=dev-ruby/yard-0.5.3 )"
 
-ruby_add_rdepend ">=dev-ruby/listen-1.3.1:1 !!<dev-ruby/haml-3.1 !!<dev-ruby/sass-3.2.19-r1"
+ruby_add_rdepend ">=dev-ruby/listen-1.3.1 !!<dev-ruby/haml-3.1 !!<dev-ruby/sass-3.2.19-r1"
 
 # tests could use `less` if we had it
 
@@ -33,21 +33,6 @@ all_ruby_prepare() {
 
 	# Don't require maruku as markdown provider but let yard decide.
 	sed -i -e '/maruku/d' .yardopts || die
-}
-
-each_ruby_prepare() {
-	case ${RUBY} in
-		*jruby)
-			# Test fails on jruby for us, upstream can't
-			# reproduce. Avoiding it since it only affects debug
-			# information in the CSS file.
-			# https://github.com/nex3/sass/issues/563
-			sed -i -e '24s/filename_fn//' test/sass/plugin_test.rb || die
-			sed -i -e '/test_random/,/^  end/ s:^:#:' test/sass/functions_test.rb || die
-			;;
-		*)
-			;;
-	esac
 }
 
 each_ruby_test() {

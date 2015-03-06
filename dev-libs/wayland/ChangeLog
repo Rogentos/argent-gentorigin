@@ -1,6 +1,17 @@
 # ChangeLog for dev-libs/wayland
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/wayland/ChangeLog,v 1.47 2014/08/13 17:16:56 armin76 Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/wayland/ChangeLog,v 1.49 2015/02/09 01:19:26 chithanh Exp $
+
+*wayland-1.6.1 (09 Feb 2015)
+
+  09 Feb 2015; Chí-Thanh Christopher Nguyễn <chithanh@gentoo.org>
+  +wayland-1.6.1.ebuild, wayland-1.3.0.ebuild:
+  Version bump. Shut up repoman warning.
+
+*wayland-1.6.0 (26 Sep 2014)
+
+  26 Sep 2014; Matt Turner <mattst88@gentoo.org> +wayland-1.6.0.ebuild:
+  Version bump to 1.6.0.
 
   13 Aug 2014; Raúl Porcel <armin76@gentoo.org> wayland-1.4.0.ebuild,
   wayland-1.5.0.ebuild:

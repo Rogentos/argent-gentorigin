@@ -1,10 +1,10 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/echoe/echoe-4.6.6.ebuild,v 1.3 2014/06/04 18:42:57 graaff Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/echoe/echoe-4.6.6.ebuild,v 1.5 2014/10/29 19:00:31 mrueg Exp $
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby19 ruby20 ruby21"
 
 RUBY_FAKEGEM_TASK_TEST=""
 RUBY_FAKEGEM_TASK_DOC="docs"
@@ -19,7 +19,7 @@ RUBY_FAKEGEM_GEMSPEC="echoe.gemspec"
 inherit ruby-fakegem
 
 DESCRIPTION="Packaging tool that provides Rake tasks for common operations"
-HOMEPAGE="http://fauna.github.com/fauna/echoe/files/README.html"
+HOMEPAGE="https://github.com/evan/echoe"
 
 LICENSE="AFL-3.0 MIT"
 SLOT="0"

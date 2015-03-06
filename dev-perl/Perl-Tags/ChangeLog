@@ -1,6 +1,16 @@
 # ChangeLog for dev-perl/Perl-Tags
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Perl-Tags/ChangeLog,v 1.5 2012/06/24 13:00:34 tove Exp $
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Perl-Tags/ChangeLog,v 1.7 2014/12/13 20:42:06 dilfridge Exp $
+
+  13 Dec 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  Perl-Tags-0.280.0-r1.ebuild:
+  Add missing test dependency, bug 523722
+
+*Perl-Tags-0.280.0-r1 (26 Aug 2014)
+
+  26 Aug 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +Perl-Tags-0.280.0-r1.ebuild, -Perl-Tags-0.280.0.ebuild:
+  bumped EAPI to 5 to help with dev-lang/perl upgrade
 
   24 Jun 2012; Torsten Veller <tove@gentoo.org> metadata.xml:
   Update CPAN upstream info

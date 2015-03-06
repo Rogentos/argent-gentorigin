@@ -1,6 +1,19 @@
 # ChangeLog for dev-python/snakeoil
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/snakeoil/ChangeLog,v 1.71 2014/08/10 21:22:41 slyfox Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-python/snakeoil/ChangeLog,v 1.75 2015/02/09 10:53:49 pacho Exp $
+
+  09 Feb 2015; Pacho Ramos <pacho@gentoo.org> -snakeoil-0.5.2.ebuild:
+  Drop old version using deprecated eclasses and old EAPI
+
+  08 Jan 2015; Brian Dolbec <dolsen@gentoo.org> snakeoil-0.5.3.ebuild:
+  Add python-3.4 to the PYTHON_COMPAT list with Tim's blessing.
+
+  15 Dec 2014; Tim Harder <radhermit@gentoo.org> metadata.xml:
+  Drop dolsen as a maintainer and update upstream metadata.
+
+  18 Oct 2014; Mike Frysinger <vapier@gentoo.org> snakeoil-0.5.2.ebuild,
+  snakeoil-0.5.3.ebuild, snakeoil-9999.ebuild:
+  Add arm64/m68k love.
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> snakeoil-0.5.2.ebuild,
   snakeoil-0.5.3.ebuild, snakeoil-9999.ebuild:

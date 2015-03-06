@@ -1,9 +1,9 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/flexmock/flexmock-1.3.1.ebuild,v 1.4 2014/05/15 00:40:32 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/flexmock/flexmock-1.3.1.ebuild,v 1.6 2014/10/30 13:54:13 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby19 jruby"
+USE_RUBY="ruby19"
 
 RUBY_FAKEGEM_DOCDIR="html"
 RUBY_FAKEGEM_EXTRADOC="CHANGES README.md doc/*.rdoc doc/releases/*"
@@ -14,7 +14,7 @@ RUBY_FAKEGEM_RECIPE_DOC="none"
 inherit ruby-fakegem
 
 DESCRIPTION="Simple mock object library for Ruby unit testing"
-HOMEPAGE="http://${PN}.rubyforge.org/"
+HOMEPAGE="https://github.com/jimweirich/flexmock"
 
 LICENSE="flexmock"
 SLOT="0"

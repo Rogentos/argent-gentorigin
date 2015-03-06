@@ -1,6 +1,16 @@
 # ChangeLog for dev-perl/Bio-Graphics
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/dev-perl/Bio-Graphics/ChangeLog,v 1.41 2014/05/24 07:37:43 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-perl/Bio-Graphics/ChangeLog,v 1.43 2014/10/14 11:52:11 zlogene Exp $
+
+  14 Oct 2014; Mikle Kolyada <zlogene@gentoo.org> -Bio-Graphics-2.290.0.ebuild,
+  -Bio-Graphics-2.310.0.ebuild, -Bio-Graphics-2.320.0.ebuild:
+  Drop old.
+
+*Bio-Graphics-2.370.0-r1 (26 Aug 2014)
+
+  26 Aug 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +Bio-Graphics-2.370.0-r1.ebuild, -Bio-Graphics-2.370.0.ebuild:
+  bumped EAPI to 5 to help with dev-lang/perl upgrade
 
   24 May 2014; Pacho Ramos <pacho@gentoo.org> metadata.xml:
   Cleanup due #199047

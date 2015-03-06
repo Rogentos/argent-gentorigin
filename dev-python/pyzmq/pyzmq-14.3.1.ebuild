@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyzmq/pyzmq-14.3.1.ebuild,v 1.2 2014/08/14 23:22:48 blueness Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pyzmq/pyzmq-14.3.1.ebuild,v 1.8 2014/12/30 16:58:13 floppym Exp $
 
 EAPI=5
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
@@ -13,25 +13,20 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ia64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="doc examples green test"
 
-PY2_USEDEP=$(python_gen_usedep 'python2*')
+PY2_USEDEP=$(python_gen_usedep python2_7)
 RDEPEND=">=net-libs/zeromq-2.1.9
-	dev-python/py[${PY2_USEDEP}]
+	dev-python/py[${PYTHON_USEDEP}]
+	dev-python/cffi[${PYTHON_USEDEP}]
 	green? ( dev-python/gevent[${PY2_USEDEP}] )"
 DEPEND="${RDEPEND}
-	test? (	dev-python/cffi[${PYTHON_USEDEP}]
-		dev-python/nose[${PYTHON_USEDEP}] )
+	test? ( dev-python/nose[${PYTHON_USEDEP}] )
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
 
 python_configure_all() {
 	tc-export CC
-}
-
-python_prepare_all() {
-	sed -e s':intersphinx_mapping:#&:' -i docs/source/conf.py || die
-	distutils-r1_python_prepare_all
 }
 
 python_compile_all() {

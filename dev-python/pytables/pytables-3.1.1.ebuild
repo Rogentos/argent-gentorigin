@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pytables/pytables-3.1.1.ebuild,v 1.2 2014/06/21 15:17:30 idella4 Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/pytables/pytables-3.1.1.ebuild,v 1.4 2014/10/31 12:52:06 jlec Exp $
 
 EAPI=5
 
@@ -26,15 +26,19 @@ RDEPEND="
 	app-arch/bzip2:0=
 	dev-libs/c-blosc:0=
 	dev-libs/lzo:2=
-	dev-python/numpy[${PYTHON_USEDEP}]
+	<dev-python/numpy-1.9[${PYTHON_USEDEP}]
 	dev-python/numexpr[${PYTHON_USEDEP}]
 	sci-libs/hdf5:0="
 DEPEND="${RDEPEND}
-	dev-python/cython[${PYTHON_USEDEP}]"
+	>=dev-python/cython-0.14[${PYTHON_USEDEP}]"
 
 S="${WORKDIR}/${MY_P}"
 
 DOCS=( ANNOUNCE.txt RELEASE_NOTES.txt THANKS )
+
+PATCHES=(
+	"${FILESDIR}"/${P}-cython-backport.patch
+	)
 
 python_prepare_all() {
 	export HDF5_DIR="${EPREFIX}"/usr

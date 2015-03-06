@@ -1,10 +1,10 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-ruby/cmdparse/cmdparse-2.0.6.ebuild,v 1.1 2014/04/07 13:32:40 mrueg Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-ruby/cmdparse/cmdparse-2.0.6.ebuild,v 1.4 2015/01/31 17:21:51 graaff Exp $
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20 ruby21 jruby"
+USE_RUBY="ruby19 ruby20 ruby21 ruby22"
 
 RUBY_FAKEGEM_TASK_TEST=""
 
@@ -16,7 +16,7 @@ inherit ruby-fakegem
 IUSE=""
 
 DESCRIPTION="Advanced command line parser supporting commands"
-HOMEPAGE="http://cmdparse.rubyforge.org/"
+HOMEPAGE="http://cmdparse.gettalong.org/"
 
 KEYWORDS="~amd64 ~ppc64 ~x86"
 LICENSE="LGPL-3"
