@@ -1,6 +1,30 @@
 # ChangeLog for app-admin/apache-tools
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/apache-tools/ChangeLog,v 1.192 2014/07/24 02:29:14 patrick Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/app-admin/apache-tools/ChangeLog,v 1.198 2015/02/08 21:09:44 maekke Exp $
+
+  08 Feb 2015; Markus Meier <maekke@gentoo.org> apache-tools-2.2.29.ebuild:
+  arm stable, bug #535948
+
+  06 Feb 2015; Agostino Sarubbo <ago@gentoo.org> apache-tools-2.2.29.ebuild:
+  Stable for x86, wrt bug #535948
+
+  06 Feb 2015; Agostino Sarubbo <ago@gentoo.org> apache-tools-2.2.29.ebuild:
+  Stable for amd64, wrt bug #535948
+
+  05 Feb 2015; Jeroen Roovers <jer@gentoo.org> apache-tools-2.2.29.ebuild:
+  Stable for HPPA (bug #535948).
+
+*apache-tools-2.4.12 (04 Feb 2015)
+
+  04 Feb 2015; Lars Wendler <polynomial-c@gentoo.org>
+  -apache-tools-2.4.9-r1.ebuild, +apache-tools-2.4.12.ebuild:
+  Security bump (bug #538182). Removed old.
+
+*apache-tools-2.2.29 (22 Sep 2014)
+
+  22 Sep 2014; Lars Wendler <polynomial-c@gentoo.org>
+  +apache-tools-2.2.29.ebuild:
+  Version bump.
 
 *apache-tools-2.4.10 (24 Jul 2014)
 

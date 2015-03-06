@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-4.2.9999.ebuild,v 1.14 2014/08/15 09:10:14 scarabeus Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-4.2.9999.ebuild,v 1.34 2015/02/08 22:42:18 dilfridge Exp $
 
 EAPI=5
 
@@ -26,7 +26,7 @@ ADDONS_URI="http://dev-www.libreoffice.org/src/"
 BRANDING="${PN}-branding-gentoo-0.8.tar.xz"
 # PATCHSET="${P}-patchset-01.tar.xz"
 
-[[ ${PV} == *9999* ]] && SCM_ECLASS="git-2"
+[[ ${PV} == *9999* ]] && SCM_ECLASS="git-r3"
 inherit base autotools bash-completion-r1 check-reqs eutils java-pkg-opt-2 kde4-base pax-utils python-single-r1 multilib toolchain-funcs flag-o-matic nsplugins ${SCM_ECLASS}
 unset SCM_ECLASS
 
@@ -97,27 +97,26 @@ COMMON_DEPEND="
 	app-arch/unzip
 	>=app-text/hunspell-1.3.2-r3
 	app-text/mythes
-	app-text/libabw
+	=app-text/libabw-0.0*
 	>=app-text/libexttextcat-3.2
-	app-text/libebook
-	app-text/libetonyek
+	=app-text/libebook-0.0*
+	=app-text/libetonyek-0.0*
 	app-text/liblangtag
-	app-text/libmspub
-	>=app-text/libmwaw-0.2
-	>=app-text/libodfgen-0.0.3
+	=app-text/libmspub-0.0*
+	=app-text/libmwaw-0.2*
+	=app-text/libodfgen-0.0*	>=app-text/libodfgen-0.0.3
 	app-text/libwpd:0.9[tools]
 	app-text/libwpg:0.2
-	>=app-text/libwps-0.2.2
+	=app-text/libwps-0.2*
 	>=app-text/poppler-0.16:=[xpdf-headers(+),cxx]
 	>=dev-cpp/clucene-2.3.3.4-r2
-	dev-cpp/libcmis:0.4
+	=dev-cpp/libcmis-0.4*
 	dev-db/unixODBC
 	>=dev-libs/boost-1.46:=
 	dev-libs/expat
 	>=dev-libs/hyphen-2.7.1
 	>=dev-libs/icu-4.8.1.1:=
-	>=dev-libs/libatomic_ops-7.2d
-	=dev-libs/liborcus-0.5*:=
+	=dev-libs/liborcus-0.5*
 	>=dev-libs/nspr-4.8.8
 	>=dev-libs/nss-3.12.9
 	>=dev-lang/perl-5.0
@@ -129,9 +128,9 @@ COMMON_DEPEND="
 	>=media-libs/harfbuzz-0.9.18:=[icu(+)]
 	media-libs/lcms:2
 	>=media-libs/libpng-1.4
-	>=media-libs/libcdr-0.0.5
-	media-libs/libfreehand
-	media-libs/libvisio
+	=media-libs/libcdr-0.0*
+	=media-libs/libfreehand-0.0*
+	=media-libs/libvisio-0.0*
 	>=net-misc/curl-7.21.4
 	net-nds/openldap
 	sci-mathematics/lpsolve
@@ -170,7 +169,7 @@ COMMON_DEPEND="
 		virtual/glu
 		virtual/opengl
 	)
-	postgres? ( >=dev-db/postgresql-base-9.0[kerberos] )
+	postgres? ( >=dev-db/postgresql-9.0[kerberos] )
 	telepathy? (
 		dev-libs/glib:2
 		>=net-libs/telepathy-glib-0.18.0
@@ -203,6 +202,7 @@ fi
 #        after everything upstream is under gbuild
 #        as dmake execute tests right away
 DEPEND="${COMMON_DEPEND}
+	>=dev-libs/libatomic_ops-7.2d
 	>=dev-libs/libxml2-2.7.8
 	dev-libs/libxslt
 	dev-perl/Archive-Zip
@@ -237,6 +237,12 @@ DEPEND="${COMMON_DEPEND}
 PATCHES=(
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-3.7-system-pyuno.patch"
+
+	# from libreoffice-4-3 branch
+	"${FILESDIR}/${PN}-4.2.6.3-jpeg9.patch"
+
+	# from libreoffice-4-4 branch
+	"${FILESDIR}/${PN}-4.2.8.2-boost-1.56.0.patch"
 
 	# staged for git master
 	"${FILESDIR}/${PN}-4.2.0.4-curl-config.patch"
@@ -273,7 +279,7 @@ pkg_pretend() {
 
 	# Ensure pg version but we have to be sure the pg is installed (first
 	# install on clean system)
-	if use postgres && has_version dev-db/postgresql-base; then
+	if use postgres && has_version dev-db/postgresql; then
 		 pgslot=$(postgresql-config show)
 		 if [[ ${pgslot//.} < 90 ]] ; then
 			eerror "PostgreSQL slot must be set to 9.0 or higher."
@@ -307,12 +313,10 @@ src_unpack() {
 		for mod in ${MODULES}; do
 			mypv=${PV/.9999}
 			[[ ${mypv} != ${PV} ]] && EGIT_BRANCH="${PN}-${mypv/./-}"
-			EGIT_PROJECT="${PN}/${mod}"
-			EGIT_SOURCEDIR="${WORKDIR}/${P}"
-			[[ ${mod} != core ]] && EGIT_SOURCEDIR="${WORKDIR}/${PN}-${mod}-${PV}"
+			EGIT_CHECKOUT_DIR="${WORKDIR}/${P}"
+			[[ ${mod} != core ]] && EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}-${mod}-${PV}"
 			EGIT_REPO_URI="git://anongit.freedesktop.org/${PN}/${mod}"
-			EGIT_NOUNPACK="true"
-			git-2_src_unpack
+			git-r3_src_unpack
 			if [[ ${mod} != core ]]; then
 				mod2=${mod}
 				# mapping does not match on help
@@ -322,7 +326,7 @@ src_unpack() {
 				rm -rf "${WORKDIR}/${PN}-${mod}-${PV}"
 			fi
 		done
-		unset EGIT_PROJECT EGIT_SOURCEDIR EGIT_REPO_URI EGIT_BRANCH
+		unset EGIT_CHECKOUT_DIR EGIT_REPO_URI EGIT_BRANCH
 	fi
 }
 
@@ -553,6 +557,7 @@ src_install() {
 	if use branding; then
 		insinto /usr/$(get_libdir)/${PN}/program
 		newins "${WORKDIR}/branding-sofficerc" sofficerc
+		dodir /etc/env.d
 		echo "CONFIG_PROTECT=/usr/$(get_libdir)/${PN}/program/sofficerc" > "${ED}"/etc/env.d/99${PN}
 	fi
 
