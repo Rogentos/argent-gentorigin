@@ -1,6 +1,20 @@
 # ChangeLog for x11-wm/qtile
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/x11-wm/qtile/ChangeLog,v 1.10 2014/04/04 08:02:17 radhermit Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-wm/qtile/ChangeLog,v 1.14 2015/01/20 15:53:12 radhermit Exp $
+
+  20 Jan 2015; Tim Harder <radhermit@gentoo.org> qtile-9999.ebuild:
+  Use https git repo URL.
+
+  20 Jan 2015; Tim Harder <radhermit@gentoo.org> qtile-9999.ebuild:
+  Drop old pycairo and xpyb deps.
+
+  05 Jan 2015; Tim Harder <radhermit@gentoo.org> qtile-9999.ebuild:
+  Update deps.
+
+*qtile-0.8.0 (27 Aug 2014)
+
+  27 Aug 2014; Tim Harder <radhermit@gentoo.org> +qtile-0.8.0.ebuild:
+  Version bump.
 
 *qtile-0.7.0 (04 Apr 2014)
 
