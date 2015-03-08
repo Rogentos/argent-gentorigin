@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ffmpeg-9999.ebuild,v 1.169 2014/08/10 20:58:53 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/ffmpeg/ffmpeg-9999.ebuild,v 1.177 2015/01/30 16:40:48 mgorny Exp $
 
 EAPI="5"
 
@@ -13,7 +13,7 @@ EAPI="5"
 # changes its ABI then this package will be rebuilt needlessly. Hence, such a
 # package is free _not_ to := depend on FFmpeg but I would strongly encourage
 # doing so since such a case is unlikely.
-FFMPEG_SUBSLOT=52.55.55
+FFMPEG_SUBSLOT=54.56.56
 
 SCM=""
 if [ "${PV#9999}" != "${PV}" ] ; then
@@ -43,16 +43,16 @@ IUSE="
 	aac aacplus alsa amr amrenc bindist bluray bs2b +bzip2 cdio celt
 	cpudetection debug doc +encode examples faac fdk flite fontconfig frei0r
 	fribidi gme	gnutls gsm +hardcoded-tables +iconv iec61883 ieee1394 jack
-	jpeg2k ladspa libass libcaca libsoxr libv4l modplug mp3 +network openal
-	opengl openssl opus oss pic pulseaudio quvi rtmp samba schroedinger sdl
-	speex ssh static-libs test theora threads truetype twolame v4l vaapi vdpau
-	vorbis vpx wavpack webp X x264 x265 xvid +zlib zvbi
+	jpeg2k ladspa libass libcaca libsoxr libv4l lzma modplug mp3 +network
+	openal opengl openssl opus oss pic pulseaudio quvi rtmp samba schroedinger
+	sdl speex ssh static-libs test theora threads truetype twolame v4l vaapi
+	vdpau vorbis vpx wavpack webp X x264 x265 xcb xvid +zlib zvbi
 	"
 
 ARM_CPU_FEATURES="armv5te armv6 armv6t2 neon armvfp:vfp"
 MIPS_CPU_FEATURES="mips32r2 mipsdspr1 mipsdspr2 mipsfpu"
 PPC_CPU_FEATURES="altivec"
-X86_CPU_FEATURES="3dnow:amd3dnow 3dnowext:amd3dnowext avx avx2 fma3 fma4 mmx mmxext sse sse2 sse3 ssse3 sse4 sse4_2:sse42 xop"
+X86_CPU_FEATURES=( 3dnow:amd3dnow 3dnowext:amd3dnowext avx:avx avx2:avx2 fma3:fma3 fma4:fma4 mmx:mmx mmxext:mmxext sse:sse sse2:sse2 sse3:sse3 ssse3:ssse3 sse4_1:sse4 sse4_2:sse42 xop:xop )
 
 # String for CPU features in the useflag[:configure_option] form
 # if :configure_option isn't set, it will use 'useflag' as configure option
@@ -60,7 +60,7 @@ CPU_FEATURES="
 	${ARM_CPU_FEATURES}
 	${MIPS_CPU_FEATURES}
 	${PPC_CPU_FEATURES}
-	${X86_CPU_FEATURES}
+	${X86_CPU_FEATURES[@]/#/cpu_flags_x86_}
 "
 
 for i in ${CPU_FEATURES}; do
@@ -79,12 +79,7 @@ RDEPEND="
 	bluray? ( >=media-libs/libbluray-0.3.0-r1[${MULTILIB_USEDEP}] )
 	bs2b? ( >=media-libs/libbs2b-3.1.0-r1[${MULTILIB_USEDEP}] )
 	bzip2? ( >=app-arch/bzip2-1.0.6-r4[${MULTILIB_USEDEP}] )
-	cdio? (
-		|| (
-			>=dev-libs/libcdio-paranoia-0.90_p1-r1[${MULTILIB_USEDEP}]
-			<dev-libs/libcdio-0.90[-minimal,${MULTILIB_USEDEP}]
-		)
-	)
+	cdio? ( >=dev-libs/libcdio-paranoia-0.90_p1-r1[${MULTILIB_USEDEP}] )
 	celt? ( >=media-libs/celt-0.11.1-r1[${MULTILIB_USEDEP}] )
 	encode? (
 		aac? ( >=media-libs/vo-aacenc-0.1.3[${MULTILIB_USEDEP}] )
@@ -127,6 +122,7 @@ RDEPEND="
 	libcaca? ( >=media-libs/libcaca-0.99_beta18-r1[${MULTILIB_USEDEP}] )
 	libsoxr? ( >=media-libs/soxr-0.1.0[${MULTILIB_USEDEP}] )
 	libv4l? ( >=media-libs/libv4l-0.9.5[${MULTILIB_USEDEP}] )
+	lzma? ( >=app-arch/xz-utils-5.0.5-r1[${MULTILIB_USEDEP}] )
 	modplug? ( >=media-libs/libmodplug-0.8.8.4-r1[${MULTILIB_USEDEP}] )
 	openal? ( >=media-libs/openal-1.15.1[${MULTILIB_USEDEP}] )
 	opengl? ( >=virtual/opengl-7.0-r1[${MULTILIB_USEDEP}] )
@@ -152,7 +148,9 @@ RDEPEND="
 		>=x11-libs/libX11-1.6.2[${MULTILIB_USEDEP}]
 		>=x11-libs/libXext-1.3.2[${MULTILIB_USEDEP}]
 		>=x11-libs/libXfixes-5.0.1[${MULTILIB_USEDEP}]
+		>=x11-libs/libXv-1.0.10[${MULTILIB_USEDEP}]
 	)
+	xcb? ( x11-libs/libxcb[${MULTILIB_USEDEP}] )
 	zlib? ( >=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}] )
 	zvbi? ( >=media-libs/zvbi-0.2.35[${MULTILIB_USEDEP}] )
 	!media-video/qt-faststart
@@ -167,10 +165,10 @@ DEPEND="${RDEPEND}
 	ieee1394? ( >=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}] )
 	ladspa? ( >=media-libs/ladspa-sdk-1.13-r2[${MULTILIB_USEDEP}] )
 	libv4l? ( >=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}] )
-	mmx? ( >=dev-lang/yasm-1.2 )
+	cpu_flags_x86_mmx? ( >=dev-lang/yasm-1.2 )
 	rtmp? ( >=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}] )
 	schroedinger? ( >=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}] )
-	test? ( net-misc/wget )
+	test? ( net-misc/wget sys-devel/bc )
 	truetype? ( >=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}] )
 	v4l? ( sys-kernel/linux-headers )
 "
@@ -206,8 +204,8 @@ multilib_src_configure() {
 	# or $(use_enable foo foo) if no :bar is set.
 	local ffuse=(
 		bzip2:bzlib cpudetection:runtime-cpudetect debug doc
-		gnutls hardcoded-tables iconv network openssl samba:libsmbclient
-		sdl:ffplay vaapi vdpau X:xlib zlib
+		gnutls hardcoded-tables iconv lzma network openssl samba:libsmbclient
+		sdl:ffplay vaapi vdpau X:xlib xcb:libxcb xcb:libxcb-shm xcb:libxcb-xfixes zlib
 	)
 	use openssl && myconf+=( --enable-nonfree )
 	use samba && myconf+=( --enable-version3 )
@@ -291,7 +289,7 @@ multilib_src_configure() {
 	# We need to do this so that features of that CPU will be better used
 	# If they contain an unknown CPU it will not hurt since ffmpeg's configure
 	# will just ignore it.
-	for i in $(get-flag march) $(get-flag mcpu) $(get-flag mtune) ; do
+	for i in $(get-flag mcpu) $(get-flag mtune) $(get-flag march) ; do
 		[[ ${i} = native ]] && i="host" # bug #273421
 		myconf+=( --cpu=${i} )
 		break

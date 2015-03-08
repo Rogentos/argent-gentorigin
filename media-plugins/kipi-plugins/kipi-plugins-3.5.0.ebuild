@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-plugins/kipi-plugins/kipi-plugins-3.5.0.ebuild,v 1.5 2014/06/14 19:10:05 dilfridge Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-plugins/kipi-plugins/kipi-plugins-3.5.0.ebuild,v 1.7 2015/01/29 00:01:15 johu Exp $
 
 EAPI=5
 
@@ -43,7 +43,7 @@ COMMONDEPEND="
 	media-libs/tiff
 	virtual/jpeg
 	calendar?	( $(add_kdebase_dep kdepimlibs) )
-	crypt?		( app-crypt/qca:2 )
+	crypt?		( app-crypt/qca:2[qt4(+)] )
 	ipod?		(
 			  media-libs/libgpod
 			  x11-libs/gtk+:2
@@ -62,6 +62,7 @@ COMMONDEPEND="
 	vkontakte?	( net-libs/libkvkontakte )
 "
 DEPEND="${COMMONDEPEND}
+	sys-devel/gettext
 	panorama?	(
 			  sys-devel/bison
 			  sys-devel/flex

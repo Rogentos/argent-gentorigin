@@ -1,6 +1,21 @@
 # ChangeLog for media-video/dvdrip
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/media-video/dvdrip/ChangeLog,v 1.142 2014/03/27 19:18:33 ssuominen Exp $
+# $Header: /var/cvsroot/gentoo-x86/media-video/dvdrip/ChangeLog,v 1.145 2014/11/18 23:39:33 dilfridge Exp $
+
+  18 Nov 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  dvdrip-0.98.11-r2.ebuild:
+  Replace perl-module_pkg_setup with perl_set_version
+
+  01 Nov 2014; Andreas K. Huettel <dilfridge@gentoo.org>
+  dvdrip-0.98.11-r2.ebuild:
+  Require new enough podlators, fixes bug 442492
+
+*dvdrip-0.98.11-r2 (27 Aug 2014)
+
+  27 Aug 2014; Ian Stakenvicius (_AxS_) <axs@gentoo.org>
+  +dvdrip-0.98.11-r2.ebuild, -dvdrip-0.98.11-r1.ebuild:
+  bumped EAPI to 5 ; committed directly to stable as no other changes and the
+  EAPI bump helps stable users when upgrading to dev-lang/perl-5.18
 
   27 Mar 2014; Samuli Suominen <ssuominen@gentoo.org> dvdrip-0.98.11-r1.ebuild:
   Fix default path to the optical device w/ current udev wrt #224559 by DEMAINE
