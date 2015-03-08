@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-apps/lxr/lxr-0.9.8-r1.ebuild,v 1.2 2014/07/26 18:07:29 zlogene Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/lxr/lxr-0.9.8-r1.ebuild,v 1.4 2014/11/09 22:09:37 dilfridge Exp $
 
 EAPI=5
 
@@ -12,12 +12,11 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tgz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ppc ~x86"
-IUSE="cvs freetext mysql postgres"
+IUSE="cvs mysql postgres"
 WEBAPP_MANUAL_SLOT="yes"
 SLOT="0"
 
 RDEPEND="dev-util/ctags
-	freetext? ( >=www-apps/swish-e-2.1 )
 	dev-lang/perl
 	dev-perl/DBI
 	dev-perl/File-MMagic
@@ -55,7 +54,7 @@ src_prepare() {
 src_compile() { :; }
 
 src_install() {
-	perlinfo
+	perl_set_version
 	webapp_src_preinst
 
 	insinto "${VENDOR_LIB}"

@@ -1,6 +1,16 @@
 # ChangeLog for www-apache/mod_python
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_python/ChangeLog,v 1.27 2014/08/10 20:17:28 slyfox Exp $
+# $Header: /var/cvsroot/gentoo-x86/www-apache/mod_python/ChangeLog,v 1.29 2014/11/26 10:39:43 ago Exp $
+
+  26 Nov 2014; Agostino Sarubbo <ago@gentoo.org> mod_python-3.5.0.ebuild:
+  Stable for amd64, wrt bug #529544
+
+*mod_python-3.5.0 (20 Sep 2014)
+
+  20 Sep 2014; Michael Weber <xmw@gentoo.org>
+  +files/mod_python-3.5.0-buildsystem.patch, +mod_python-3.5.0.ebuild,
+  metadata.xml:
+  Version bump (bug 516034), taking maint.
 
   10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org>
   mod_python-3.3.1-r1.ebuild:
