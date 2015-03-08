@@ -1,6 +1,15 @@
 # ChangeLog for virtual/perl-CPAN-Meta-Requirements
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/virtual/perl-CPAN-Meta-Requirements/ChangeLog,v 1.21 2014/07/18 18:03:58 dilfridge Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/virtual/perl-CPAN-Meta-Requirements/ChangeLog,v 1.23 2015/02/08 11:46:23 zlogene Exp $
+
+  08 Feb 2015; Mikle Kolyada <zlogene@gentoo.org>
+  perl-CPAN-Meta-Requirements-2.125.0-r1.ebuild:
+  amd64 stable wrt bug #536790
+
+  18 Oct 2014; Mike Frysinger <vapier@gentoo.org>
+  perl-CPAN-Meta-Requirements-2.122.0-r2.ebuild,
+  perl-CPAN-Meta-Requirements-2.125.0-r1.ebuild:
+  Add m68k love.
 
 *perl-CPAN-Meta-Requirements-2.125.0-r1 (18 Jul 2014)
 *perl-CPAN-Meta-Requirements-2.122.0-r2 (18 Jul 2014)
