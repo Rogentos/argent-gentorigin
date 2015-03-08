@@ -1,6 +1,32 @@
 # ChangeLog for games-strategy/hedgewars
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/hedgewars/ChangeLog,v 1.58 2014/05/15 17:04:23 ulm Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-strategy/hedgewars/ChangeLog,v 1.64 2015/02/10 10:09:55 ago Exp $
+
+  10 Feb 2015; Agostino Sarubbo <ago@gentoo.org> hedgewars-0.9.20.5.ebuild:
+  Stable for x86, wrt bug #539090
+
+  07 Feb 2015; Agostino Sarubbo <ago@gentoo.org> hedgewars-0.9.20.5.ebuild:
+  Stable for amd64, wrt bug #539090
+
+  04 Nov 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  +files/hedgewars-0.9.20.5-cmake3.patch, hedgewars-0.9.20.5.ebuild:
+  Add upstream patch for building with cmake-3 reported by zimous via bug
+  #526624
+
+  06 Sep 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/hedgewars-0.9.20-paths.patch, -hedgewars-0.9.20.ebuild:
+  old
+
+*hedgewars-0.9.20.5 (27 Aug 2014)
+
+  27 Aug 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  +hedgewars-0.9.20.5.ebuild:
+  version bump
+
+  26 Aug 2014; Michael Sterrett <mr_bones_@gentoo.org>
+  -files/hedgewars-0.9.19-de_translation_fix.patch,
+  -files/hedgewars-0.9.19-missionmap.patch, -hedgewars-0.9.19-r1.ebuild:
+  old
 
   15 May 2014; Ulrich Müller <ulm@gentoo.org> hedgewars-0.9.19-r1.ebuild,
   hedgewars-0.9.19.3.ebuild, hedgewars-0.9.20.ebuild:

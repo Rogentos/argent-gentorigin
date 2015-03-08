@@ -1,6 +1,35 @@
 # ChangeLog for games-board/pioneers
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/games-board/pioneers/ChangeLog,v 1.37 2014/08/13 09:15:22 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/games-board/pioneers/ChangeLog,v 1.46 2015/02/10 10:14:05 ago Exp $
+
+  10 Feb 2015; Agostino Sarubbo <ago@gentoo.org> pioneers-15.3.ebuild:
+  Stable for x86, wrt bug #539382
+
+  09 Feb 2015; Agostino Sarubbo <ago@gentoo.org> pioneers-15.3.ebuild:
+  Stable for amd64, wrt bug #539382
+
+  08 Jan 2015; Tupone Alfredo <tupone@gentoo.org> pioneers-15.3.ebuild:
+  no function called from autotools.eclass
+
+*pioneers-15.3 (28 Oct 2014)
+
+  28 Oct 2014; Michael Sterrett <mr_bones_@gentoo.org> +pioneers-15.3.ebuild:
+  version bump
+
+  27 Oct 2014; Michael Sterrett <mr_bones_@gentoo.org> -pioneers-15.1.ebuild:
+  old
+
+  18 Oct 2014; Agostino Sarubbo <ago@gentoo.org> pioneers-15.1-r1.ebuild:
+  Stable for ppc, wrt bug #520872
+
+  12 Oct 2014; Agostino Sarubbo <ago@gentoo.org> pioneers-15.1-r1.ebuild:
+  Stable for x86, wrt bug #520872
+
+  10 Oct 2014; Agostino Sarubbo <ago@gentoo.org> pioneers-15.1-r1.ebuild:
+  Stable for amd64, wrt bug #520872
+
+  25 Aug 2014; Michael Sterrett <mr_bones_@gentoo.org> -pioneers-14.1.ebuild:
+  old
 
   13 Aug 2014; Agostino Sarubbo <ago@gentoo.org> pioneers-15.1.ebuild:
   Stable for ppc, wrt bug #505208
