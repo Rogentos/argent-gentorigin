@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/gnome2.eclass,v 1.125 2014/02/11 21:14:20 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/eclass/gnome2.eclass,v 1.128 2015/01/29 09:59:51 pacho Exp $
 
 # @ECLASS: gnome2.eclass
 # @MAINTAINER:
@@ -13,9 +13,6 @@
 inherit eutils fdo-mime libtool gnome.org gnome2-utils
 
 case "${EAPI:-0}" in
-	0|1)
-		EXPORT_FUNCTIONS src_unpack src_compile src_install pkg_preinst pkg_postinst pkg_postrm
-		;;
 	2|3|4|5)
 		EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install pkg_preinst pkg_postinst pkg_postrm
 		;;
@@ -32,7 +29,7 @@ G2CONF=${G2CONF:-""}
 # @DESCRIPTION:
 # Should we delete ALL the .la files?
 # NOT to be used without due consideration.
-if has ${EAPI:-0} 0 1 2 3 4; then
+if has ${EAPI:-0} 2 3 4; then
 	GNOME2_LA_PUNT=${GNOME2_LA_PUNT:-"no"}
 else
 	GNOME2_LA_PUNT=${GNOME2_LA_PUNT:-""}
@@ -70,14 +67,12 @@ if [[ ${GCONF_DEBUG} != "no" ]]; then
 	IUSE="debug"
 fi
 
-
 # @FUNCTION: gnome2_src_unpack
 # @DESCRIPTION:
 # Stub function for old EAPI.
 gnome2_src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	has ${EAPI:-0} 0 1 && gnome2_src_prepare
 }
 
 # @FUNCTION: gnome2_src_prepare
@@ -95,7 +90,7 @@ gnome2_src_prepare() {
 	gnome2_disable_deprecation_warning
 
 	# Run libtoolize
-	if has ${EAPI:-0} 0 1 2 3; then
+	if has ${EAPI:-0} 2 3; then
 		elibtoolize ${ELTCONF}
 	else
 		# Everything is fatal EAPI 4 onwards
@@ -123,7 +118,7 @@ gnome2_src_configure() {
 	# rebuild docs.
 	# Preserve old behavior for older EAPI.
 	if grep -q "enable-gtk-doc" "${ECONF_SOURCE:-.}"/configure ; then
-		if has ${EAPI:-0} 0 1 2 3 4 && in_iuse doc ; then
+		if has ${EAPI:-0} 2 3 4 && in_iuse doc ; then
 			G2CONF="$(use_enable doc gtk-doc) ${G2CONF}"
 		else
 			G2CONF="--disable-gtk-doc ${G2CONF}"
@@ -142,7 +137,7 @@ gnome2_src_configure() {
 	fi
 
 	# Pass --disable-silent-rules when possible (not needed for eapi5), bug #429308
-	if has ${EAPI:-0} 0 1 2 3 4; then
+	if has ${EAPI:-0} 2 3 4; then
 		if grep -q "disable-silent-rules" "${ECONF_SOURCE:-.}"/configure; then
 			G2CONF="--disable-silent-rules ${G2CONF}"
 		fi
@@ -176,9 +171,8 @@ gnome2_src_configure() {
 
 # @FUNCTION: gnome2_src_compile
 # @DESCRIPTION:
-# Stub function for old EAPI.
+# Only default src_compile for now
 gnome2_src_compile() {
-	has ${EAPI:-0} 0 1 && gnome2_src_configure "$@"
 	emake || die "compile failure"
 }
 
@@ -187,7 +181,7 @@ gnome2_src_compile() {
 # Gnome specific install. Handles typical GConf and scrollkeeper setup
 # in packages and removal of .la files if requested
 gnome2_src_install() {
-	has ${EAPI:-0} 0 1 2 && ! use prefix && ED="${D}"
+	has ${EAPI:-0} 2 && ! use prefix && ED="${D}"
 	# if this is not present, scrollkeeper-update may segfault and
 	# create bogus directories in /var/lib/
 	local sk_tmp_dir="/var/lib/scrollkeeper"
@@ -201,13 +195,17 @@ gnome2_src_install() {
 		emake DESTDIR="${D}" "scrollkeeper_localstate_dir=${ED}${sk_tmp_dir} " "$@" install || die "install failed"
 	else
 		debug-print "Installing with 'einstall'"
+		eqawarn
+		eqawarn "Support for USE_EINSTALL will be dropped in a month,"
+		eqawarn "please stop using it (#482082)"
+		eqawarn
 		einstall "scrollkeeper_localstate_dir=${ED}${sk_tmp_dir} " "$@" || die "einstall failed"
 	fi
 
 	unset GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL
 
 	# Handle documentation as 'default' for eapi5 and newer, bug #373131
-	if has ${EAPI:-0} 0 1 2 3 4; then
+	if has ${EAPI:-0} 2 3 4; then
 		# Manual document installation
 		if [[ -n "${DOCS}" ]]; then
 			dodoc ${DOCS} || die "dodoc failed"
@@ -228,7 +226,7 @@ gnome2_src_install() {
 	rm -fr "${ED}/usr/share/applications/mimeinfo.cache"
 
 	# Delete all .la files
-	if has ${EAPI:-0} 0 1 2 3 4; then
+	if has ${EAPI:-0} 2 3 4; then
 		if [[ "${GNOME2_LA_PUNT}" != "no" ]]; then
 			ebegin "Removing .la files"
 			if ! use_if_iuse static-libs ; then
