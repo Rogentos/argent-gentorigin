@@ -1,6 +1,50 @@
 # ChangeLog for sci-chemistry/gromacs
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/gromacs/ChangeLog,v 1.142 2014/07/07 17:53:12 ottxor Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/gromacs/ChangeLog,v 1.151 2015/01/31 20:31:16 ottxor Exp $
+
+  31 Jan 2015; Christoph Junghans <ottxor@gentoo.org> -gromacs-4.6.6.ebuild,
+  -gromacs-5.0.1.ebuild, -gromacs-5.0.2-r1.ebuild, -gromacs-5.0.2.ebuild,
+  -gromacs-5.0.ebuild:
+  remove old
+
+  31 Jan 2015; Christoph Junghans <ottxor@gentoo.org> gromacs-4.6.5.ebuild,
+  gromacs-4.6.6.ebuild, gromacs-4.6.7.ebuild, gromacs-5.0.1.ebuild,
+  gromacs-5.0.2-r1.ebuild, gromacs-5.0.2.ebuild, gromacs-5.0.4.ebuild,
+  gromacs-5.0.ebuild, metadata.xml:
+  Switch to CPU_FLAGS_X86 (bug #538268)
+
+*gromacs-5.0.4 (21 Dec 2014)
+
+  21 Dec 2014; Christoph Junghans <ottxor@gentoo.org> +gromacs-5.0.4.ebuild:
+  version bump
+
+  25 Nov 2014; Christoph Junghans <ottxor@gentoo.org> gromacs-4.6.5.ebuild,
+  gromacs-4.6.6.ebuild, gromacs-4.6.7.ebuild, gromacs-5.0.1.ebuild,
+  gromacs-5.0.2-r1.ebuild, gromacs-5.0.2.ebuild, gromacs-5.0.ebuild:
+  fixed a typo preventing AVX2 support (bug #530454)
+
+*gromacs-5.0.2-r1 (21 Oct 2014)
+
+  21 Oct 2014; Christoph Junghans <ottxor@gentoo.org> +gromacs-5.0.2-r1.ebuild:
+  fix bash completion (bug #526318)
+
+*gromacs-5.0.2 (02 Oct 2014)
+
+  02 Oct 2014; Alexey Shvetsov <alexxy@gentoo.org> +gromacs-5.0.2.ebuild:
+  Version bump =D
+
+*gromacs-5.0.1 (06 Sep 2014)
+
+  06 Sep 2014; Christoph Junghans <ottxor@gentoo.org> +gromacs-5.0.1.ebuild:
+  version bump
+
+  04 Sep 2014; Christoph Junghans <ottxor@gentoo.org> gromacs-5.0.ebuild:
+  added ~x64-macos (tested by me)
+
+*gromacs-4.6.7 (29 Aug 2014)
+
+  29 Aug 2014; Christoph Junghans <ottxor@gentoo.org> +gromacs-4.6.7.ebuild:
+  version bump
 
   07 Jul 2014; Christoph Junghans <ottxor@gentoo.org> -gromacs-4.6.2.ebuild:
   remove old

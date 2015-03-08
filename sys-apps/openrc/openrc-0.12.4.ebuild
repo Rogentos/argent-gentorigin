@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/openrc-0.12.4.ebuild,v 1.12 2014/01/19 19:38:11 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/openrc/openrc-0.12.4.ebuild,v 1.14 2014/11/02 09:54:49 swift Exp $
 
 EAPI=5
 
@@ -22,8 +22,7 @@ SLOT="0"
 IUSE="debug elibc_glibc ncurses pam newnet prefix +netifrc selinux static-libs
 	tools unicode kernel_linux kernel_FreeBSD"
 
-COMMON_DEPEND=">=sys-apps/baselayout-2.1-r1
-	kernel_FreeBSD? ( || ( >=sys-freebsd/freebsd-ubin-9.0_rc sys-process/fuser-bsd ) )
+COMMON_DEPEND=" kernel_FreeBSD? ( || ( >=sys-freebsd/freebsd-ubin-9.0_rc sys-process/fuser-bsd ) )
 	elibc_glibc? ( >=sys-libs/glibc-2.5 )
 	ncurses? ( sys-libs/ncurses )
 	pam? ( sys-auth/pambase )
@@ -31,7 +30,7 @@ COMMON_DEPEND=">=sys-apps/baselayout-2.1-r1
 	kernel_linux? (
 		sys-process/psmisc
 	)
-	selinux? ( sec-policy/selinux-openrc )
+	!<sys-apps/baselayout-2.1-r1
 	!<sys-fs/udev-init-scripts-17
 	!<sys-fs/udev-133"
 DEPEND="${COMMON_DEPEND}
@@ -41,7 +40,9 @@ RDEPEND="${COMMON_DEPEND}
 	!prefix? (
 		kernel_linux? ( || ( >=sys-apps/sysvinit-2.86-r6 sys-process/runit ) )
 		kernel_FreeBSD? ( sys-freebsd/freebsd-sbin )
-	)"
+	)
+	selinux? ( sec-policy/selinux-openrc )
+"
 
 PDEPEND="netifrc? ( net-misc/netifrc )"
 
