@@ -1,15 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/remmina/remmina-9999.ebuild,v 1.33 2014/03/01 22:19:17 mgorny Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-misc/remmina/remmina-9999.ebuild,v 1.36 2014/12/07 09:45:36 maksbotan Exp $
 
 EAPI="4"
 
 inherit gnome2-utils cmake-utils
 
 if [[ ${PV} != 9999 ]]; then
-	inherit vcs-snapshot
-	COMMIT="b6a55ae6f4633d55f8f03e7ce2eeb5899514a8fc"
-	SRC_URI="https://github.com/FreeRDP/Remmina/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/FreeRDP/Remmina/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 else
 	inherit git-2
@@ -31,10 +29,14 @@ RDEPEND="
 	>=dev-libs/glib-2.31.18:2
 	>=net-libs/libvncserver-0.9.8.2
 	x11-libs/libxkbfile
+	x11-themes/gnome-icon-theme
 	avahi? ( net-dns/avahi[gtk3] )
 	ayatana? ( dev-libs/libappindicator )
 	crypt? ( dev-libs/libgcrypt:0 )
-	freerdp? ( >=net-misc/freerdp-1.1.0_beta1_p20130710 )
+	freerdp? (
+		>=net-misc/freerdp-1.1.0_beta1_p20130710
+		<net-misc/freerdp-1.2
+	)
 	gnome-keyring? ( gnome-base/libgnome-keyring )
 	ssh? ( net-libs/libssh[sftp] )
 	telepathy? ( net-libs/telepathy-glib )
@@ -51,6 +53,8 @@ RDEPEND+="
 
 DOCS=( README )
 PATCHES=( "${FILESDIR}/remmina-external_tools.patch" )
+
+S="${WORKDIR}/Remmina-${PV}"
 
 src_configure() {
 	local mycmakeargs=(

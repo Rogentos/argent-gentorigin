@@ -1,6 +1,14 @@
 # ChangeLog for net-proxy/c-icap
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-proxy/c-icap/ChangeLog,v 1.27 2013/10/13 10:32:28 ago Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-proxy/c-icap/ChangeLog,v 1.29 2015/01/07 13:54:21 pacho Exp $
+
+  07 Jan 2015; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Reassign and cleanup as discussed at https://www.mail-archive.com/gentoo-
+  dev@lists.gentoo.org/msg66357.html
+
+  26 Aug 2014; Christopher Reffett <2011creffett@gentoo.org>
+  -c-icap-0.2.2.ebuild, -c-icap-0.2.5.ebuild:
+  Security cleanup wrt bug 455324
 
   13 Oct 2013; Agostino Sarubbo <ago@gentoo.org> c-icap-0.2.6.ebuild:
   Stable for x86, wrt bug #455324

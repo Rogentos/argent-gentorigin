@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/pmacct/pmacct-0.14.3.ebuild,v 1.4 2014/08/21 17:20:42 nimiux Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/pmacct/pmacct-0.14.3.ebuild,v 1.7 2014/12/28 16:11:25 titanofold Exp $
 
 EAPI=5
 inherit eutils toolchain-funcs
@@ -11,7 +11,7 @@ SRC_URI="http://www.pmacct.net/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="amd64 ppc x86"
 IUSE="64bit debug geoip ipv6 mongodb mysql postgres sqlite threads ulog"
 
 DEPEND="
@@ -19,7 +19,7 @@ DEPEND="
 	geoip? ( dev-libs/geoip )
 	mongodb? ( dev-libs/mongo-c-driver )
 	mysql? ( virtual/mysql )
-	postgres? ( dev-db/postgresql-base )
+	postgres? ( dev-db/postgresql )
 	sqlite? ( =dev-db/sqlite-3* )
 "
 RDEPEND="${DEPEND}"

@@ -1,6 +1,38 @@
 # ChangeLog for net-irc/hexchat
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-irc/hexchat/ChangeLog,v 1.104 2014/08/01 22:37:53 hasufell Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-irc/hexchat/ChangeLog,v 1.114 2015/02/09 11:58:37 pinkbyte Exp $
+
+  09 Feb 2015; Sergey Popov <pinkbyte@gentoo.org> hexchat-2.10.2.ebuild:
+  Stable on amd64 and x86, wrt bug #538228
+
+  08 Feb 2015; Markus Meier <maekke@gentoo.org> hexchat-2.10.2.ebuild:
+  arm stable, bug #538228
+
+  08 Feb 2015; Jeroen Roovers <jer@gentoo.org> hexchat-2.10.2.ebuild:
+  Stable for HPPA (bug #538228).
+
+  15 Jan 2015; Raúl Porcel <armin76@gentoo.org> hexchat-2.10.1.ebuild:
+  ia64/sparc stable wrt #521048
+
+*hexchat-2.10.2 (30 Nov 2014)
+
+  30 Nov 2014; Julian Ospald <hasufell@gentoo.org> +hexchat-2.10.2.ebuild:
+  version bump
+
+  21 Nov 2014; Tobias Klausmann <klausman@gentoo.org> hexchat-2.10.1.ebuild:
+  Stable on alpha, bug 521048
+
+  16 Nov 2014; Mikle Kolyada <zlogene@gentoo.org> hexchat-2.10.1.ebuild:
+  x86 stable wrt bug #521048
+
+  14 Sep 2014; Markus Meier <maekke@gentoo.org> hexchat-2.10.1.ebuild:
+  arm stable, bug #521048
+
+  04 Sep 2014; Jeroen Roovers <jer@gentoo.org> hexchat-2.10.1.ebuild:
+  Stable for HPPA (bug #521048).
+
+  30 Aug 2014; Chema Alonso <nimiux@gentoo.org> hexchat-2.10.1.ebuild:
+  Stable for amd64 wrt bug #521048
 
 *hexchat-2.10.1 (01 Aug 2014)
 

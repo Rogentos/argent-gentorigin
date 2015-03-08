@@ -1,6 +1,18 @@
 # ChangeLog for net-p2p/pybitmessage
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/pybitmessage/ChangeLog,v 1.9 2014/08/10 17:39:29 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-p2p/pybitmessage/ChangeLog,v 1.12 2014/12/25 16:52:53 kensington Exp $
+
+  25 Dec 2014; Michael Palimaka <kensington@gentoo.org>
+  -pybitmessage-0.4.0.ebuild, -pybitmessage-0.4.1.ebuild:
+  Remove old.
+
+  25 Nov 2014; Julian Ospald <hasufell@gentoo.org> metadata.xml:
+  drop maintainership
+
+*pybitmessage-0.4.3 (24 Aug 2014)
+
+  24 Aug 2014; Julian Ospald <hasufell@gentoo.org> +pybitmessage-0.4.3.ebuild:
+  version bump
 
   10 Aug 2014; Agostino Sarubbo <ago@gentoo.org> pybitmessage-0.4.2.ebuild:
   Stable for x86, wrt bug #518234

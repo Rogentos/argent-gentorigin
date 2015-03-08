@@ -1,6 +1,33 @@
 # ChangeLog for net-misc/tlsdate
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/tlsdate/ChangeLog,v 1.9 2014/01/08 06:31:38 vapier Exp $
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-misc/tlsdate/ChangeLog,v 1.15 2015/02/01 21:10:57 maekke Exp $
+
+  01 Feb 2015; Markus Meier <maekke@gentoo.org> tlsdate-0.0.12-r1.ebuild:
+  arm stable, bug #538200
+
+  01 Feb 2015; Agostino Sarubbo <ago@gentoo.org> tlsdate-0.0.12-r1.ebuild:
+  Stable for x86, wrt bug #538200
+
+  31 Jan 2015; Agostino Sarubbo <ago@gentoo.org> tlsdate-0.0.12-r1.ebuild:
+  Stable for amd64, wrt bug #538200
+
+*tlsdate-0.0.12-r1 (03 Jan 2015)
+
+  03 Jan 2015; <hanno@gentoo.org> +tlsdate-0.0.12-r1.ebuild:
+  Fix default server/config, disable polarssl (broken upstream), install dbus
+  rules.
+
+*tlsdate-0.0.12 (06 Nov 2014)
+
+  06 Nov 2014; Mike Frysinger <vapier@gentoo.org> +tlsdate-0.0.12.ebuild,
+  files/tlsdated.rc:
+  Version bump.  Fix cache dir ownership #528434 by Hanno Boeck.
+
+*tlsdate-0.0.11 (25 Oct 2014)
+
+  25 Oct 2014; Mike Frysinger <vapier@gentoo.org> +tlsdate-0.0.11.ebuild,
+  metadata.xml:
+  Version bump #526688 by Hanno Boeck.
 
   08 Jan 2014; Mike Frysinger <vapier@gentoo.org> tlsdate-0.0.4-r2.ebuild,
   tlsdate-0.0.5.ebuild, tlsdate-0.0.6.ebuild:
