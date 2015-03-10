@@ -1,6 +1,31 @@
 # ChangeLog for kde-base/libtaskmanager
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/libtaskmanager/ChangeLog,v 1.217 2014/07/23 16:52:42 johu Exp $
+# $Header: /var/cvsroot/gentoo-x86/kde-base/libtaskmanager/ChangeLog,v 1.223 2014/12/11 12:22:12 zlogene Exp $
+
+  11 Dec 2014; Mikle Kolyada <zlogene@gentoo.org> libtaskmanager-4.11.14.ebuild:
+  amd64 stable wrt bug #517344
+
+  14 Nov 2014; Manuel Rüger <mrueg@gentoo.org> -libtaskmanager-4.11.13.ebuild:
+  Cleanup old.
+
+*libtaskmanager-4.11.14 (14 Nov 2014)
+
+  14 Nov 2014; Manuel Rüger <mrueg@gentoo.org> +libtaskmanager-4.11.14.ebuild:
+  Version bump.
+
+  06 Nov 2014; Manuel Rüger <mrueg@gentoo.org> -libtaskmanager-4.11.11.ebuild,
+  -libtaskmanager-4.11.12.ebuild:
+  Cleanup old.
+
+*libtaskmanager-4.11.13 (25 Oct 2014)
+
+  25 Oct 2014; Manuel Rüger <mrueg@gentoo.org> +libtaskmanager-4.11.13.ebuild:
+  Version bump KDE SC 4.11.13
+
+*libtaskmanager-4.11.12 (16 Sep 2014)
+
+  16 Sep 2014; Johannes Huber <johu@gentoo.org> +libtaskmanager-4.11.12.ebuild:
+  Version bump KDE Workspace 4.11.12
 
   23 Jul 2014; Johannes Huber <johu@gentoo.org> -libtaskmanager-4.11.10.ebuild:
   Remove KDE Workspace 4.11.10
