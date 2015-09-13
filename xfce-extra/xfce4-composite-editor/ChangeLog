@@ -1,0 +1,14 @@
+# ChangeLog for xfce-extra/xfce4-composite-editor
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-composite-editor/ChangeLog,v 1.2 2015/07/01 08:12:30 zlogene Exp $
+
+  01 Jul 2015; Mikle Kolyada <zlogene@gentoo.org>
+  xfce4-composite-editor-0.ebuild:
+  x86 stable wrt bug #553500
+
+*xfce4-composite-editor-0 (11 Dec 2012)
+
+  11 Dec 2012; Samuli Suominen <ssuominen@gentoo.org>
+  +xfce4-composite-editor-0.ebuild,
+  +files/xfce4-composite-editor-0-validate.patch:
+  Initial commit.

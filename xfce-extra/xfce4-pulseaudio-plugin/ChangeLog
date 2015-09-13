@@ -1,0 +1,38 @@
+# ChangeLog for xfce-extra/xfce4-pulseaudio-plugin
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-pulseaudio-plugin/ChangeLog,v 1.7 2015/07/05 08:08:39 perfinion Exp $
+
+  05 Jul 2015; Jason Zaman <perfinion@gentoo.org>
+  xfce4-pulseaudio-plugin-0.2.3.ebuild:
+  amd64 stable wrt bug 553500
+
+  01 Jul 2015; Mikle Kolyada <zlogene@gentoo.org>
+  xfce4-pulseaudio-plugin-0.2.3.ebuild:
+  x86 stable wrt bug #553500
+
+*xfce4-pulseaudio-plugin-0.2.3 (12 May 2015)
+
+  12 May 2015; Michał Górny <mgorny@gentoo.org>
+  +xfce4-pulseaudio-plugin-0.2.3.ebuild:
+  Version bump, with libnotify support.
+
+*xfce4-pulseaudio-plugin-0.2.2-r1 (11 May 2015)
+
+  11 May 2015; Michał Górny <mgorny@gentoo.org>
+  +xfce4-pulseaudio-plugin-0.2.2-r1.ebuild,
+  -xfce4-pulseaudio-plugin-0.2.2.ebuild:
+  Future-add libxfce4ui[gtk3(+)] dep.
+
+  06 Apr 2015; Michael Palimaka <kensington@gentoo.org>
+  xfce4-pulseaudio-plugin-0.2.2.ebuild:
+  Fix typo in DESCRIPTION.
+
+  05 Apr 2015; Michał Górny <mgorny@gentoo.org>
+  xfce4-pulseaudio-plugin-0.2.2.ebuild:
+  Post-commit cleanup.
+
+*xfce4-pulseaudio-plugin-0.2.2 (05 Apr 2015)
+
+  05 Apr 2015; Michał Górny <mgorny@gentoo.org> +metadata.xml,
+  +xfce4-pulseaudio-plugin-0.2.2.ebuild:
+  Introduce the PulseAudio volume control plugin for xfce4-panel, bug #541308.
