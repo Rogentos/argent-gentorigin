@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-backup/tsm/tsm-6.4.0.0-r1.ebuild,v 1.2 2013/05/10 06:19:41 patrick Exp $
+# $Id$
 
 EAPI=5
 
@@ -35,7 +35,7 @@ LICENSE="Apache-1.1 Apache-2.0 JDOM BSD-2 CC-PD Boost-1.0 MIT CPL-1.0 HPND Exola
 	|| ( BSD GPL-2+ ) gSOAP libpng tsm"
 
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 -*"
 IUSE="acl java +tsm_cit +tsm_hw"
 QA_PREBUILT="*"
 

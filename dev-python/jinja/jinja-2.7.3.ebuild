@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/jinja/jinja-2.7.3.ebuild,v 1.16 2015/04/08 08:05:23 mgorny Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,7 +12,7 @@ MY_PN=Jinja2
 MY_P=${MY_PN}-${PV}
 
 DESCRIPTION="A small but fast and easy to use stand-alone template engine written in pure Python"
-HOMEPAGE="http://jinja.pocoo.org/ http://pypi.python.org/pypi/Jinja2"
+HOMEPAGE="http://jinja.pocoo.org/ https://pypi.python.org/pypi/Jinja2"
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="BSD"

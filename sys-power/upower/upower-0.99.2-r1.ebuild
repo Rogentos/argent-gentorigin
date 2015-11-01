@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-power/upower/upower-0.99.2-r1.ebuild,v 1.10 2015/07/03 10:10:00 ago Exp $
+# $Id$
 
 EAPI=5
 inherit eutils systemd
@@ -35,6 +35,7 @@ DEPEND="${COMMON_DEPS}
 	dev-libs/libxslt
 	app-text/docbook-xsl-stylesheets
 	dev-util/intltool
+	>=sys-devel/gettext-0.17
 	virtual/pkgconfig"
 
 QA_MULTILIB_PATHS="usr/lib/${PN}/.*"
@@ -74,7 +75,7 @@ src_configure() {
 src_install() {
 	default
 
-	# http://bugs.gentoo.org/487400
+	# https://bugs.gentoo.org/487400
 	insinto /usr/share/doc/${PF}/html/UPower
 	doins doc/html/*
 	dosym /usr/share/doc/${PF}/html/UPower /usr/share/gtk-doc/html/UPower

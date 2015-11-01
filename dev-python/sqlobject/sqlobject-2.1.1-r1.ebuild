@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/sqlobject/sqlobject-2.1.1-r1.ebuild,v 1.1 2015/06/30 13:02:01 jlec Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,7 +13,7 @@ MY_PN="SQLObject"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Object-Relational Manager, aka database wrapper"
-HOMEPAGE="http://sqlobject.org/ http://pypi.python.org/pypi/SQLObject"
+HOMEPAGE="http://sqlobject.org/ https://pypi.python.org/pypi/SQLObject"
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2.1"

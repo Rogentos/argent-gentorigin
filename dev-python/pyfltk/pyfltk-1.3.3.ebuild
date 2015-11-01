@@ -1,12 +1,12 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pyfltk/pyfltk-1.3.3.ebuild,v 1.2 2015/06/26 12:05:17 jlec Exp $
+# $Id$
 
 # FIXME: MakeSwig.py execution should be made work from pyfltk-1.1.5.ebuild
 
 EAPI=5
 
-PYTHON_COMPAT=( python{3_3,3_4} )
+PYTHON_COMPAT=( python3_{3,4,5} )
 
 inherit distutils-r1 flag-o-matic
 
@@ -19,7 +19,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz -> ${MY_PN}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="1"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~arm ppc ppc64 ~x86"
 IUSE="doc"
 
 DEPEND=">=x11-libs/fltk-1.3.0:1[opengl]"

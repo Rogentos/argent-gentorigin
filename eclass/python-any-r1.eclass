@@ -1,8 +1,8 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/python-any-r1.eclass,v 1.19 2015/07/04 15:26:17 floppym Exp $
+# $Id$
 
-# @ECLASS: python-any-r1
+# @ECLASS: python-any-r1.eclass
 # @MAINTAINER:
 # Python team <python@gentoo.org>
 # @AUTHOR:
@@ -191,10 +191,10 @@ _python_build_set_globals
 #			dev-python/baz[python_targets_python2_7(-)?,python_single_target_python2_7(+)?] )
 #	)
 #	(
-#		dev-lang/python:2.6
-#		dev-python/foo[python_targets_python2_6(-)?,python_single_target_python2_6(+)?]
-#		|| ( dev-python/bar[python_targets_python2_6(-)?,python_single_target_python2_6(+)?]
-#			dev-python/baz[python_targets_python2_6(-)?,python_single_target_python2_6(+)?] )
+#		dev-lang/python:3.3
+#		dev-python/foo[python_targets_python3_3(-)?,python_single_target_python3_3(+)?]
+#		|| ( dev-python/bar[python_targets_python3_3(-)?,python_single_target_python3_3(+)?]
+#			dev-python/baz[python_targets_python3_3(-)?,python_single_target_python3_3(+)?] )
 #	)
 # )
 # @CODE

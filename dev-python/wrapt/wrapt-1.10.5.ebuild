@@ -1,19 +1,20 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/wrapt/wrapt-1.10.5.ebuild,v 1.1 2015/07/04 20:54:29 alunduil Exp $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python2_7 python3_3 python3_4 )
+
+PYTHON_COMPAT=( python2_7 python3_3 python3_4 pypy )
 
 inherit distutils-r1 vcs-snapshot
 
-DESCRIPTION="Module for decorators, wrappers and monkey patching."
+DESCRIPTION="Module for decorators, wrappers and monkey patching"
 HOMEPAGE="https://github.com/GrahamDumpleton/wrapt"
-SRC_URI="https://github.com/GrahamDumpleton/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
 DEPEND="
@@ -36,7 +37,7 @@ python_compile() {
 }
 
 python_test() {
-	py.test || die "tests failed under ${EPYTHON}"
+	py.test -vv || die "tests failed under ${EPYTHON}"
 }
 
 python_install_all() {

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/lz4/lz4-0.7.0.ebuild,v 1.1 2015/06/26 08:25:00 idella4 Exp $
+# $Id$
 
 EAPI=5
 
@@ -20,3 +20,10 @@ RDEPEND=""
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 # Tests still excluded by upstream
+
+python_prepare_all() {
+	sed \
+		-e '/nose/s:setup_requires:test_requires:g' \
+		-i setup.py || die
+	distutils-r1_python_prepare_all
+}

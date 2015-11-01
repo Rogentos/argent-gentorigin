@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/spyder/spyder-2.3.5.2.ebuild,v 1.1 2015/07/02 06:07:24 patrick Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 inherit distutils-r1
 
 DESCRIPTION="Python IDE with matlab-like features"
-HOMEPAGE="http://code.google.com/p/spyderlib/ https://bitbucket.org/spyder-ide/spyderlib"
+HOMEPAGE="https://code.google.com/p/spyderlib/ https://bitbucket.org/spyder-ide/spyderlib"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.zip"
 
 LICENSE="MIT"
@@ -39,9 +39,7 @@ PATCHES=( "${FILESDIR}"/${PN}-2.3.1-build.patch )
 
 python_compile_all() {
 	if use doc; then
-		einfo "Generation of documentation"
-		PYTHONPATH="{BUILD_DIR}" \
-			sphinx-build doc doc/html || die "Generation of documentation failed"
+		sphinx-build doc doc/html || die "Generation of documentation failed"
 	fi
 }
 
@@ -49,5 +47,5 @@ python_install_all() {
 	distutils-r1_python_install_all
 	doicon spyderlib/images/spyder.svg
 	make_desktop_entry spyder Spyder spyder "Development;IDE"
-	use doc && dohtml -r doc/html/
+	use doc && dodoc -r doc/html/
 }

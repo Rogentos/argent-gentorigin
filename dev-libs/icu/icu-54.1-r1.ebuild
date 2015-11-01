@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/icu/icu-54.1-r1.ebuild,v 1.11 2015/05/29 05:05:12 vapier Exp $
+# $Id$
 
 EAPI=5
 
@@ -18,6 +18,7 @@ KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86
 IUSE="debug doc examples static-libs"
 
 DEPEND="
+	virtual/pkgconfig
 	doc? (
 		app-doc/doxygen[dot]
 	)

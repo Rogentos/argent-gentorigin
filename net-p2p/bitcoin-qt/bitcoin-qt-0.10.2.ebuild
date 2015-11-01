@@ -1,6 +1,6 @@
 # Copyright 2010-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-p2p/bitcoin-qt/bitcoin-qt-0.10.2.ebuild,v 1.5 2015/07/04 19:04:51 blueness Exp $
+# $Id$
 
 EAPI=5
 
@@ -25,16 +25,20 @@ RDEPEND="
 		media-gfx/qrencode
 	)
 	qt4? ( dev-qt/qtgui:4 )
-	qt5? ( dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/linguist-tools:5 )
+	qt5? ( dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 )
 	dbus? (
 		qt4? ( dev-qt/qtdbus:4 )
 		qt5? ( dev-qt/qtdbus:5 )
 	)
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	qt5? ( dev-qt/linguist-tools:5 )
+"
 REQUIRED_USE="${REQUIRED_USE} ^^ ( qt4 qt5 )"
 
 src_prepare() {
+	epatch "${FILESDIR}/miniupnpc-14.patch"
+
 	bitcoincore_prepare
 
 	local filt= yeslang= nolang=

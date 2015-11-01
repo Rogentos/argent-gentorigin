@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/vte/vte-0.36.4.ebuild,v 1.5 2015/06/26 09:24:20 ago Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -13,7 +13,7 @@ HOMEPAGE="https://wiki.gnome.org/action/show/Apps/Terminal/VTE"
 LICENSE="LGPL-2+"
 SLOT="2.90"
 IUSE="debug glade +introspection"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~mips ~ppc ppc64 ~sh ~sparc x86 ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~x64-solaris ~x86-solaris"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 ~sh sparc x86 ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~x64-solaris ~x86-solaris"
 
 PDEPEND=">=x11-libs/gnome-pty-helper-${PV}"
 RDEPEND="
@@ -21,7 +21,7 @@ RDEPEND="
 	>=x11-libs/gtk+-3.1.9:3[introspection?]
 	>=x11-libs/pango-1.22.0
 
-	sys-libs/ncurses
+	sys-libs/ncurses:0=
 	x11-libs/libX11
 	x11-libs/libXft
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/gom/gom-0.3.1.ebuild,v 1.4 2015/06/26 09:21:17 ago Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="yes"
@@ -14,7 +14,7 @@ LICENSE="LGPL-2+"
 SLOT="0"
 
 IUSE="+introspection test"
-KEYWORDS="amd64 ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="~alpha amd64 ~ppc ~ppc64 ~sparc x86"
 
 RDEPEND="
 	>=dev-db/sqlite-3.7:3
@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.40.0
 	sys-devel/gettext
 	virtual/pkgconfig
-	test? ( x11-libs/gdk-pixbuf )
+	x11-libs/gdk-pixbuf
 "
 
 src_configure() {

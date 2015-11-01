@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-shell/gnome-shell-3.16.3.ebuild,v 1.1 2015/07/02 20:09:05 tranquility Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -16,7 +16,7 @@ LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 IUSE="+bluetooth +i18n +networkmanager -openrc-force"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86"
 
 # libXfixes-5.0 needed for pointer barriers
 # FIXME:
@@ -200,7 +200,7 @@ pkg_postinst() {
 	if ! systemd_is_booted; then
 		ewarn "${PN} needs Systemd to be *running* for working"
 		ewarn "properly. Please follow this guide to migrate:"
-		ewarn "http://wiki.gentoo.org/wiki/Systemd"
+		ewarn "https://wiki.gentoo.org/wiki/Systemd"
 	fi
 
 	if use openrc-force; then

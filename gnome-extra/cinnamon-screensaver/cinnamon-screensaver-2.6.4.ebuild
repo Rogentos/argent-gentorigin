@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/cinnamon-screensaver/cinnamon-screensaver-2.6.4.ebuild,v 1.1 2015/07/04 19:20:22 pacho Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="yes"
@@ -15,7 +15,7 @@ SRC_URI="https://github.com/linuxmint/cinnamon-screensaver/archive/${PV}.tar.gz 
 LICENSE="GPL-2+"
 SLOT="0"
 IUSE="doc pam systemd"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 COMMON_DEPEND="
 	>=dev-libs/glib-2.37.3:2[dbus]

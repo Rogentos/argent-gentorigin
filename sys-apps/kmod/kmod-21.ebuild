@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-apps/kmod/kmod-21.ebuild,v 1.1 2015/07/04 20:48:11 williamh Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,12 +13,12 @@ if [[ ${PV} == 9999* ]]; then
 	inherit autotools git-2
 else
 	SRC_URI="mirror://kernel/linux/utils/kernel/kmod/${P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+	KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 	inherit libtool
 fi
 
 DESCRIPTION="library and tools for managing linux kernel modules"
-HOMEPAGE="http://git.kernel.org/?p=utils/kernel/kmod/kmod.git"
+HOMEPAGE="https://git.kernel.org/?p=utils/kernel/kmod/kmod.git"
 
 LICENSE="LGPL-2"
 SLOT="0"
@@ -98,7 +98,7 @@ src_configure() {
 	kmod_configure --disable-python
 
 	if use python; then
-		python_parallel_foreach_impl kmod_configure --enable-python
+		python_foreach_impl kmod_configure --enable-python
 	fi
 }
 

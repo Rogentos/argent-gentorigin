@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/profiles/base/use.mask,v 1.222 2015/05/29 09:08:51 haubi Exp $
+# $Id$
 
 # cilk has been ported only to x86 systems
 cilk
@@ -15,6 +15,7 @@ cuda
 ruby_targets_ruby18
 ruby_targets_jruby
 ruby_targets_ree18
+ruby_targets_ruby19
 
 # masking here and unmasking in default/linux/
 kmod
@@ -194,6 +195,7 @@ psyco
 userland_BSD
 
 elibc_AIX
+elibc_bionic
 elibc_Cygwin
 elibc_Darwin
 elibc_DragonFly

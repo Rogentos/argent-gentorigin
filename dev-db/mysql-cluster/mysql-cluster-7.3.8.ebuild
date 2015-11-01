@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-db/mysql-cluster/mysql-cluster-7.3.8.ebuild,v 1.1 2015/02/10 18:15:07 grknight Exp $
+# $Id$
 
 EAPI=5
 MY_EXTRAS_VER="20150210-1758Z"
@@ -22,6 +22,14 @@ RDEPEND="!media-sound/amarok[embedded]"
 # Please do not add a naive src_unpack to this ebuild
 # If you want to add a single patch, copy the ebuild to an overlay
 # and create your own mysql-extras tarball, looking at 000_index.txt
+
+src_prepare() {
+	mysql-multilib_src_prepare
+	if use libressl ; then
+		sed -i 's/OPENSSL_MAJOR_VERSION STREQUAL "1"/OPENSSL_MAJOR_VERSION STREQUAL "2"/' \
+			"${S}/cmake/ssl.cmake" || die
+	fi
+}
 
 # Official test instructions:
 # USE='cluster extraengine perl ssl community' \

@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/routes/routes-2.1-r1.ebuild,v 1.1 2015/07/04 13:08:27 idella4 Exp $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
@@ -11,12 +11,12 @@ MY_PN="Routes"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="A Python re-implementation of Rails routes system, mapping URL's to Controllers/Actions"
-HOMEPAGE="http://routes.groovie.org http://pypi.python.org/pypi/Routes"
+HOMEPAGE="http://routes.groovie.org https://pypi.python.org/pypi/Routes"
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="doc test"
 
 RDEPEND=">=dev-python/repoze-lru-0.3[${PYTHON_USEDEP}]"
@@ -36,7 +36,7 @@ S="${WORKDIR}/${MY_P}"
 # Comment out patch for tests for now
 #PATCHES=( "${FILESDIR}"/${PN}-2.0-tests-py3.patch )
 
-# https://github.com/bbangert/routes/issues/42 presents a patch 
+# https://github.com/bbangert/routes/issues/42 presents a patch
 # for the faulty docbuild converted to sed stmnts
 python_prepare_all() {
 	use test && DISTUTILS_IN_SOURCE_BUILD=1

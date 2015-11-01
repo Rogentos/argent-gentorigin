@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/qupzilla/qupzilla-1.8.6-r1.ebuild,v 1.1 2015/07/01 05:09:20 yngwin Exp $
+# $Id$
 
 EAPI=5
 MY_PN="QupZilla"
@@ -58,6 +58,8 @@ src_prepare() {
 
 	# patch bundled but changed QTSA for Qt-5.5, see bugs 548470 and 489142
 	epatch "${FILESDIR}"/qtsingleapplication-QDataStream.patch
+
+	epatch "${FILESDIR}"/${P}-qt55.patch
 
 	epatch_user
 

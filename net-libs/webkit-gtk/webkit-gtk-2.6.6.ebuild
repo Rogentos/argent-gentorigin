@@ -1,8 +1,9 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/webkit-gtk-2.6.6.ebuild,v 1.4 2015/06/26 09:23:38 ago Exp $
+# $Id$
 
 EAPI="5"
+CMAKE_MAKEFILE_GENERATOR="ninja"
 GCONF_DEBUG="no"
 PYTHON_COMPAT=( python2_7 )
 
@@ -114,13 +115,13 @@ pkg_pretend() {
 		check-reqs_pkg_pretend
 	fi
 
-	if ! test-flag-CXX -std=c++11; then
+	if [[ ${MERGE_TYPE} != "binary" ]] && ! test-flag-CXX -std=c++11; then
 		die "You need at least GCC 4.7.x or Clang >= 3.3 for C++11-specific compiler flags"
 	fi
 }
 
 pkg_setup() {
-	if [[ ${MERGE_TYPE} != "binary" ]] ; then
+	if [[ ${MERGE_TYPE} != "binary" ]] && is-flagq "-g*" && ! is-flagq "-g*0" ; then
 		check-reqs_pkg_setup
 	fi
 
@@ -171,13 +172,13 @@ src_configure() {
 	local ruby_interpreter=""
 
 	if has_version "virtual/rubygems[ruby_targets_ruby22]"; then
-		ruby_interpreter="RUBY=$(type -P ruby22)"
+		ruby_interpreter="-DRUBY_EXECUTABLE=$(type -P ruby22)"
 	elif has_version "virtual/rubygems[ruby_targets_ruby21]"; then
-		ruby_interpreter="RUBY=$(type -P ruby21)"
+		ruby_interpreter="-DRUBY_EXECUTABLE=$(type -P ruby21)"
 	elif has_version "virtual/rubygems[ruby_targets_ruby20]"; then
-		ruby_interpreter="RUBY=$(type -P ruby20)"
+		ruby_interpreter="-DRUBY_EXECUTABLE=$(type -P ruby20)"
 	else
-		ruby_interpreter="RUBY=$(type -P ruby19)"
+		ruby_interpreter="-DRUBY_EXECUTABLE=$(type -P ruby19)"
 	fi
 
 	# TODO: Check Web Audio support

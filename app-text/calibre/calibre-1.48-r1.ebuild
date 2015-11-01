@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/calibre-1.48-r1.ebuild,v 1.3 2015/02/12 07:26:43 yngwin Exp $
+# $Id$
 
 EAPI=5
 
@@ -49,7 +49,7 @@ COMMON_DEPEND="
 	>=dev-python/cssselect-0.7.1[${PYTHON_USEDEP}]
 	>=dev-python/cssutils-0.9.9[${PYTHON_USEDEP}]
 	>=dev-python/dbus-python-0.82.2[${PYTHON_USEDEP}]
-	>=dev-python/dnspython-1.6.0[${PYTHON_USEDEP}]
+	>=dev-python/dnspython-1.6.0:0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-3.2.1[${PYTHON_USEDEP}]
 	>=dev-python/mechanize-0.1.11[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-1.4.1[${PYTHON_USEDEP}]
@@ -206,7 +206,7 @@ python_install_all() {
 
 	domenu "${HOME}"/.local/share/applications/*.desktop
 
-	find "${ED}"usr/share -type d -empty -delete || die
+	find "${ED}"usr/share -type d -empty -delete || die
 
 	cd "${ED}"/usr/share/calibre/fonts/liberation || die
 	local x

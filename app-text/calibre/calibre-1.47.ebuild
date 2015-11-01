@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/calibre/calibre-1.47.ebuild,v 1.2 2014/10/16 20:49:55 zmedico Exp $
+# $Id$
 
 EAPI=5
 
@@ -45,7 +45,7 @@ COMMON_DEPEND="
 	>=dev-python/apsw-3.7.17[python_targets_python2_7(-)]
 	>=dev-python/beautifulsoup-3.0.5:python-2[python_targets_python2_7(-)]
 	dev-python/netifaces[python_targets_python2_7(-)]
-	>=dev-python/dnspython-1.6.0[python_targets_python2_7(-)]
+	>=dev-python/dnspython-1.6.0:0[python_targets_python2_7(-)]
 	>=dev-python/cssselect-0.7.1[python_targets_python2_7(-)]
 	>=dev-python/cssutils-0.9.9[python_targets_python2_7(-)]
 	>=dev-python/dbus-python-0.82.2[python_targets_python2_7(-)]

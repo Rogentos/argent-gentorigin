@@ -1,16 +1,18 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-extra/synapse/synapse-0.2.10-r1.ebuild,v 1.1 2015/01/14 13:21:19 pacho Exp $
+# $Id$
 
 EAPI=5
+
 GCONF_DEBUG="no" # gnome2_src_configure is not being used
 AUTOTOOLS_AUTORECONF=true
+VALA_MAX_API_VERSION=0.26
 
 inherit gnome2 autotools-utils vala
 
 DESCRIPTION="A program launcher in the style of GNOME Do"
-HOMEPAGE="http://launchpad.net/synapse-project/"
-SRC_URI="http://launchpad.net/synapse-project/${PV%.*}/${PV}/+download/${P}.tar.gz"
+HOMEPAGE="https://launchpad.net/synapse-project/"
+SRC_URI="https://launchpad.net/synapse-project/${PV%.*}/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -34,9 +36,7 @@ RDEPEND="
 	plugins? ( net-libs/rest )
 	zeitgeist? (
 		dev-libs/libzeitgeist
-		gnome-extra/zeitgeist
-		gnome-extra/zeitgeist-extensions
-		|| ( gnome-extra/zeitgeist[fts] gnome-extra/zeitgeist-extensions[fts] )
+		gnome-extra/zeitgeist[fts]
 		)"
 	#ayatana? ( dev-libs/libappindicator )
 DEPEND="${RDEPEND}

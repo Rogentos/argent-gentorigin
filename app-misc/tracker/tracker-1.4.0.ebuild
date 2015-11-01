@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/tracker/tracker-1.4.0.ebuild,v 1.2 2015/06/24 20:21:44 pacho Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -96,6 +96,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
 	$(vala_depend)
+	dev-util/gdbus-codegen
 	>=dev-libs/libxslt-1
 	>=dev-util/gtk-doc-am-1.8
 	>=dev-util/intltool-0.40.0

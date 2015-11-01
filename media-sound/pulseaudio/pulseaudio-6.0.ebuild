@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/pulseaudio-6.0.ebuild,v 1.11 2015/06/21 07:18:29 pacho Exp $
+# $Id$
 
 EAPI=5
 inherit autotools bash-completion-r1 eutils flag-o-matic gnome2-utils linux-info readme.gentoo systemd user versionator udev multilib-minimal
@@ -17,7 +17,7 @@ LICENSE="!gdbm? ( LGPL-2.1 ) gdbm? ( GPL-2 )"
 
 SLOT="0"
 #KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-linux ~x86-linux"
-KEYWORDS="~amd64 ~arm ~hppa ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm hppa ~ia64 ~ppc ppc64 ~sh sparc x86 ~amd64-linux ~x86-linux"
 
 # +alsa-plugin as discussed in bug #519530
 IUSE="+alsa +alsa-plugin +asyncns bluetooth +caps dbus doc equalizer +gdbm +glib
@@ -378,5 +378,12 @@ pkg_postinst() {
 	if use libsamplerate; then
 		elog "The libsamplerate based resamplers are now deprecated, because they offer no"
 		elog "particular advantage over speex. Upstream suggests disabling them."
+	fi
+
+	# Needed for pulseaudio-6.0 update from older versions
+	if use udev; then
+		if ! version_is_at_least 6.0 ${REPLACING_VERSIONS}; then
+			udevadm control --reload && udevadm trigger
+		fi
 	fi
 }

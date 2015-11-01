@@ -1,8 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/testrepository/testrepository-0.0.17-r1.ebuild,v 1.5 2014/08/20 20:33:16 blueness Exp $
+# $Id$
 
 EAPI=5
+
 # Although package supports alt. py impls, only works fully under py2.7
 PYTHON_COMPAT=( python2_7 )
 
@@ -17,18 +18,21 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="test"
 
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-		test? ( dev-python/subunit[${PYTHON_USEDEP}]
-			>=dev-python/testtools-0.9.30[${PYTHON_USEDEP}]
-			dev-python/fixtures[${PYTHON_USEDEP}]
-			dev-python/testresources[${PYTHON_USEDEP}]
-			dev-python/testscenarios[${PYTHON_USEDEP}]
-			dev-python/pytz[${PYTHON_USEDEP}]
-		)"
-#bzr is listed but presumably req'd for a live repo test run
-RDEPEND="dev-python/subunit[${PYTHON_USEDEP}]
+DEPEND="
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	test? (
+		dev-python/subunit[${PYTHON_USEDEP}]
 		>=dev-python/testtools-0.9.30[${PYTHON_USEDEP}]
-		dev-python/fixtures[${PYTHON_USEDEP}]"
+		dev-python/fixtures[${PYTHON_USEDEP}]
+		dev-python/testresources[${PYTHON_USEDEP}]
+		dev-python/testscenarios[${PYTHON_USEDEP}]
+		dev-python/pytz[${PYTHON_USEDEP}]
+	)"
+#bzr is listed but presumably req'd for a live repo test run
+RDEPEND="
+	dev-python/subunit[${PYTHON_USEDEP}]
+	>=dev-python/testtools-0.9.30[${PYTHON_USEDEP}]
+	dev-python/fixtures[${PYTHON_USEDEP}]"
 
 python_test() {
 	"${PYTHON}" ./testr init || die

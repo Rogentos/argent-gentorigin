@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-admin/eselect/eselect-9999.ebuild,v 1.18 2015/04/21 11:36:34 mrueg Exp $
+# $Id$
 
 EAPI=5
 
@@ -9,7 +9,7 @@ EGIT_REPO_URI="git://anongit.gentoo.org/proj/eselect.git"
 inherit autotools git-r3 bash-completion-r1
 
 DESCRIPTION="Gentoo's multi-purpose configuration and management tool"
-HOMEPAGE="http://wiki.gentoo.org/wiki/Project:Eselect"
+HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Eselect"
 
 LICENSE="GPL-2+ || ( GPL-2+ CC-BY-SA-2.5 )"
 SLOT="0"

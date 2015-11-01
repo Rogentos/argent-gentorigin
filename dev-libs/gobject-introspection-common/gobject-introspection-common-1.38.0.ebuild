@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/gobject-introspection-common/gobject-introspection-common-1.38.0.ebuild,v 1.12 2014/08/01 22:13:24 tgall Exp $
+# $Id$
 
 EAPI="5"
 GNOME_ORG_MODULE="gobject-introspection"
@@ -8,7 +8,7 @@ GNOME_ORG_MODULE="gobject-introspection"
 inherit gnome.org
 
 DESCRIPTION="Build infrastructure for GObject Introspection"
-HOMEPAGE="http://live.gnome.org/GObjectIntrospection/"
+HOMEPAGE="https://live.gnome.org/GObjectIntrospection/"
 
 LICENSE="HPND"
 SLOT="0"
@@ -17,7 +17,7 @@ IUSE=""
 
 RDEPEND="!<${CATEGORY}/${PN/-common}-${PV}"
 # Use !<${PV} because mixing gobject-introspection with different version of -common can cause issues like:
-# http://forums.gentoo.org/viewtopic-p-7421930.html
+# https://forums.gentoo.org/viewtopic-p-7421930.html
 
 src_configure() { :; }
 

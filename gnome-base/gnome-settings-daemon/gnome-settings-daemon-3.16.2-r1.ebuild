@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-settings-daemon/gnome-settings-daemon-3.16.2-r1.ebuild,v 1.1 2015/06/09 14:21:45 eva Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -142,7 +142,7 @@ pkg_postinst() {
 	if ! systemd_is_booted; then
 		ewarn "${PN} needs Systemd to be *running* for working"
 		ewarn "properly. Please follow the this guide to migrate:"
-		ewarn "http://wiki.gentoo.org/wiki/Systemd"
+		ewarn "https://wiki.gentoo.org/wiki/Systemd"
 	fi
 
 	if use openrc-force; then

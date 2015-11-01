@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-lang/python/python-2.7.9-r1.ebuild,v 1.7 2015/03/31 18:46:33 ulm Exp $
+# $Id$
 
 EAPI="4"
 WANT_AUTOMAKE="none"
@@ -14,7 +14,7 @@ PATCHSET_VERSION="2.7.9-0"
 DESCRIPTION="An interpreted, interactive, object-oriented programming language"
 HOMEPAGE="http://www.python.org/"
 SRC_URI="http://www.python.org/ftp/python/${PV}/${MY_P}.tar.xz
-	http://dev.gentoo.org/~floppym/python/python-gentoo-patches-${PATCHSET_VERSION}.tar.xz"
+	https://dev.gentoo.org/~floppym/python/python-gentoo-patches-${PATCHSET_VERSION}.tar.xz"
 
 LICENSE="PSF-2"
 SLOT="2.7"
@@ -30,6 +30,7 @@ RDEPEND="app-arch/bzip2
 	>=sys-libs/zlib-1.1.3
 	virtual/libffi
 	virtual/libintl
+	xml? ( >=dev-libs/expat-2.1 )
 	!build? (
 		berkdb? ( || (
 			sys-libs/db:5.3
@@ -56,7 +57,6 @@ RDEPEND="app-arch/bzip2
 			dev-tcltk/blt
 			dev-tcltk/tix
 		)
-		xml? ( >=dev-libs/expat-2.1 )
 	)
 	!!<sys-apps/portage-2.1.9"
 DEPEND="${RDEPEND}
@@ -120,7 +120,7 @@ src_prepare() {
 src_configure() {
 	if use build; then
 		# Disable extraneous modules with extra dependencies.
-		export PYTHON_DISABLE_MODULES="dbm _bsddb gdbm _curses _curses_panel readline _sqlite3 _tkinter _elementtree pyexpat"
+		export PYTHON_DISABLE_MODULES="dbm _bsddb gdbm _curses _curses_panel readline _sqlite3 _tkinter"
 		export PYTHON_DISABLE_SSL="1"
 	else
 		# dbm module can be linked against berkdb or gdbm.

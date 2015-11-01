@@ -1,6 +1,6 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/webapp.eclass,v 1.74 2015/07/02 14:02:34 twitch153 Exp $
+# $Id$
 
 # @ECLASS: webapp.eclass
 # @MAINTAINER:
@@ -78,7 +78,7 @@ webapp_checkfileexists() {
 	if [[ ! -e "${my_prefix}${1}" ]]; then
 		msg="ebuild fault: file '${1}' not found"
 		eerror "$msg"
-		eerror "Please report this as a bug at http://bugs.gentoo.org/"
+		eerror "Please report this as a bug at https://bugs.gentoo.org/"
 		die "$msg"
 	fi
 }
@@ -244,7 +244,6 @@ _webapp_serverowned() {
 	local my_file="$(webapp_strip_appdir "${1}")"
 	my_file="$(webapp_strip_cwd "${my_file}")"
 
-	elog "(server owned) ${my_file}"
 	echo "${my_file}" >> "${D}/${WA_SOLIST}"
 }
 
@@ -339,12 +338,12 @@ webapp_src_preinst() {
 		eerror "This ebuild did not call webapp_pkg_setup() at the beginning"
 		eerror "of the pkg_setup() function"
 		eerror
-		eerror "Please log a bug on http://bugs.gentoo.org"
+		eerror "Please log a bug on https://bugs.gentoo.org"
 		eerror
 		eerror "You should use emerge -C to remove this package, as the"
 		eerror "installation is incomplete"
 		eerror
-		die "Ebuild did not call webapp_pkg_setup() - report to http://bugs.gentoo.org"
+		die "Ebuild did not call webapp_pkg_setup() - report to https://bugs.gentoo.org"
 	fi
 
 	# Hint, see the webapp_read_config() function to find where these are
@@ -413,7 +412,9 @@ webapp_pkg_setup() {
 		ewarn "This ebuild may be overwriting important files."
 		ewarn
 		echo
-		ebeep 10
+		if has "${EAPI:-0}" 0 1 2; then
+			ebeep 10
+		fi
 	elif [[ "$(echo ${my_output} | awk '{ print $1 }')" != "${PN}" ]]; then
 		echo
 		eerror "You already have ${my_output} installed in ${my_dir}"
@@ -472,12 +473,12 @@ webapp_pkg_postinst() {
 		eerror "This ebuild did not call webapp_src_install() at the end"
 		eerror "of the src_install() function"
 		eerror
-		eerror "Please log a bug on http://bugs.gentoo.org"
+		eerror "Please log a bug on https://bugs.gentoo.org"
 		eerror
 		eerror "You should use emerge -C to remove this package, as the"
 		eerror "installation is incomplete"
 		eerror
-		die "Ebuild did not call webapp_src_install() - report to http://bugs.gentoo.org"
+		die "Ebuild did not call webapp_src_install() - report to https://bugs.gentoo.org"
 	fi
 
 	if has vhosts ${IUSE}; then

@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/gtksourceview/gtksourceview-2.10.5-r2.ebuild,v 1.10 2012/10/14 23:56:51 tetromino Exp $
+# $Id$
 
 EAPI="4"
 GCONF_DEBUG="no"
@@ -10,7 +10,7 @@ GNOME_TARBALL_SUFFIX="bz2"
 inherit eutils gnome2 virtualx
 
 DESCRIPTION="A text widget implementing syntax highlighting and other features"
-HOMEPAGE="http://www.gnome.org/"
+HOMEPAGE="https://www.gnome.org/"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="2.0"

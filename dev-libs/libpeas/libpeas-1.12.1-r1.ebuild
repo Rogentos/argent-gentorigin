@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libpeas/libpeas-1.12.1-r1.ebuild,v 1.3 2015/03/15 13:18:30 pacho Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 inherit gnome2 multilib python-r1 virtualx
 
 DESCRIPTION="A GObject plugins library"
-HOMEPAGE="http://developer.gnome.org/libpeas/stable/"
+HOMEPAGE="https://developer.gnome.org/libpeas/stable/"
 
 LICENSE="LGPL-2+"
 SLOT="0"

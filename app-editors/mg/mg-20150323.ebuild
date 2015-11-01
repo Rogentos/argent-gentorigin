@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/mg/mg-20150323.ebuild,v 1.7 2015/06/28 15:11:13 zlogene Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,10 +12,10 @@ SRC_URI="http://homepage.boetes.org/software/mg/${P}.tar.gz"
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ppc ~ppc64 ~sparc x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ppc ~ppc64 sparc x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="livecd"
 
-RDEPEND="sys-libs/ncurses
+RDEPEND="sys-libs/ncurses:0
 	!elibc_FreeBSD? ( >=dev-libs/libbsd-0.7.0 )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"

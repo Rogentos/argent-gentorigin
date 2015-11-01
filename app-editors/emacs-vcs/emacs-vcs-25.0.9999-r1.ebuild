@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-editors/emacs-vcs/emacs-vcs-25.0.9999-r1.ebuild,v 1.9 2015/07/02 16:22:10 ulm Exp $
+# $Id$
 
 EAPI=5
 
@@ -13,7 +13,7 @@ if [[ ${PV##*.} = 9999 ]]; then
 	EGIT_CHECKOUT_DIR="${WORKDIR}/emacs"
 	S="${EGIT_CHECKOUT_DIR}"
 else
-	SRC_URI="http://dev.gentoo.org/~ulm/distfiles/emacs-${PV}.tar.xz
+	SRC_URI="https://dev.gentoo.org/~ulm/distfiles/emacs-${PV}.tar.xz
 		mirror://gnu-alpha/emacs/pretest/emacs-${PV}.tar.xz"
 	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos"
 	# FULL_VERSION keeps the full version number, which is needed in
@@ -25,24 +25,24 @@ else
 fi
 
 DESCRIPTION="The extensible, customizable, self-documenting real-time display editor"
-HOMEPAGE="http://www.gnu.org/software/emacs/"
+HOMEPAGE="https://www.gnu.org/software/emacs/"
 
 LICENSE="GPL-3+ FDL-1.3+ BSD HPND MIT W3C unicode PSF-2"
 SLOT="25"
 IUSE="acl alsa aqua athena cairo dbus games gconf gfile gif gnutls gpm gsettings gtk +gtk3 gzip-el hesiod imagemagick +inotify jpeg kerberos libxml2 livecd m17n-lib motif pax_kernel png selinux sound source svg tiff toolkit-scroll-bars wide-int X Xaw3d xft +xpm zlib"
 REQUIRED_USE="?? ( aqua X )"
 
-RDEPEND="sys-libs/ncurses
+RDEPEND="sys-libs/ncurses:0
 	>=app-eselect/eselect-emacs-1.16
 	>=app-emacs/emacs-common-gentoo-1.5[games?,X?]
 	net-libs/liblockfile
 	acl? ( virtual/acl )
 	alsa? ( media-libs/alsa-lib )
 	dbus? ( sys-apps/dbus )
-	gfile? ( >=dev-libs/glib-2.28.6 )
 	gnutls? ( net-libs/gnutls )
 	gpm? ( sys-libs/gpm )
 	hesiod? ( net-dns/hesiod )
+	!inotify? ( gfile? ( >=dev-libs/glib-2.28.6 ) )
 	kerberos? ( virtual/krb5 )
 	libxml2? ( >=dev-libs/libxml2-2.2.0 )
 	selinux? ( sys-libs/libselinux )
@@ -51,7 +51,6 @@ RDEPEND="sys-libs/ncurses
 		x11-libs/libXmu
 		x11-libs/libXt
 		x11-misc/xbitmaps
-		cairo? ( >=x11-libs/cairo-1.12.18 )
 		gconf? ( >=gnome-base/gconf-2.26.2 )
 		gsettings? ( >=dev-libs/glib-2.28.6 )
 		gif? ( media-libs/giflib )
@@ -65,6 +64,7 @@ RDEPEND="sys-libs/ncurses
 			media-libs/fontconfig
 			media-libs/freetype
 			x11-libs/libXft
+			cairo? ( >=x11-libs/cairo-1.12.18 )
 			m17n-lib? (
 				>=dev-libs/libotf-0.9.4
 				>=dev-libs/m17n-lib-1.5.1
@@ -144,7 +144,6 @@ src_configure() {
 
 	if use X; then
 		myconf+=" --with-x --without-ns"
-		myconf+=" $(use_with cairo)"
 		myconf+=" $(use_with gconf)"
 		myconf+=" $(use_with gsettings)"
 		myconf+=" $(use_with toolkit-scroll-bars)"
@@ -158,11 +157,15 @@ src_configure() {
 
 		if use xft; then
 			myconf+=" --with-xft"
+			myconf+=" $(use_with cairo)"
 			myconf+=" $(use_with m17n-lib libotf)"
 			myconf+=" $(use_with m17n-lib m17n-flt)"
 		else
 			myconf+=" --without-xft"
+			myconf+=" --without-cairo"
 			myconf+=" --without-libotf --without-m17n-flt"
+			use cairo && ewarn \
+				"USE flag \"cairo\" has no effect if \"xft\" is not set."
 			use m17n-lib && ewarn \
 				"USE flag \"m17n-lib\" has no effect if \"xft\" is not set."
 		fi
@@ -174,7 +177,7 @@ src_configure() {
 				Your version of GTK+ will have problems with closing open
 				displays. This is no problem if you just use one display, but
 				if you use more than one and close one of them Emacs may crash.
-				See <http://bugzilla.gnome.org/show_bug.cgi?id=85715>.
+				See <https://bugzilla.gnome.org/show_bug.cgi?id=85715>.
 				If you intend to use more than one display, then it is strongly
 				recommended that you compile Emacs with the Athena/Lucid or the
 				Motif toolkit instead.
@@ -220,7 +223,7 @@ src_configure() {
 		--enable-locallisppath="${EPREFIX}/etc/emacs:${EPREFIX}${SITELISP}" \
 		--with-gameuser=":gamestat" \
 		--without-compress-install \
-		--with-file-notification=$(usev gfile || usev inotify || echo no) \
+		--with-file-notification=$(usev inotify || usev gfile || echo no) \
 		$(use_enable acl) \
 		$(use_with dbus) \
 		$(use_with gnutls) \

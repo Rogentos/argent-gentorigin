@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/libgit2/libgit2-0.22.3.ebuild,v 1.1 2015/07/03 03:36:09 radhermit Exp $
+# $Id$
 
 EAPI=5
 
@@ -11,11 +11,11 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86 ~ppc-macos"
+	KEYWORDS="amd64 x86 ~ppc-macos"
 fi
 
 DESCRIPTION="A linkable library for Git"
-HOMEPAGE="http://libgit2.github.com/"
+HOMEPAGE="https://libgit2.github.com/"
 
 LICENSE="GPL-2-with-linking-exception"
 SLOT="0/22"
@@ -68,7 +68,7 @@ src_install() {
 	cmake-utils_src_install
 
 	if use examples ; then
-		find examples -name .gitignore -delete || die
+		find examples -name .gitignore -delete || die
 		dodoc -r examples
 		docompress -x /usr/share/doc/${PF}/examples
 	fi

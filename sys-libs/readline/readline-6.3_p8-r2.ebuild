@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-libs/readline/readline-6.3_p8-r2.ebuild,v 1.10 2015/05/30 15:00:19 zlogene Exp $
+# $Id$
 
 EAPI=4
 
@@ -34,7 +34,7 @@ SRC_URI="mirror://gnu/${PN}/${MY_P}.tar.gz $(patches)"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh ~sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux"
 IUSE="static-libs utils"
 
 RDEPEND=">=sys-libs/ncurses-5.9-r3[${MULTILIB_USEDEP}]
@@ -78,7 +78,7 @@ src_prepare() {
 src_configure() {
 	# fix implicit decls with widechar funcs
 	append-cppflags -D_GNU_SOURCE
-	# http://lists.gnu.org/archive/html/bug-readline/2010-07/msg00013.html
+	# https://lists.gnu.org/archive/html/bug-readline/2010-07/msg00013.html
 	append-cppflags -Dxrealloc=_rl_realloc -Dxmalloc=_rl_malloc -Dxfree=_rl_free
 
 	# Make sure configure picks a better ar than `ar`. #484866

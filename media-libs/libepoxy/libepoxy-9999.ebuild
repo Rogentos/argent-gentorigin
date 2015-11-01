@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libepoxy/libepoxy-9999.ebuild,v 1.6 2015/07/05 15:40:56 blueness Exp $
+# $Id$
 
 EAPI=5
 
@@ -22,13 +22,13 @@ if [[ ${PV} = 9999* ]]; then
 	KEYWORDS=""
 	SRC_URI=""
 else
-	KEYWORDS="~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 	SRC_URI="https://github.com/anholt/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="test"
+IUSE=""
 RESTICT="test" # FIXME: tests fail when run from portage.
 
 DEPEND="${PYTHON_DEPS}

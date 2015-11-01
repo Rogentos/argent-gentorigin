@@ -1,15 +1,15 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/pip/pip-7.1.0.ebuild,v 1.1 2015/07/02 05:03:31 patrick Exp $
+# $Id$
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 python3_{3,4} pypy pypy3  )
+PYTHON_COMPAT=( python2_7 python3_{3,4} pypy pypy3 )
 
 inherit bash-completion-r1 distutils-r1
 
 DESCRIPTION="Installs python packages -- replacement for easy_install"
-HOMEPAGE="http://www.pip-installer.org/ http://pypi.python.org/pypi/pip/"
+HOMEPAGE="http://www.pip-installer.org/ https://pypi.python.org/pypi/pip/"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"

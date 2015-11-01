@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-util/gnome-devel-docs/gnome-devel-docs-3.14.3.ebuild,v 1.1 2014/12/22 18:47:15 eva Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -8,7 +8,7 @@ GCONF_DEBUG="no"
 inherit gnome2
 
 DESCRIPTION="Documentation for developing for the GNOME desktop environment"
-HOMEPAGE="http://developer.gnome.org/"
+HOMEPAGE="https://developer.gnome.org/"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=735882
 LICENSE="FDL-1.1+ CC-BY-SA-3.0 CC-BY-SA-4.0"

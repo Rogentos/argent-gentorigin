@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/glib-networking/glib-networking-2.40.1-r1.ebuild,v 1.12 2014/10/11 12:24:17 maekke Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -9,7 +9,7 @@ GNOME2_LA_PUNT="yes"
 inherit autotools eutils gnome2 multilib-minimal virtualx
 
 DESCRIPTION="Network-related giomodules for glib"
-HOMEPAGE="http://git.gnome.org/browse/glib-networking/"
+HOMEPAGE="https://git.gnome.org/browse/glib-networking/"
 
 LICENSE="LGPL-2+"
 SLOT="0"

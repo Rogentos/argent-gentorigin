@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/clutter/clutter-1.22.4.ebuild,v 1.1 2015/07/04 13:45:13 pacho Exp $
+# $Id$
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -18,7 +18,7 @@ REQUIRED_USE="
 	|| ( aqua wayland X )
 	wayland? ( egl )
 "
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sparc x86"
 
 # NOTE: glx flavour uses libdrm + >=mesa-7.3
 # >=libX11-1.3.1 needed for X Generic Event support

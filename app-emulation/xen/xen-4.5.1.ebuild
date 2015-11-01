@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/xen/xen-4.5.1.ebuild,v 1.1 2015/07/06 09:36:37 dlan Exp $
+# $Id$
 
 EAPI=5
 
@@ -14,17 +14,17 @@ if [[ $PV == *9999 ]]; then
 	EGIT_REPO_URI="git://xenbits.xen.org/${PN}.git"
 	live_eclass="git-2"
 else
-	KEYWORDS="~amd64 ~arm ~arm64 -x86"
+	KEYWORDS="amd64 ~arm ~arm64 -x86"
 	UPSTREAM_VER=
 	SECURITY_VER=
 	GENTOO_VER=
 
 	[[ -n ${UPSTREAM_VER} ]] && \
-		UPSTREAM_PATCHSET_URI="http://dev.gentoo.org/~dlan/distfiles/${P}-upstream-patches-${UPSTREAM_VER}.tar.xz"
+		UPSTREAM_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${P}-upstream-patches-${UPSTREAM_VER}.tar.xz"
 	[[ -n ${SECURITY_VER} ]] && \
-		SECURITY_PATCHSET_URI="http://dev.gentoo.org/~dlan/distfiles/${PN}-security-patches-${SECURITY_VER}.tar.xz"
+		SECURITY_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${PN}-security-patches-${SECURITY_VER}.tar.xz"
 	[[ -n ${GENTOO_VER} ]] && \
-		GENTOO_PATCHSET_URI="http://dev.gentoo.org/~dlan/distfiles/${PN}-gentoo-patches-${GENTOO_VER}.tar.xz"
+		GENTOO_PATCHSET_URI="https://dev.gentoo.org/~dlan/distfiles/${PN}-gentoo-patches-${GENTOO_VER}.tar.xz"
 	SRC_URI="http://bits.xensource.com/oss-xen/release/${MY_PV}/${MY_P}.tar.gz
 		${UPSTREAM_PATCHSET_URI}
 		${SECURITY_PATCHSET_URI}

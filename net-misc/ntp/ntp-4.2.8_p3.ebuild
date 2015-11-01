@@ -1,8 +1,8 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/ntp/ntp-4.2.8_p3.ebuild,v 1.2 2015/07/06 16:58:32 zlogene Exp $
+# $Id$
 
-EAPI="4"
+EAPI="5"
 
 inherit autotools eutils toolchain-funcs flag-o-matic user systemd
 
@@ -14,16 +14,16 @@ SRC_URI="http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-${PV:0:3}/${MY_P}.tar
 
 LICENSE="HPND BSD ISC"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~m68k-mint"
+KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x86-freebsd ~amd64-linux ~ia64-linux ~x86-linux ~m68k-mint"
 IUSE="caps debug ipv6 openntpd parse-clocks readline samba selinux snmp ssl +threads vim-syntax zeroconf"
 
-CDEPEND="readline? ( >=sys-libs/readline-4.1 )
+CDEPEND="readline? ( >=sys-libs/readline-4.1:0= )
 	>=dev-libs/libevent-2.0.9[threads?]
 	kernel_linux? ( caps? ( sys-libs/libcap ) )
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )
 	!openntpd? ( !net-misc/openntpd )
 	snmp? ( net-analyzer/net-snmp )
-	ssl? ( dev-libs/openssl )
+	ssl? ( dev-libs/openssl:0= )
 	parse-clocks? ( net-misc/pps-tools )"
 DEPEND="${CDEPEND}
 	virtual/pkgconfig"
@@ -123,6 +123,6 @@ pkg_postinst() {
 		eerror "The notrust option was found in your /etc/ntp.conf!"
 		ewarn "If your ntpd starts sending out weird responses,"
 		ewarn "then make sure you have keys properly setup and see"
-		ewarn "http://bugs.gentoo.org/41827"
+		ewarn "https://bugs.gentoo.org/41827"
 	fi
 }

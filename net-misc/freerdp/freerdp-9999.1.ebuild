@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-misc/freerdp/freerdp-9999.1.ebuild,v 1.27 2015/05/07 14:27:47 floppym Exp $
+# $Id$
 
 EAPI="5"
 
@@ -23,10 +23,11 @@ HOMEPAGE="http://www.freerdp.com/"
 LICENSE="Apache-2.0"
 SLOT="0/1.2"
 IUSE="alsa +client cpu_flags_x86_sse2 cups debug doc ffmpeg gstreamer jpeg
-	neon pulseaudio server smartcard test usb wayland X xinerama xv"
+	libressl neon pulseaudio server smartcard test usb wayland X xinerama xv"
 
 RDEPEND="
-	dev-libs/openssl:0
+	!libressl? ( dev-libs/openssl:0 )
+	libressl? ( dev-libs/libressl )
 	sys-libs/zlib:0
 	alsa? ( media-libs/alsa-lib )
 	cups? ( net-print/cups )
